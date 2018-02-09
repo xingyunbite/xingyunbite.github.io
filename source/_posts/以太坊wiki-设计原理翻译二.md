@@ -6,6 +6,9 @@ categories: 区块链
 tags: 区块链 以太坊 ethereum
 img:
 ---
+
+[以太坊wiki-设计原理翻译一](https://xingyunbite.github.io/2018/02/09/%E4%BB%A5%E5%A4%AA%E5%9D%8Awiki-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E7%BF%BB%E8%AF%91%E4%B8%80/)
+
 ## 默克尔帕夏里克树
 
 默克尔帕夏里克树（`Merkle Patricia tree/trie`），以前由 Alan Reiner 设想并在 Ripple 协议中实现，是以太坊中的基本数据结构，被用来存储所有的账户状态，以及区块中的交易和收据。`MPT` 是 `Merkle tree` 和 `Patricia tree` 的结合，以两者的元素来创建具有以下两个属性的结构：
