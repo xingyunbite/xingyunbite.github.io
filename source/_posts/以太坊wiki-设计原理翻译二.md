@@ -14,9 +14,9 @@ img:
 默克尔帕夏里克树（`Merkle Patricia tree/trie`），以前由 Alan Reiner 设想并在 Ripple 协议中实现，是以太坊中的基本数据结构，被用来存储所有的账户状态，以及区块中的交易和收据。`MPT` 是 `Merkle tree` 和 `Patricia tree` 的结合，以两者的元素来创建具有以下两个属性的结构：
 
 1. 每一组唯一的键/值对唯一地映射到一个根散列，并且不可能欺骗一棵树中的键/值对的成员（除非攻击者具有〜2 ^ 128 的计算能力）
-2. 在对数时间对进行修改，添加和删除键值对。
+2. 在对数时间内进行修改，添加和删除键值对。
 
-这为我们提供了一种高效、更新容易的方法，来对我们整个状态树进行“指纹”操作。以太坊 `MPT` 是正式描述如下：[https://github.com/ethereum/wiki/wiki/Patricia-Tree](https://github.com/ethereum/wiki/wiki/Patricia-Tree)
+这为我们提供了一种高效、更新容易的方法，来对我们整个状态树进行“指纹”操作。以太坊 `MPT` 的正式描述如下：[https://github.com/ethereum/wiki/wiki/Patricia-Tree](https://github.com/ethereum/wiki/wiki/Patricia-Tree)
 
 `MPT` 中详细的设计决定包括：
 
