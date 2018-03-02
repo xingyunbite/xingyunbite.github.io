@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="星云比特">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>以太坊wiki-设计原理翻译二 | 星云比特</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 星云比特 区块链技术博客 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="以太坊wiki-设计原理翻译二">
+            
+	            以太坊wiki-设计原理翻译二
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/区块链 以太坊 ethereum">
+               区块链 以太坊 ethereum
+            </a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/09</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a href="https://xingyunbite.github.io/2018/02/09/%E4%BB%A5%E5%A4%AA%E5%9D%8Awiki-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E7%BF%BB%E8%AF%91%E4%B8%80/" target="_blank" rel="noopener">以太坊wiki-设计原理翻译一</a></p>
+<h2 id="默克尔帕夏里克树"><a href="#默克尔帕夏里克树" class="headerlink" title="默克尔帕夏里克树"></a>默克尔帕夏里克树</h2><p>默克尔帕夏里克树（<code>Merkle Patricia tree/trie</code>），以前由 Alan Reiner 设想并在 Ripple 协议中实现，是以太坊中的基本数据结构，被用来存储所有的账户状态，以及区块中的交易和收据。<code>MPT</code> 是 <code>Merkle tree</code> 和 <code>Patricia tree</code> 的结合，以两者的元素来创建具有以下两个属性的结构：</p>
+<ol>
+<li>每一组唯一的键/值对唯一地映射到一个根散列，并且不可能欺骗一棵树中的键/值对的成员（除非攻击者具有〜2 ^ 128 的计算能力）</li>
+<li>在对数时间内进行修改，添加和删除键值对。</li>
+</ol>
+<p>这为我们提供了一种高效、更新容易的方法，来对我们整个状态树进行“指纹”操作。以太坊 <code>MPT</code> 的正式描述如下：<a href="https://github.com/ethereum/wiki/wiki/Patricia-Tree" target="_blank" rel="noopener">https://github.com/ethereum/wiki/wiki/Patricia-Tree</a></p>
+<p><code>MPT</code> 中详细的设计决定包括：</p>
+<ol>
+<li><strong>拥有两种节点类别</strong>：<code>kv</code> 节点和分叉节点（从 <code>MPT</code> 详解中获得更多信息）。<code>kv</code> 节点的存在提高了效率，因为如果一棵树在特定区域稀疏，<code>kv</code> 节点就可以作为“快捷方式”，从而不需要深度为 64 的树。</li>
+<li><strong>使分叉节点为 6 而不是 2</strong>：这是为了提升查找效率。我们现在认识到这个选择并不理想，因为可以通过存储批量节点，以二进制模式模拟六叉树的查找效率。然而，由于树结构在实现中很容易出现错误，而导致根不匹配，所以我们决定把它推迟到 <code>1.1</code>。</li>
+<li><strong>空值和“没有成员”之间没有区别</strong>：这是为了简单起见，并且因为以太坊的默认值通常意味着零（如 余额（balance）），而且空字符串被用来表示零，所以实际运行起来也没有任何问题。</li>
+<li><strong>终止和非终止节点之间的区别</strong>：从技术上讲，“这个节点终止”标志是不必要的，因为以太坊中的所有树都用来存储静态键长度，但是为了增加通用性，我们添加了它，并且希望其他加密协议也能够使用以太坊中 <code>MPT</code> 的实现方式。</li>
+<li><strong>使用 <code>sha3(k)</code> 作为 “安全树（secure tree）” 中的键（在状态和账户存储中使用）</strong>：这会使得「通过设置一个分叉了 64 层级深的节点的最大不利链，然后在这上面不断调用 <code>SLOAD</code> 和 <code>SSTORE</code>」这样的方式，对树进行 <code>DoS</code> 攻击会十分困难。同时请注意，这将使枚举树更加困难。 如果你想在你的客户端拥有枚举功能，最简单的方法是维护一个数据库映射 <code>sha3（k） - &gt; k</code>。</li>
+</ol>
+<h2 id="RLP"><a href="#RLP" class="headerlink" title="RLP"></a>RLP</h2><p><code>RLP</code>（递归长度前缀）编码是以太坊中使用的主要序列化格式，并且被使用于任何地方 - 区块，交易，账户状态和信息传递协议。<code>RLP</code> 的正式描述如下：<a href="https://github.com/ethereum/wiki/wiki/RLP" target="_blank" rel="noopener">https://github.com/ethereum/wiki/wiki/RLP</a></p>
+<p><code>RLP</code> 旨在成为高度简约的序列化格式，它唯一的目的是存储嵌套的字节数组。不像 <a href="https://developers.google.com/protocol-buffers/docs/pythontutorial" target="_blank" rel="noopener"><code>protobuf</code></a>，<a href="http://bsonspec.org/" target="_blank" rel="noopener"><code>BSON</code></a> 和其他解决方式，<code>RLP</code> 并不想定义任何具体的数据类型，如 <code>booleans, floats, doubles</code> 或者 <code>integers</code>，相反，它只是以嵌套数组的形式存储结构，并将其留给协议来确定数组的含义。键/值映射也不被明确支持; 支持键/值映射的半官方建议是将这些映射表示为<code>[[k1，v1]，[k2，v2]，...]</code>，其中 <code>k1，k2 ...</code> 使用字符串的标准排序来排序。</p>
+<p><code>RLP</code> 的备选方案可以使用已经存在的算法如 <code>protobuf</code> 或者 <code>BSON</code>，但我们更青睐 <code>RLP</code> 的原因是：(1) 实现方式简单。（2）保证绝对的字节完美一致性。许多语言中的键/值映射没有明确的顺序，浮点格式有许多特殊情况，这可能导致相同的数据使用不同的编码，因此产生不同的哈希。我们可以内部开发一个协议来确定解决这些问题（这是一个普遍的原则，也适用于代码的其他部分，例如 <code>VM</code>）。注意 <code>BitTorrent</code> 使用的 <code>bencode</code>，可能为 <code>RLP</code> 提供了一个可行的替代方案，尽管其使用十进制编码的长度使得它与二进制 <code>RLP</code> 相比稍微不太理想。</p>
+<h2 id="压缩算法"><a href="#压缩算法" class="headerlink" title="压缩算法"></a>压缩算法</h2><p>有线协议和数据库都使用了定制的压缩算法来存储数据。该算法最好的描述为运行长度编码零（<code>run-length-encoding zeroes</code>），并保留其他值，除了像 <code>sha3（&#39;&#39;）</code> 这样的常见值的一些特殊情况例外。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; compress(&apos;horse&apos;)</span><br><span class="line">&apos;horse&apos;</span><br><span class="line">&gt;&gt;&gt; compress(&apos;donkey dragon 1231231243&apos;)</span><br><span class="line">&apos;donkey dragon 1231231243&apos;</span><br><span class="line">&gt;&gt;&gt; compress(&apos;\xf8\xaf\xf8\xab\xa0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xbe&#123;b\xd5\xcd\x8d\x87\x97&apos;)</span><br><span class="line">&apos;\xf8\xaf\xf8\xab\xa0\xfe\x9e\xbe&#123;b\xd5\xcd\x8d\x87\x97&apos;</span><br><span class="line">&gt;&gt;&gt; compress(&quot;\xc5\xd2F\x01\x86\xf7#&lt;\x92~&#125;\xb2\xdc\xc7\x03\xc0\xe5\x00\xb6S\xca\x82&apos;;&#123;\xfa\xd8\x04]\x85\xa4p&quot;)&apos;\xfe\x01&apos;</span><br></pre></td></tr></table></figure>
+<p>在压缩算法出现之前，以太坊协议中的很多部分都有大量的特殊情况。比如，<code>sha3</code> 常常被覆盖，这样 <code>sha3(&#39;&#39;)=&#39;&#39;</code>，从而无需存储代码或者在账户中存储，由此会节省 64 个字节。但是，最近所有的这些特殊情况都被移除了 - 这使得以太坊数据结构在默认情况下变得非常庞大，取而代之的是将数据保存功能添加到区块链协议层之外的层级，添加方式是将其利用有线协议无缝插入用户的数据库实现。 这增加了模块性，简化了共识层，并且还允许相对容易地部署压缩算法的升级（例如，通过网络协议版本）。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/02/09/以太坊wiki-设计原理翻译一/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2018/02/08/linux下Zcash钱包使用教程/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/bitcoin-比特币/" style="font-size: 10px;">bitcoin 比特币</a> <a href="/tags/zcash-矿池/" style="font-size: 10px;">zcash 矿池</a> <a href="/tags/以太坊-ethereum/" style="font-size: 10px;">以太坊 ethereum</a> <a href="/tags/以太坊-智能合约-安全开发/" style="font-size: 10px;">以太坊 智能合约 安全开发</a> <a href="/tags/区块链-以太坊/" style="font-size: 20px;">区块链 以太坊</a> <a href="/tags/区块链-以太坊-ethereum/" style="font-size: 10px;">区块链 以太坊 ethereum</a> <a href="/tags/区块链-以太坊-燃料-gas-翻译/" style="font-size: 10px;">区块链 以太坊 燃料 gas 翻译</a> <a href="/tags/比特币-矿池/" style="font-size: 20px;">比特币 矿池</a> <a href="/tags/矿池/" style="font-size: 10px;">矿池</a> <a href="/tags/矿池-zcash/" style="font-size: 10px;">矿池 zcash</a> <a href="/tags/钱包/" style="font-size: 10px;">钱包</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> |
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

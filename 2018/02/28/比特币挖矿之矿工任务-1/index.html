@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="星云比特">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>比特币挖矿之矿工任务 | 星云比特</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 星云比特 区块链技术博客 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="比特币挖矿之矿工任务">
+            
+	            比特币挖矿之矿工任务
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/矿池">
+            矿池
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a href="/tags/矿池">
+               矿池
+            </a>
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/28</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="挖矿介绍"><a href="#挖矿介绍" class="headerlink" title="挖矿介绍"></a>挖矿介绍</h2><p>中本聪为了实现比特币的去中心化，引入了工作量证明机制(proof of work)。工作量证明的理念是把随机选取节点记账改为根据算力来选取节点，任何一个提议并创建区块的节点要想构建下一个区块，必须找到一个解，当把这个解与前区块的哈希值、当前时间戳、区块包含交易集合唯一标识MerkleRoot等组装起来，带入哈希函数时，刚好小于指定的目标值，这一系列操作就称为“挖矿”，而进行挖矿的人则被称为”矿工”。</p>
+<h2 id="矿工任务"><a href="#矿工任务" class="headerlink" title="矿工任务"></a>矿工任务</h2><p>考虑到矿工记账的积极性，中本聪在比特币系统中，设计了两种奖励，一是区块奖励，初始为每挖到一个区块奖励50个比特币，每四年递减一次，到2040年左右发放完毕，总量约为2100万个，而这也是比特币系统产生新币的唯一来源。二是交易手续费，区块中所包含交易的所有交易手续费都归成功打包该区块的矿工所得，交易手续费的重要性随着区块奖励的减少会逐渐提升，最终完全取代区块奖励，成为比特币系统刺激矿工挖矿的唯一物质激励。那么矿工作为淘金者，都需要做哪些工作呢？要想成为比特币矿工，首先要加入比特币网络并与其他节点相连，建立连接后，还有如下任务要完成：<br>1、同步区块链已有数据，监听新区块。比特币系统默认最长链作为系统主链，因此只有在已有最长链的基础上打包区块，才可能得到大家的认可。<br>2、监听交易广播。监听网络上的交易广播，验证交易签名是否有效，是否存在双花，付款地址有没有足够的余额，验证通过，放入交易池。<br>3、构建coinbase交易，组装新区块。coinbase交易为矿工自行构建，用以接收挖矿奖励。矿工应以全网最长链上的最后一个区块为基础构建新区块。<br>4、找到让区块满足要求的随机数。工作量证明就体现在这一步，最为耗时。<br>5、广播新区块。为了获得区块奖励和交易手续费，矿工在成功打包新区块后，会在第一时间向全网广播，因为网络延迟，所以存在相近时间不同矿工成功打包出不同区块的情况，这时便会出现软分叉，只有被大部分矿工所接受，新区块才算真正加入区块链。</p>
+<h2 id="区块头BlockHeader"><a href="#区块头BlockHeader" class="headerlink" title="区块头BlockHeader"></a>区块头BlockHeader</h2><p>挖矿的本质是执行Hash函数，而Hash函数是一个单向函数，一个输入对应一个输出，根据输入可以很容易计算出输出，但根据输出无法逆推出输入。当输出小于目标值值，便可认为一次挖矿成功，而这里输入数据就是区块头。比特币的区块头有如下6个字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int32_t nVersion;            //版本号，4字节</span><br><span class="line">uint256 hashPrevBlock;       //前一个区块的hash值，32字节</span><br><span class="line">uint256 hashMerkleRoot;      //根据区块所包含交易构建的Merkle树根，32字节</span><br><span class="line">uint32_t nTime;              //Uinx时间戳，4字节</span><br><span class="line">uint32_t nBits;              //难度的压缩表示，4字节</span><br><span class="line">uint32_t nNonce;             //随机数，4字节</span><br></pre></td></tr></table></figure></p>
+<p>比特币挖矿就是对区块头的80个字节进行两次SHA256运算，得到32字节的数据，使之满足nBits转化出来的目标值。可用如下公式表示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHA256(SHA256(nVersion+hashPrevBlock+hashMerkleRoot+nTime+nBits+nNonce))&lt;F(nBits)</span><br></pre></td></tr></table></figure></p>
+<p>关于区块头BlockHeader各字段的具体含义将在接下来的文章具体介绍。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/03/01/以太坊，燃气，燃料-和-费用/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2018/02/24/以太坊wiki-设计原理翻译四/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/bitcoin-比特币/" style="font-size: 10px;">bitcoin 比特币</a> <a href="/tags/zcash-矿池/" style="font-size: 10px;">zcash 矿池</a> <a href="/tags/以太坊-ethereum/" style="font-size: 10px;">以太坊 ethereum</a> <a href="/tags/以太坊-智能合约-安全开发/" style="font-size: 10px;">以太坊 智能合约 安全开发</a> <a href="/tags/区块链-以太坊/" style="font-size: 20px;">区块链 以太坊</a> <a href="/tags/区块链-以太坊-ethereum/" style="font-size: 10px;">区块链 以太坊 ethereum</a> <a href="/tags/区块链-以太坊-燃料-gas-翻译/" style="font-size: 10px;">区块链 以太坊 燃料 gas 翻译</a> <a href="/tags/比特币-矿池/" style="font-size: 20px;">比特币 矿池</a> <a href="/tags/矿池/" style="font-size: 10px;">矿池</a> <a href="/tags/矿池-zcash/" style="font-size: 10px;">矿池 zcash</a> <a href="/tags/钱包/" style="font-size: 10px;">钱包</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> |
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
