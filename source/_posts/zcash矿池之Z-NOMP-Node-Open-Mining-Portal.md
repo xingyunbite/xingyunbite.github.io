@@ -3,7 +3,7 @@ title: zcash矿池之Z-NOMP(Node Open Mining Portal)
 comments: false
 date: 2018-03-02 13:00:28
 categories: 矿池
-tags: 矿池 zcash
+tags: lucas556 矿池 zcash
 img:
 ---
 

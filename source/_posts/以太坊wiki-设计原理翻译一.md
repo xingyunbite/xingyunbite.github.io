@@ -3,7 +3,7 @@ title: 以太坊wiki-设计原理翻译一
 comments: false
 date: 2018-02-09 11:22:26
 categories: 区块链
-tags: 以太坊 ethereum
+tags: ZhouFyk 以太坊 ethereum
 img:
 ---
 ## [设计原理原文链接](https://github.com/ethereum/wiki/wiki/Design-Rationale)

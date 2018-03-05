@@ -3,7 +3,7 @@ title: 以太坊wiki-设计原理翻译三
 comments: false
 date: 2018-02-24 10:39:17
 categories: 区块链
-tags: 区块链 以太坊
+tags: ZhouFyk 区块链 以太坊
 img:
 ---
 [以太坊wiki-设计原理翻译二](https://xingyunbite.github.io/2018/02/09/%E4%BB%A5%E5%A4%AA%E5%9D%8Awiki-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E7%BF%BB%E8%AF%91%E4%BA%8C/)
