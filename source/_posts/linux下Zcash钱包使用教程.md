@@ -1,6 +1,6 @@
 ---
 title: linux下Zcash钱包使用教程
-comments: true
+comments: false
 date: 2018-02-08 19:04:15
 categories: 矿池
 tags: 

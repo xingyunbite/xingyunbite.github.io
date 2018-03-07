@@ -1,6 +1,6 @@
 ---
 title: 以太坊wiki-设计原理翻译四
-comments: true
+comments: false
 date: 2018-02-24 11:01:05
 categories: 区块链
 tags: 

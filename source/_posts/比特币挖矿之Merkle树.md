@@ -1,6 +1,6 @@
 ---
 title: 比特币挖矿之Merkle树
-comments: true
+comments: false
 date: 2018-03-02 16:08:16
 categories: 矿池 
 tags: 

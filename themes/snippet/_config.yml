@@ -132,7 +132,7 @@ livere:
 
 ### 友言评论(服务不稳定)
 uyan:
-  enable: true
+  enable: false
   uyan_id: 2158688
 
 ### Disqus评论
