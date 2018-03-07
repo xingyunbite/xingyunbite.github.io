@@ -1,9 +1,13 @@
 ---
 title: 以太坊wiki-设计原理翻译二
-comments: false
+comments: true
 date: 2018-02-09 02:10:31
 categories: 区块链
-tags: ZhouFyk 区块链 以太坊 ethereum
+tags: 
+- ZhouFyk 
+- 区块链 
+- 以太坊 
+- ethereum
 img:
 ---
 

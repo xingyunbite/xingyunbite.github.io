@@ -132,8 +132,8 @@ livere:
 
 ### 友言评论(服务不稳定)
 uyan:
-  enable: false
-  uyan_id: 1966422
+  enable: true
+  uyan_id: 2158688
 
 ### Disqus评论
 disqus:

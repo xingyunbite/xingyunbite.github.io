@@ -1,9 +1,12 @@
 ---
 title: 以太坊wiki-设计原理翻译四
-comments: false
+comments: true
 date: 2018-02-24 11:01:05
 categories: 区块链
-tags: ZhouFyk 区块链 以太坊
+tags: 
+- ZhouFyk 
+- 区块链 
+- 以太坊
 img:
 ---
 
