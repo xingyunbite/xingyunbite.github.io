@@ -1,8 +1,8 @@
 <h3 style="background-color: #e67e22;padding: 10px;display: inline-block;color: #fff;"> 
     <% if(page.tag) { %>
-		<%= page.tag %> 
+		<%= page.tag %>(<%= page.posts.length  %>) 
     <% } if(page.category) { %>
-        <%= page.category %> 
+        <%= page.category %>(<%= page.posts.length  %>) 
     <% } else { %>
     <% } %>
 </h3>
