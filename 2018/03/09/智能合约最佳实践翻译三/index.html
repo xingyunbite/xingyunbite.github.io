@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="星云比特">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>智能合约最佳实践翻译三 | 星云比特</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="智能合约最佳实践翻译三">
+            
+	            智能合约最佳实践翻译三
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ZhouFyk">
+						ZhouFyk
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/以太坊">
+						以太坊
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/智能合约">
+						智能合约
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/安全开发">
+						安全开发
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/09</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="已知攻击"><a href="#已知攻击" class="headerlink" title="已知攻击"></a>已知攻击</h2><p>以下列出了你应该知道的已知攻击，并且在编写智能合约的时候进行防御。</p>
+<h3 id="竞争条件-Race-Conditions"><a href="#竞争条件-Race-Conditions" class="headerlink" title="竞争条件(Race Conditions)"></a><a href="https://consensys.github.io/smart-contract-best-practices/known_attacks/#footnote-race-condition-terminology" target="_blank" rel="noopener">竞争条件</a>(Race Conditions)</h3><p>调用外部合约的一个主要危险之一是它会接管控制流，并且修改调用方法不被 期望修改的数据。这种类型的 bug 有很多形式，导致 DAO 崩溃的两个主要错误都是这类错误。</p>
+<h4 id="重入-Reentrancy"><a href="#重入-Reentrancy" class="headerlink" title="重入(Reentrancy)"></a>重入(Reentrancy)</h4><p>这个 bug 的第一个版本需要注意，这个函数可以在函数第一次调用完成之前重复调用。 这可能会导致函数的不同调用以破坏性方式进行交互。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// insecure</span><br><span class="line"></span><br><span class="line">mapping(address =&gt; uint) private userBalances;</span><br><span class="line"></span><br><span class="line">function withdrawBalance() public &#123;</span><br><span class="line">	uint amountToWithdraw = userBalances[msg.sender];</span><br><span class="line">	require(msg.sender.call.value(amountToWithdraw)()); // At this point, the call&apos;s code is executed, and can call withdrawBalance again</span><br><span class="line">	userBalances[msg.sender] = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为用户余额直到最后被提取完才会被设置成 0，所以第二次（和更之后）的调用仍然会成功，从而一次又一次地提取余额。一个非常类似的 bug 是 DAO 攻击中的一个漏洞。</p>
+<p>在给出的例子中，避免这个问题的最好的办法是通过 <a href="https://consensys.github.io/smart-contract-best-practices/recommendations#send-vs-call-value" target="_blank" rel="noopener">使用 <code>send()</code> 代替 <code>call.value()()</code></a>。这会防止执行中的任何外部代码。</p>
+<p>然而，如果你不能移除外部调用，下一个简单地防止此攻击的方法是确保直到你完成了所有的内部工作之前都没有调用外部函数，你需要做：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mapping(address =&gt; uint) private userBalances;</span><br><span class="line"></span><br><span class="line">function withdrawBalance() public &#123;</span><br><span class="line">	uint amountToWithdraw = userBalances[msg.sender];</span><br><span class="line">	userBalances[msg.sender] = 0;</span><br><span class="line">	require(msg.sender.call.value(amountToWithdraw)());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意，如果你有另一个调用了 <code>withdrawBalance()</code>的函数，它可能会受到相同的攻击，所以你必须对调用了不可信合约的函数也视为不可信。请参阅下方的潜在解决方案的进一步讨论。</p>
+<h4 id="函数交叉竞争条件-Cross-function-Race-Conditions"><a href="#函数交叉竞争条件-Cross-function-Race-Conditions" class="headerlink" title="函数交叉竞争条件(Cross-function Race Conditions)"></a>函数交叉竞争条件(Cross-function Race Conditions)</h4><p>一个攻击者可能使用通过两个不同的函数共享一个状态来进行类似的攻击。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// insecure</span><br><span class="line"></span><br><span class="line">mapping(address =&gt; uint) private userBalances;</span><br><span class="line"></span><br><span class="line">function transfer(address to, uint amount) &#123;</span><br><span class="line">	if (userBalances[msg.sender] &gt;= amount) &#123;</span><br><span class="line">		userBalance[to] += amount;</span><br><span class="line">		userBalance[msg.sender] -= amount;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function withdrawBalance() public &#123;</span><br><span class="line">	uint amountToWithdraw = userBalances[msg.sender];</span><br><span class="line">	require(msg.sender.call.value(amountToWithdraw)()); // At this point, the caller&apos;s code is executed, and can call transfer()</span><br><span class="line">	userBalances[msg.sender] = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，当攻击者的代码在 <code>withdrawBalance()</code> 中的外部调用中被执行，攻击者会调用 <code>transfer()</code>。只要他们的余额不是 0，那么他们就可以在已经收到过一次提币的情况下，再次转移 token。这个漏洞也在 DAO 攻击中被使用。</p>
+<p>在相同的警告下，相同的解决方案也会起作用。也要注意，在这个例子中，函数都是同一个合约的一部分。但是，如果多个合约共享状态，那么相同的 bug 也可以出现在交叉的多重合约中。</p>
+<h4 id="竞争条件解决方案中的陷阱"><a href="#竞争条件解决方案中的陷阱" class="headerlink" title="竞争条件解决方案中的陷阱"></a>竞争条件解决方案中的陷阱</h4><p>因为竞争条件可以在多个函数，甚至多个合约中发生，所以任何旨在防止重入的解决方案都是不够的。</p>
+<p>相反，我们推荐在完成全部的内部工作之后再调用外部函数。如果你小心地遵循了这个规则，就可以避免竞争条件。但是，你不止要避免太早调用外部函数，也要避免调用了外部函数的函数。举例来说，下面是不安全的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// insecure</span><br><span class="line">mapping(address =&gt; uint) private userBalances;</span><br><span class="line">mapping(address =&gt; bool) private claimedBonus;</span><br><span class="line">mapping(address =&gt; uint) private rewardsForA;</span><br><span class="line"></span><br><span class="line">function withdraw(address recipient) public &#123;</span><br><span class="line">	uint amountToWithdraw = userBalances[recipient];</span><br><span class="line">	rewardsForA[recipient] = 0;</span><br><span class="line">	require(recipient.call.value(amountToWithdraw)());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function getFirstWithdrawalBonus(address recipient) public &#123;</span><br><span class="line">	require(!claimedBonus[recipient]); // Each recipient should only be able to claim the bonus once</span><br><span class="line"></span><br><span class="line">	rewardsForA[recipient] += 100;</span><br><span class="line">	withdraw(recipient); // At this point, the caller will be able to execute getFirstWithdrawalBonus again.</span><br><span class="line">	claimedBonus[recipient] = true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>即使 <code>getFirstWithdrawalBonus()</code> 没有直接调用外部合约，<code>withdraw()</code> 内的调用已经足够产生一个竞争条件的漏洞。因此你不可以信任 <code>withdraw()</code> 函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mapping(address =&gt; uint) private userBalances;</span><br><span class="line">mapping(address =&gt; bool) private claimedBonus;</span><br><span class="line">mapping(address =&gt; uint) private rewardsForA;</span><br><span class="line"></span><br><span class="line">function untrustedWithdraw(address recipient) public &#123;</span><br><span class="line">	uint amountToWithdraw = userBalances[recipient];</span><br><span class="line">	rewardsForA[recipient] = 0;</span><br><span class="line">	require(recipient.call.value(amountToWithdraw)());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function untrustedGetFirstWithdrawalBonus(address recipient) public &#123;</span><br><span class="line">	require(!claimedBonus[recipient]); // Each recipient should only be able to claim the bonus once</span><br><span class="line"></span><br><span class="line">	claimedBonus[recipient] = true;</span><br><span class="line">	rewardsForA[recipient] += 100;</span><br><span class="line">	untrustedWithdraw(recipient); // claimedBonus has been set to true, so reentry is impossible</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>除了修复重入的问题，<a href="https://consensys.github.io/smart-contract-best-practices/recommendations/#mark-untrusted-contracts" target="_blank" rel="noopener">不受信任的函数也被标记了</a>。这个模式在每个层级都被重复使用：既然 <code>untrustedGetFirstWithdrawalBonus()</code> 调用了调用了外部合约的 <code>untrustedWithdraw()</code>，那么你就必须将 <code>untrustedGetFirstWithdrawalBonus()</code> 视作不安全的。</p>
+<p>另一个经常建议的解决方案是一个 <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank" rel="noopener">互斥</a>。它允许你 “锁定” 某些状态，所以状态只能被锁的拥有者改变。一个简单的例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// Note: This is a rudimentary example, and mutexes are particularly useful where there is substantial logic and/or shared state</span><br><span class="line">mapping(address =&gt; uint) private balance;</span><br><span class="line">bool private lockBalances;</span><br><span class="line"></span><br><span class="line">function deposit() payable public returns (bool) &#123;</span><br><span class="line">	require(!lockBalances);</span><br><span class="line">	lockBalances = true;</span><br><span class="line">	balances[msg.sender] += msg.value;</span><br><span class="line">	lockBalances = false;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function withdraw(uint amount) payable public returns (bool) &#123;</span><br><span class="line">	require(!lockBalances &amp;&amp; amount &gt; 0 &amp;&amp; balances[msg.sender] &gt;= amount);</span><br><span class="line">	lockBalances = true;</span><br><span class="line"></span><br><span class="line">	if (msg.sender.call(amount)()) &#123;</span><br><span class="line">		balances[msg.sender] -= amount;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	lockBalances = false;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果用户试图在第一个调用结束前再次调用 <code>withdraw()</code>，锁就会防止其作用。这是一个有用的方式，但是当你有多个合约合作的时候，就会有一些困难。下面是不安全的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// insecure</span><br><span class="line"></span><br><span class="line">contract StateHolder &#123;</span><br><span class="line">	uint private n;</span><br><span class="line">	address private lockHolder;</span><br><span class="line"></span><br><span class="line">	function getLock() &#123;</span><br><span class="line">		require(lockHolder == 0);</span><br><span class="line">		lockHolder = msg.sender;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function releaseLock() &#123;</span><br><span class="line">		require(msg.sender == lockHolder);</span><br><span class="line">		lockHolder = 0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function set(uint newState) &#123;</span><br><span class="line">		require(msg.sender == lockHolder);</span><br><span class="line">		n = newState;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个攻击者可以调用 <code>getLock()</code>，之后就永远不用调用 <code>releaseLock()</code>。如果他们这么干了，那么合约将被永远锁定，无法进行任何修改。如果你使用互斥来防止竞争条件，那么你需要小心地确认不会出现只能锁定而不能释放的情况。（使用互斥编程也有其他潜在的危险，如死锁和活锁。如果你想要使用这种方式，你应该查阅咨询大量互斥相关的文献资料。）</p>
+<h6 id="有些人可能会反对使用术语竞争条件，因为以太坊目前没有真正的并行性。-然而，逻辑上不同的进程争夺资源的基本特征仍然存在，同样的陷阱和潜在的解决方案也适用。"><a href="#有些人可能会反对使用术语竞争条件，因为以太坊目前没有真正的并行性。-然而，逻辑上不同的进程争夺资源的基本特征仍然存在，同样的陷阱和潜在的解决方案也适用。" class="headerlink" title="有些人可能会反对使用术语竞争条件，因为以太坊目前没有真正的并行性。 然而，逻辑上不同的进程争夺资源的基本特征仍然存在，同样的陷阱和潜在的解决方案也适用。"></a>有些人可能会反对使用术语竞争条件，因为以太坊目前没有真正的并行性。 然而，逻辑上不同的进程争夺资源的基本特征仍然存在，同样的陷阱和潜在的解决方案也适用。</h6><h3 id="交易顺序依赖（TOD）-前台运行"><a href="#交易顺序依赖（TOD）-前台运行" class="headerlink" title="交易顺序依赖（TOD）/ 前台运行"></a>交易顺序依赖（TOD）/ 前台运行</h3><p>以上的竞争条件示例涉及到攻击者在单笔交易中执行恶意代码。以下是区块链固有的一种不同类型的竞争条件：交易本身（在区块内）的顺序容易受到操纵。</p>
+<p>在被打包进区块之前，交易会进入内存池一段时间，因此可以知道交易在被打包之前有什么行为。对于像去中心化市场这类对象来说，这可能会有些麻烦，在这种市场中，可能看到买入 token 的交易，和其他交易被包含之前的市场顺序实现形式。防止这种情况很困难，因为它会涉及到具体合约本身。举例来说，在市场中，实施批量拍卖会更好（这也可以防止高频交易问题）。另一种方法是使用预先提交方案（“我将在稍后提交细节”）。</p>
+<h3 id="时间戳依赖"><a href="#时间戳依赖" class="headerlink" title="时间戳依赖"></a>时间戳依赖</h3><p>注意区块的时间戳可以被矿工操作，所以在不管是直接还是间接的对时间戳的使用中要多加考虑。</p>
+<p>有关与时间戳相关的设计注意事项，请参阅 <a href="https://consensys.github.io/smart-contract-best-practices/recommendations/#timestamp-dependence" target="_blank" rel="noopener">建议</a> 部分。</p>
+<h3 id="整数溢出和下溢"><a href="#整数溢出和下溢" class="headerlink" title="整数溢出和下溢"></a>整数溢出和下溢</h3><p>考虑一个简单的 token 转移：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mapping(address =&gt; uint256) public balanceOf;</span><br><span class="line"></span><br><span class="line">// insecure</span><br><span class="line">function transfer(address _to, uint256 _value) &#123;</span><br><span class="line">	// check if sender has balance</span><br><span class="line">	require(balanceOf[msg.sender] &gt;= _value);</span><br><span class="line">	// add and subtract new balances</span><br><span class="line">	balanceOf[msg.sender] -= _value;</span><br><span class="line">	balanceOf[_to] += _value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// secure</span><br><span class="line">function transfer(address _to, uint256 _value) &#123;</span><br><span class="line">	// check if sender has balance and for overflows</span><br><span class="line">	require(balanceOf[msg.sender] &gt;= _value &amp;&amp; balanceOf[_to] + _value &gt;= balanceOf[_to]);</span><br><span class="line"></span><br><span class="line">	// add and subtract new balances</span><br><span class="line">	balanceOf[msg.sender] -= _value;</span><br><span class="line">	balanceOf[_to] += _value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果余额到达了 uint 值（2^256）的最大值，它会被置为零。这是检查这个条件。这可能有关也可能无关，取决于实现方式。考虑一下 uint 值是否有这个机会达到这么大的一个数字。考虑 uint 变量是如何改变状态的，并且谁有权限来做这样的改变。如果任意用户都可以更新 uint 值，那么就会有很多的攻击漏洞。如果只有一个管理者拥有权限来修改变量的状态，那你可能是安全的。如果一个用户每次尽能增加 1，那你也可能是安全的，因为并没有可行的方式来达到限制。</p>
+<p>对于下溢来说也是一样的。如果一个 uint 被设置成小于 0，这就会导致一个下溢然后被设置成它的最大值。</p>
+<p>对 uint8, uint16, uint24… 等更小的数据类型要小心：它们会更容易的达到它们的最大值。</p>
+<p>注意这里有大约 <a href="https://github.com/ethereum/solidity/issues/796#issuecomment-253578925" target="_blank" rel="noopener">20 个关于溢出和下溢的例子</a></p>
+<h3 id="（不期望的）回滚导致的-DoS"><a href="#（不期望的）回滚导致的-DoS" class="headerlink" title="（不期望的）回滚导致的 DoS"></a>（不期望的）回滚导致的 DoS</h3><p>考虑一个简单的拍卖合约：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// insecure</span><br><span class="line"></span><br><span class="line">contract Auction &#123;</span><br><span class="line">	address currentLeader;</span><br><span class="line">	uint highestBid;</span><br><span class="line"></span><br><span class="line">	function bid() payable &#123;</span><br><span class="line">		require(msg.value &gt; highestBid);</span><br><span class="line"></span><br><span class="line">		require(currentLeader.send(highestBid)); // Refund the old leader, if it fails then revert</span><br><span class="line"></span><br><span class="line">		currentLeader = msg.sender;</span><br><span class="line">		highestBid = msg.value;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当它试图退款给用户的时候，当退款失败，它会回滚。意思是一个恶意的竞标者可以通过让它们的退款<em>总是</em>失败而变成领导者。在这个方式中，它们可以防止其他任何人调用 <code>bid()</code> 函数，然后保证自己一直都是领导者。一个推荐是如之前所述，设置一个 <a href="https://consensys.github.io/smart-contract-best-practices/recommendations/#favor-pull-over-push-for-external-calls" target="_blank" rel="noopener">拉取支付系统</a> 来替代。</p>
+<p>另一个例子是当一个合约想要通过便利一个数组来支付给用户（如，在众筹合约中的支持者）。通常都想要确保每一笔支付都成功。如果没有的话，就回滚。这个问题是如果一个调用失败了，你就会回滚整个支付系统，那么循环将永远不会完成。因为一个地址强制错误所以没有人获得报酬。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">address[] private refundAddresses;</span><br><span class="line">mapping(address =&gt; uint) public refunds;</span><br><span class="line"></span><br><span class="line">// bad</span><br><span class="line">function refundAll() public &#123;</span><br><span class="line">	for (uint x; x &lt; refundAddresses.length; x++) &#123; // // arbitrary length iteration based on how many addresses participated</span><br><span class="line">		require(refundAddresses[x].send(refunds[refundAddresses[x]])) // doubly bad, now a single failure on send will hold up all funds</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再一次，推荐的解决方法是 <a href="https://consensys.github.io/smart-contract-best-practices/recommendations/#favor-pull-over-push-for-external-calls" target="_blank" rel="noopener">赞成拉推支付</a>。</p>
+<h3 id="区块燃料限制导致的-DoS"><a href="#区块燃料限制导致的-DoS" class="headerlink" title="区块燃料限制导致的 DoS"></a>区块燃料限制导致的 DoS</h3><p>你可能注意到了之前的例子中的另一个问题：一次性支付给所有人，你会有触及区块燃料限制的风险。每一个以太坊区块都能处理一个确定的最大算力值。如果你想要超过它，那你的交易就会失败。</p>
+<p>即使没有故意的攻击，这也会造成问题。但是，如果攻击者可以操纵所需的燃料值，就会特别糟糕。在之前的例子中，攻击者可以添加大量地址，每一个都需要获得极销量的退款。攻击者的每一个地址退款操作的燃气消耗最终可能超过燃料限制，从而阻止退款交易的发生。</p>
+<p>这是另一个 <a href="https://consensys.github.io/smart-contract-best-practices/recommendations#favor-pull-over-push-for-external-calls" target="_blank" rel="noopener">赞成推拉支付</a> 的原因。</p>
+<p>如果你必须完全遍历一个你不知道大小的数组，那么你应该计划它可能需要多个区块，因而需要多个交易。你会需要对你当前的进度保持跟踪，并且能够从那个点恢复，就像下面这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">struct Payee &#123;</span><br><span class="line">	address addr;</span><br><span class="line">	uint256 value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Payee[] payees;</span><br><span class="line">uint256 nextPayeeIndex;</span><br><span class="line"></span><br><span class="line">function payOut() &#123;</span><br><span class="line">	uint256 i = nextPayeeIndex;</span><br><span class="line">	while (i &lt; payees.length &amp;&amp; msg.gas &gt; 200000) &#123;</span><br><span class="line">		payees[i].addr.send(payees[i].value);</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	nextPayeeIndex = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你会需要确认在等待 <code>payOut()</code> 函数的下一个遍历的时候，如果其他交易被处理，不会有不好的事情发生。所以只在完全必要的时候使用这个模式。</p>
+<h3 id="强制将-ETH-发送到合约"><a href="#强制将-ETH-发送到合约" class="headerlink" title="强制将 ETH 发送到合约"></a>强制将 ETH 发送到合约</h3><p>可以不通过触发合约的 fallback 函数来强行将 ETH 发送到合约。当 fallback 函数内有重要的逻辑或者进行了基于合约余额的计算时，这是一个很重要的考虑。见下面的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract Vulnerable &#123;</span><br><span class="line">	function () payable &#123;</span><br><span class="line">		revert();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function somethingBad() &#123;</span><br><span class="line">		require(this.balance &gt; 0);</span><br><span class="line">		// do something bad</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>合约逻辑看起来并不允许合约被支付，因此也不允许 “一些坏事” 发生。但是，存在一些强制发送 ETH 给合约的方法，因此它的余额大于 0。</p>
+<p>合约方法 <code>selfdestruct</code> 允许用户指定一个受益人发送多余的 ETH。<code>selfdestruct</code> <a href="https://solidity.readthedocs.io/en/develop/security-considerations.html#sending-and-receiving-ether" target="_blank" rel="noopener">不会触发合约的 fallback 函数</a>。</p>
+<p>也可以<a href="https://github.com/Arachnid/uscc/tree/master/submissions-2017/ricmoo" target="_blank" rel="noopener">预先计算</a>合约的地址，然后在合约部署之前给那个地址发送 ETH。</p>
+<p>合约开发者应该注意 ETH 可以被强制发送给合约并且应该设计相应的合约逻辑。通常来说，假设不可能限制你的合约的资金来源。</p>
+<h3 id="废弃的-历史的攻击"><a href="#废弃的-历史的攻击" class="headerlink" title="废弃的 / 历史的攻击"></a>废弃的 / 历史的攻击</h3><p>这些攻击由于协议的改变或固体的改进而不再可能发生。</p>
+<h4 id="调用深度攻击（废弃）"><a href="#调用深度攻击（废弃）" class="headerlink" title="调用深度攻击（废弃）"></a>调用深度攻击（废弃）</h4><p>在 EIP 150 的硬分叉中，调用深度攻击不再相关*（在达到 1024 调用深度限制之前，所有气体都将消耗得很好）。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+		
+		
+        <a href="/2018/03/09/比特币挖矿之交易校验/" class="next-post btn btn-default">下一篇(比特币挖矿之交易校验)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/LeonBCK/" style="font-size: 17.14px;">LeonBCK</a> <a href="/tags/ZhouFyk/" style="font-size: 20px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 10px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 11.43px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/lucas556/" style="font-size: 12.86px;">lucas556</a> <a href="/tags/zcash/" style="font-size: 11.43px;">zcash</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/区块链/" style="font-size: 14.29px;">区块链</a> <a href="/tags/安全开发/" style="font-size: 12.86px;">安全开发</a> <a href="/tags/智能合约/" style="font-size: 12.86px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 15.71px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.57px;">矿池</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 10px;">钱包</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> |
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
