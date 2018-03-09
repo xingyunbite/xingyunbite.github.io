@@ -39,10 +39,14 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     <% if(page.prev){ %>
-        <a href="<%- url_for(page.prev.path) %>" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+		<% var prev_array = page.prev.path.split('/'); %>
+		<% var prev = prev_array[prev_array.length - 2];  %>
+        <a href="<%- url_for(page.prev.path) %>" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(<%= prev %>)</a>
     <% } %>
     <% if(page.next){ %>
-        <a href="<%- url_for(page.next.path) %>" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+		<% var next_array = page.next.path.split('/');  %>
+		<% var next = next_array[next_array.length - 2]; %>
+        <a href="<%- url_for(page.next.path) %>" class="next-post btn btn-default">下一篇(<%= next %>)<i class="fa fa-angle-right fa-fw"></i></a>
     <% } %>
 </div>
 
