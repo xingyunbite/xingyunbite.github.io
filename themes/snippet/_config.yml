@@ -9,16 +9,16 @@ menu:
   url: /
   icon: 
 - page: 区块链
-  url: /categories/区块链/
+  url: /categories/blockchain/
   icon: 
 - page: 矿池
-  url: /categories/矿池/
+  url: /categories/pool/
   icon: 
 - page: 钱包
-  url: /categories/钱包/
+  url: /categories/wallet/
   icon: 
 - page: 资源
-  url: /categories/资源/
+  url: /categories/resources/
   icon: 
 
 ## favicon 
