@@ -20,7 +20,7 @@ img:
 
 攻击者有一个脚本可以执行对WiFi网络的自主攻击，我将其称为CoffeeMiner，因为这是一种可以在咖啡馆WiFi网络中执行的攻击. 这种攻击就是将一些设备连接到WiFi网络，并且CoffeeMiner攻击者会在连接过程中拦截用户和路由器之间的流量.
 
-![](/images/coffeeMiner_network_attack.png)
+![](/images/coffeeMiner-network-attack.png)
 
 正常WIFI网络配置:
 
@@ -231,7 +231,7 @@ def start():
 
 当然也可以手动运行.
 
-![](/images/coffeeMiner_demo_cutted.gif)
+![](/images/coffeeMiner-demo-cutted.gif)
 
 
 ## 结论
