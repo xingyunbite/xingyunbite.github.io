@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>标签: 区块链 | 星云比特</title>
+<title>Java中创建完整的以太坊钱包 | 星云比特</title>
 
 
     <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
@@ -122,104 +122,133 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <h3 style="background-color: #e67e22;padding: 10px;display: inline-block;color: #fff;"> 
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Java中创建完整的以太坊钱包">
+            
+	            Java中创建完整的以太坊钱包
+            
+        </h1>
+        <div class="post-meta">
     
-		区块链(4) 
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/钱包">
+            钱包
+        </a>
+    </span>
     
     
-</h3>
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ciscolxh">
+						ciscolxh
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/钱包">
+						钱包
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/11</span>
+    </span>
+</div>
 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title"> 
-                    <a href="/2018/03/01/以太坊，燃气，燃料-和-费用/">以太坊，燃气，燃料 和 费用（翻译）</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年03月01日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    来自 BTC Relay 的首席开发人员 Joseph Chow ：Ethereum,Gas,Fuel &amp;amp; Fees
-以太坊是分布式和诚实的应用程序的平台，可在没有任何管理员或单点故障的全球点对点网络上运行。这些应用程序没有停...
-                
-            </p> 
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title"> 
-                    <a href="/2018/02/24/以太坊wiki-设计原理翻译四/">以太坊wiki-设计原理翻译四</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年02月24日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    以太坊wiki-设计原理翻译三
-燃料和手续费比特币中的交易大致相同，因此它们在网络上的成本可以抽象成一个模型，而以太坊中的交易则更复杂，交易费用系统需要考虑许多因素，包括带宽成本 ，存储成本和计算成本。特别重要的是，以太坊编程语言是图...
-                
-            </p> 
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title"> 
-                    <a href="/2018/02/24/以太坊wiki-设计原理翻译三/">以太坊wiki-设计原理翻译三</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年02月24日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    以太坊wiki-设计原理翻译二
-树的使用方式警告：本节内容假设你已经了解了布隆过滤器是如何工作的。详情可见:http://en.wikipedia.org/wiki/Bloom_filter
-以太坊区块链中的每个区块都包含了 3 个指...
-                
-            </p> 
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title"> 
-                    <a href="/2018/02/09/以太坊wiki-设计原理翻译二/">以太坊wiki-设计原理翻译二</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年02月09日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    以太坊wiki-设计原理翻译一
-默克尔帕夏里克树默克尔帕夏里克树（Merkle Patricia tree/trie），以前由 Alan Reiner 设想并在 Ripple 协议中实现，是以太坊中的基本数据结构，被用来存储所有的账户...
-                
-            </p> 
-        </div>
-    </article>
- 
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="Java中创建完整的以太坊钱包"><a href="#Java中创建完整的以太坊钱包" class="headerlink" title="Java中创建完整的以太坊钱包"></a>Java中创建完整的以太坊钱包</h3><p>以太坊中生成秘钥分为三步</p>
+<ol>
+<li>生成EC私钥</li>
+<li>通过私钥推出公钥</li>
+<li>通过公钥算出密码</li>
+</ol>
+<blockquote>
+<h6 id="以太坊的私钥是一个64位的16进制数。以太坊和比特币一样，都是使用的相同的椭圆曲线算法生成"><a href="#以太坊的私钥是一个64位的16进制数。以太坊和比特币一样，都是使用的相同的椭圆曲线算法生成" class="headerlink" title="以太坊的私钥是一个64位的16进制数。以太坊和比特币一样，都是使用的相同的椭圆曲线算法生成"></a>以太坊的私钥是一个64位的16进制数。以太坊和比特币一样，都是使用的相同的椭圆曲线算法生成</h6></blockquote>
+<ul>
+<li>我们用OpenSSL来生成一个钥私，并且显示他的私有和公告部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">openssl ecparam -name secp256k1 -genkey -noout | openssl ec -text -noout </span><br><span class="line"></span><br><span class="line">read EC key</span><br><span class="line">Private-Key: (256 bit)</span><br><span class="line">priv:</span><br><span class="line">    00:bc:70:90:97:28:61:e0:92:72:74:c0:0f:b0:1d:</span><br><span class="line">    c6:4c:e0:bc:a9:32:a7:b1:d2:9e:a5:1e:cd:2c:21:</span><br><span class="line">    c2:e3:1d</span><br><span class="line">pub: </span><br><span class="line">    04:0f:ff:81:4f:59:ac:83:93:2f:5c:6c:74:ea:69:</span><br><span class="line">    d4:75:74:9a:46:9a:f1:6e:eb:aa:2f:2a:59:d2:36:</span><br><span class="line">    5f:33:1f:7d:35:05:f5:57:15:11:3d:91:47:89:2d:</span><br><span class="line">    57:91:75:cc:cd:6e:61:e8:4c:b1:aa:cf:1d:fd:d7:</span><br><span class="line">    86:35:c4:55:c5</span><br><span class="line">ASN1 OID: secp256k1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h6 id="openssl会在私钥部分加一个0x00的头部，在公钥部分加一个0x04的头部，我们去掉头部把公钥、私钥部分转为我们想要的十六进制格式"><a href="#openssl会在私钥部分加一个0x00的头部，在公钥部分加一个0x04的头部，我们去掉头部把公钥、私钥部分转为我们想要的十六进制格式" class="headerlink" title="openssl会在私钥部分加一个0x00的头部，在公钥部分加一个0x04的头部，我们去掉头部把公钥、私钥部分转为我们想要的十六进制格式"></a>openssl会在私钥部分加一个0x00的头部，在公钥部分加一个0x04的头部，我们去掉头部把公钥、私钥部分转为我们想要的十六进制格式</h6></blockquote>
+<ul>
+<li>私钥部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat Key | grep priv -A 3 | tail -n +2 |  tr -d &apos;\n[:space:]:&apos; | sed &apos;s/^00//&apos;</span><br><span class="line"></span><br><span class="line">884f0da48660a3c22257fc36be4210ec6f975924ea399e6478c7596b852f25c4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>公钥部分</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> cat Key | grep pub -A 5 | tail -n +2 |tr -d &apos;\n[:space:]:&apos; |sed &apos;s/^04//&apos;</span><br><span class="line"> </span><br><span class="line">f35862b021183deb90cb66978fc6f7c4bb5ae3e10d486a8109458e0f1ebbdb4602ed1f864bc91cada3eef79b3fb020313850b27c958cdd7567e5c7b9d7f66780</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h6 id="地址是取公钥后40个字符，通过keccak-256算法生成"><a href="#地址是取公钥后40个字符，通过keccak-256算法生成" class="headerlink" title="地址是取公钥后40个字符，通过keccak-256算法生成"></a>地址是取公钥后40个字符，通过keccak-256算法生成</h6></blockquote>
+<ul>
+<li>地址</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat pub | keccak-256sum -x -l | tr -d &apos; -&apos; | tail -c 41</span><br><span class="line"></span><br><span class="line">82a772a5c62b05cd51683872180a5dffef3a0c3e</span><br></pre></td></tr></table></figure>
+<p>接下来我们去<a href="https://www.myetherwallet.com/" target="_blank" rel="noopener">myetherwallet</a>验证一下这个钱包地址是否正确</p>
+<ul>
+<li>导入私钥</li>
+</ul>
+<p><img src="/images/address20180311.png" alt="image"></p>
+<p>通过比对发现私钥地址一致。我们在Java中再进行生成对比一下。</p>
+<p>首先我们要导入<a href="https://github.com/ethereum/ethereumj" target="_blank" rel="noopener">ethereum</a></p>
+<p>Java中钱包生成公私钥地址的方法都在org.ethereum.crypto.ECKey包中的ECKey类中</p>
+<p>通过源码我发现好像并没有提供直接通过私钥生成地址的方法,但是提供了一个可以通过私钥生成ECKey的构造方法，以及通过ECKey获取公钥，私钥，地址的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static ECKey fromPrivate(byte[] privKeyBytes) &#123;</span><br><span class="line">       return fromPrivate(new BigInteger(1, privKeyBytes));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Nullable</span><br><span class="line">  public byte[] getPrivKeyBytes() &#123;</span><br><span class="line">      return this.privKey == null?null:(this.privKey instanceof BCECPrivateKey?ByteUtil.bigIntegerToBytes(((BCECPrivateKey)this.privKey).getD(), 32):null);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public ECPoint getPubKeyPoint() &#123;</span><br><span class="line">       return this.pub;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public byte[] getAddress() &#123;</span><br><span class="line">       if(this.pubKeyHash == null) &#123;</span><br><span class="line">           this.pubKeyHash = computeAddress(this.pub);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       return this.pubKeyHash;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>接下来根据这几个方法写一个测试类进行测试校验</p>
+<p><img src="/images/test20180311.png" alt="image"></p>
+<p>发现私钥和地址是一样的公钥多了一个04的头部，去掉头部也是完全一样。</p>
+<p>那我们怎么生成一个钱包？再看源码还有一个空参构造方法可以构造一个ECKey</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public ECKey() &#123;</span><br><span class="line">       this(secureRandom);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>我们生成一个钱包并在<a href="https://www.myetherwallet.com/" target="_blank" rel="noopener">myetherwallet</a>校验</p>
+<p><img src="/images/test_wallet20180311.png" alt="image"></p>
+<p><img src="/images/wallet20180311.png" alt="image"></p>
+<p>通过校验发现我们生成的钱包与mywallet中一致。</p>
+<p>参考：</p>
+<ol>
+<li><a href="https://kobl.one/blog/create-full-ethereum-keypair-and-address/" target="_blank" rel="noopener">Generating a usable Ethereum wallet and its corresponding keys</a></li>
+<li><a href="https://github.com/ethereum/ethereumj" target="_blank" rel="noopener">ethereumj</a></li>
+</ol>
 
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+		
+		
+        <a href="/2018/03/11/手机钱包常见名词解释/" class="next-post btn btn-default">下一篇(手机钱包常见名词解释)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
 
 
 
