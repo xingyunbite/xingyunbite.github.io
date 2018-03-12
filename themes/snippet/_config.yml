@@ -20,6 +20,8 @@ menu:
 - page: 资源
   url: /categories/resources/
   icon: 
+- page: 智能合约
+  url: /categories/smartcontract/
 
 ## favicon 
 favicon: /favicon.ico
@@ -111,7 +113,7 @@ declaration:
   enable: true
   title: '转载声明'
   tip: |-
-      商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+      商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
 
 
 ## 主题评论
