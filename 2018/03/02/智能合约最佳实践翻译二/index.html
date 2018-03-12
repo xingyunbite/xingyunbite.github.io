@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="星云比特">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>智能合约最佳实践翻译二 | 星云比特</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/blockchain/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/pool/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/wallet/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/resources/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="智能合约最佳实践翻译二">
+            
+	            智能合约最佳实践翻译二
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ZhouFyk">
+						ZhouFyk
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/以太坊">
+						以太坊
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/智能合约">
+						智能合约
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/安全开发">
+						安全开发
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/02</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a href="https://consensys.github.io/smart-contract-best-practices/recommendations/" target="_blank" rel="noopener">原文链接</a></p>
+<h2 id="对-Solidity-中的智能合约的安全推荐-Recommendations-for-Smart-Contract-Security-in-Solidity"><a href="#对-Solidity-中的智能合约的安全推荐-Recommendations-for-Smart-Contract-Security-in-Solidity" class="headerlink" title="对 Solidity 中的智能合约的安全推荐 Recommendations for Smart Contract Security in Solidity"></a>对 Solidity 中的智能合约的安全推荐 Recommendations for Smart Contract Security in Solidity</h2><p>本页面展示了编写智能合约时应遵循的一些 solidity 模式。</p>
+<h3 id="协议具体建议"><a href="#协议具体建议" class="headerlink" title="协议具体建议"></a>协议具体建议</h3><p>以下建议适用于以太坊中所有的智能合约的开发。</p>
+<h3 id="外部调用"><a href="#外部调用" class="headerlink" title="外部调用"></a>外部调用</h3><h4 id="小心使用外部调用"><a href="#小心使用外部调用" class="headerlink" title="小心使用外部调用"></a>小心使用外部调用</h4><p>调用不受信任的合约会引入一些预期外的风险或错误。外部调用可能会在该合约或其依赖的任何其他合约中执行恶意代码。所以每个外部调用都要被当做潜在的安全风险来对待。如果不可能或不希望删除外部调用，请使用本节其余部分的建议来减少危险</p>
+<h4 id="标记不受信任的合约"><a href="#标记不受信任的合约" class="headerlink" title="标记不受信任的合约"></a>标记不受信任的合约</h4><p>当与外部合约交互的时候，通过某种形式命名你的变量，方法和合约接口来清楚地表达其所交互的对象是具有潜在性的安全问题的。这适用于你的调用外部合约的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">Bank.withdraw(100); // Unclear whether trusted or untrusted</span><br><span class="line"></span><br><span class="line">// Isn&apos;t clear that this function is potentially unsafe</span><br><span class="line">function makeWithdrawal(uint amount)  &#123;</span><br><span class="line">		Bank.withdraw(amount);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">UntrustedBank.withdraw(100);</span><br><span class="line">TrustedBank.withdraw(100);</span><br><span class="line"></span><br><span class="line">function makeUntrustedWithdrawal(uint amount) &#123;</span><br><span class="line">		UntrustedBank.withdraw(amount);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="避免在外部调用之后改变状态"><a href="#避免在外部调用之后改变状态" class="headerlink" title="避免在外部调用之后改变状态"></a>避免在外部调用之后改变状态</h4><p>不论是否使用 <code>raw calls</code>（<code>someAddress,call()</code> 的格式） 或者 <code>contract calls</code>（<code>ExternalContract.someMethod()</code> 的格式），都假定会执行恶意代码。即使 <code>ExternalContract</code> 不是恶意的，但它调用的任何合约也可能会执行恶意代码。</p>
+<p>一个特殊的危险是，恶意代码可能对控制流进行了 <code>hijack</code> 攻击，导致条件竞争。（见 <a href="https://consensys.github.io/smart-contract-best-practices/known_attacks/#race-conditions" target="_blank" rel="noopener">Race Conditions</a> 了解更多关于这个问题的讨论）。</p>
+<p>如果你调用了一个不受信任的外部合约，<em>避免在调用之后改变状态</em>。这个模式也常常作为 <a href="https://solidity.readthedocs.io/en/develop/security-considerations.html?highlight=check%20effects#use-the-checks-effects-interactions-pattern" target="_blank" rel="noopener">check-effects-interactions 模式</a> 为人们所知。</p>
+<h4 id="注意-send-transfer-call-value-之间的平衡"><a href="#注意-send-transfer-call-value-之间的平衡" class="headerlink" title="注意 send() / transfer() / call.value() 之间的平衡"></a>注意 <code>send() / transfer() / call.value()</code> 之间的平衡</h4><p>在发送 ether 时注意 <code>someAddress.send() / someAddress.transfer() / someAddress.call.value()()</code> 之间的使用的关系的平衡。</p>
+<ul>
+<li><code>someAddress.send()</code> 和 <code>someAddress.transfer()</code> 被认为对于<a href="https://consensys.github.io/smart-contract-best-practices/recommendations/#reentrancy" target="_blank" rel="noopener">重入</a>是安全的。尽管这些方法仍然会触发代码的执行，但是被调用的合约只会被提供 2300 单位的燃料，目前来说，这么多的燃料足够用来记录事件了。</li>
+<li><code>x.transfer(y)</code> 和 <code>require(x.send(y));</code> 的等同的，如果发送失败，它会自动回退。</li>
+<li><code>someAddress.call.value(y)()</code> 会发送提供的以太币，然后触发代码的执行。为执行的代码提供所有可用来执行的燃料使得这种转账方式对于重入来说很不安全。</li>
+</ul>
+<p>使用 <code>send()</code> 和 <code>transfer()</code> 可以防止重入，但是这样的做法会使得与那些 fallback 函数的消耗超过 2300 单位燃料的合约不兼容。也可以使用 <code>someAddress.vall.value(ethAmount).gas(gasAmount)()</code> 来转发指定的燃料数量。</p>
+<p>一个试图平衡这个问题的解决办法是实现 <em><a href="https://consensys.github.io/smart-contract-best-practices/recommendations/#favor-pull-over-push-payments" target="_blank" rel="noopener">退和拉</a></em> 的机制模式， <em>推送</em> 部分使用 <code>send()</code> 或者 <code>transfer()</code> ，<em>拉</em> 部分使用 <code>call.value()</code> 。</p>
+<p>值得指出的是，对于价值转移而言，专用 <code>send()</code> 或者 <code>transfer()</code> 并不能使得合约避免重入的安全问题，但是能够使得一些特定的转账避免重入的安全问题。</p>
+<h4 id="解决外部调用的错误"><a href="#解决外部调用的错误" class="headerlink" title="解决外部调用的错误"></a>解决外部调用的错误</h4><p>Solidity 提供了处理原生地址的底层调用方法：<code>address.call()</code>，<code>address.callcode()</code>，<code>address,delegatecall()</code>，和 <code>address.send()</code>。当调用遇到一个异常的时候，这些底层方法不会抛出一个异常，而是返回一个 <code>false</code>。从另一方面来说，<em>合约调用</em>（如 <code>ExternalContract.doSomething()</code>）会自动传播一个异常（比如，如果 <code>doSomething()</code> 抛出异常，<code>ExternalContract.doSomething()</code> 也会 <code>throw</code>）。</p>
+<p>如果你选择使用底层调用方法，要确定你通过检查返回值，处理了可能存在的调用失败的情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">someAddress.send(55);</span><br><span class="line">someAddress.call.value(55)(); // this is doubly dangerous, as it will forward all remaining gas and doesn&apos;t check for result</span><br><span class="line">someAddress.call.value(100)(bytes4(sha3(&quot;deposit()&quot;))); // if deposit throws an exception, the raw call() will only return false and transaction will NOT be reverted</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">if (!someAddress.send(55)) &#123;</span><br><span class="line">		// some failure code</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ExternalContract(someAddress).deposit.value(100);</span><br></pre></td></tr></table></figure>
+<h4 id="对外部调用来说，拉比推更好"><a href="#对外部调用来说，拉比推更好" class="headerlink" title="对外部调用来说，拉比推更好"></a>对外部调用来说，拉比推更好</h4><p>外部调用可能有意无意而失败。为了最小化这样失败带来的破坏，通常最好将每个外部调用隔离到可以由调用接收方发起的自己的交易中。这与支付特别相关，与将资金自动推给用户比起来，更好的是让用户提取资金。（这也减少了<a href="https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit" target="_blank" rel="noopener">燃料限制问题</a>。）避免在单个交易中组合多个 <code>send()</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">contract auction &#123;</span><br><span class="line">	address highestBidder;</span><br><span class="line">	uint highestBid;</span><br><span class="line"></span><br><span class="line">	function bid() payable &#123;</span><br><span class="line">		require(msg.value &gt;= highestBid);</span><br><span class="line"></span><br><span class="line">		if (highestBidder != 0) &#123;</span><br><span class="line">			highestBidder.transfer(highestBid); // if this call consistently fails, no one else can bid </span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		highestBidder = msg.sender;</span><br><span class="line">		highestBid = msg.value;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">contract auction &#123;</span><br><span class="line">	address highestBidder;</span><br><span class="line">	uint highestBid;</span><br><span class="line">	mapping(address =&gt; uint) refunds;</span><br><span class="line"></span><br><span class="line">	function bid() payable external &#123;</span><br><span class="line">		require(msg.value &gt;= highestBid);</span><br><span class="line"></span><br><span class="line">		if (highestBidder != 0) &#123;</span><br><span class="line">			refunds[highestBidder] += highestBid; // record the refund that this user can claim</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		highestBidder = msg.sender;</span><br><span class="line">		highestBid = msg.value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function withdrawRefund() external &#123;</span><br><span class="line">		uint refund = refunds[msg.sender];</span><br><span class="line">		refunds[msg.sender] = 0;</span><br><span class="line">		msg.sender.transfer(refund);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="不要假设合约创建时是-0-资产"><a href="#不要假设合约创建时是-0-资产" class="headerlink" title="不要假设合约创建时是 0 资产"></a>不要假设合约创建时是 0 资产</h4><p>一个攻击者可以在合约创建之前发送 wei 到合约的地址。合约不应该假设初始状态包含 0 资产。见 <a href="https://github.com/ConsenSys/smart-contract-best-practices/issues/61" target="_blank" rel="noopener">问题 61</a> 查看更多细节。</p>
+<h4 id="记住链上的数据是公开的"><a href="#记住链上的数据是公开的" class="headerlink" title="记住链上的数据是公开的"></a>记住链上的数据是公开的</h4><p>许多应用程序要求提交数据以便在某个时间点可以供其工作。游戏（如链上的石头剪子布）和拍卖机制（如 盲派的第二次出价）是两种主要类别的例子。如果你正在构建一个涉及到隐私的应用，注意不免要求用户过早发布信息。</p>
+<p>示例：</p>
+<ul>
+<li>在石头剪子布中，首先要求两个玩家同时提交他们的出手意图的哈希值，然后再要求提交他们的实际出手，如果匹配不上之前的哈希值，则抛出。</li>
+<li>在一个拍卖中，要求玩家在初始阶段提交他们的出价金额的哈希值（保证金高于他们的竞价），然后在第二阶段提交他们的实际竞价。</li>
+<li>当开发一个依赖于随机数生成器的应用时，顺序应该总是（1）提交行动，（2）生成随机数，（3）玩家付出。随机数生成方法本来就是一个活跃的研究领域；目前同类最佳的解决方案包括比特币区块头（通过 <a href="http://btcrelay.org" target="_blank" rel="noopener">http://btcrelay.org</a> 来验证），散列提交揭示方案（即一方产生一个数字，将其散列值发布为”提交“的值，然后揭示这个数）和 <a href="https://github.com/randao/randao" target="_blank" rel="noopener">RANDAO</a></li>
+<li>如果你正在实现一个频繁的批量拍卖，哈希提交方案也很合适。</li>
+</ul>
+<h3 id="注意在双方或者多方合约中，一些成员可能”掉线“，没有返回"><a href="#注意在双方或者多方合约中，一些成员可能”掉线“，没有返回" class="headerlink" title="注意在双方或者多方合约中，一些成员可能”掉线“，没有返回"></a>注意在双方或者多方合约中，一些成员可能”掉线“，没有返回</h3><p>不要只依赖于特定方执行特定行动的退款或者索赔流程，而没有其他获得资金的方式。比如，在剪刀石头布游戏中，一个常见的错误是在两位玩家提交它们的行动之前，没有进行支付；然而，一个恶意的玩家可以简单地通过不提交他的动作来使得另一位玩家陷入困境 - 实际上，如果一个玩家看到了其他玩家暴露的行为，并且确定他们输了，他们就没有任何理由去提交他们自己的行为。这个问题也可能出现在状态渠道的解决中。当这样的场景变成一个问题，（1）提供一种规避未参与的参与者的方式，可能是通过限制时间，（2）考虑增加额外的经济激励，让参与者在需要提交信息的场景中提交所有该场景需要的信息。</p>
+<h3 id="Solidity-详细建议"><a href="#Solidity-详细建议" class="headerlink" title="Solidity 详细建议"></a>Solidity 详细建议</h3><p>下面的建议对于 Solidity 来说十分详细，不过对于使用其他语言来开发智能合约来说，应该也是有所帮助的。</p>
+<h3 id="强制对不变值使用-assert"><a href="#强制对不变值使用-assert" class="headerlink" title="强制对不变值使用 assert()"></a>强制对不变值使用 <code>assert()</code></h3><p>当一个断言失败的时候，它的保护机制就会被触发 - 比如当一个不变的属性改变的时候。比如，在一个代币发行合约中，代币与以太币的汇率可能是固定的。然后你可以通过 <code>assert()</code> 来验证所有的这种情况。断言保护机制应该经常与其他技术结合，如暂停合约和允许升级。（否则，你可能会陷入停滞，而一个断言总是在失败。）</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract Token &#123;</span><br><span class="line">	mapping (address =&gt; uint) public balanceOf;</span><br><span class="line">	uint public totalSupply;</span><br><span class="line"></span><br><span class="line">	function deposit() public payable &#123;</span><br><span class="line">		balanceOf[msg.sender] += msg.value;</span><br><span class="line">		totalSupply += msg.value;</span><br><span class="line">		assert(this.balance &gt;= totalSupply);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意断言并非对资产严格相等，因为合约可以不通过 <code>deposit</code> 函数强制<a href="https://consensys.github.io/smart-contract-best-practices/recommendations/#ether-forcibly-sent" target="_blank" rel="noopener">发送以太币</a></p>
+<h3 id="正确地使用-assert-和-require"><a href="#正确地使用-assert-和-require" class="headerlink" title="正确地使用 assert() 和 require()"></a>正确地使用 <code>assert()</code> 和 <code>require()</code></h3><p>在 Solidity 0.4.10 中，引入了 <code>assert()</code> 和 <code>require()</code>。<code>require(condition)</code> 被用来对用户的任何输入进行验证，如果条件不成立则回滚。<code>assert(condition)</code> 在条件不成立时也会回滚，但是只用在不变值上：内部错误或者检查你的合约是否是非法的状态。遵循这种范式将允许形式分析工具来进行验证工作，而非法的操作码永远不会到达：这意味着代码中的任何不变值都不会被违反，并且代码正确地验证。</p>
+<h3 id="小心整数除法"><a href="#小心整数除法" class="headerlink" title="小心整数除法"></a>小心整数除法</h3><p>所有整数除法都被向下取整。如果你需要更高的精度，考虑使用乘数，或者存储分子和分母。</p>
+<p>（在未来，Solidity 会有定点类型，这会使得整数除法更容易。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">uint x = 5 / 2; // Result is 2, all integer divison rounds DOWN to the nearest integer</span><br></pre></td></tr></table></figure>
+<p>使用乘数来防止向下取整，当使用 x 的时候要考虑到这个乘数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// good</span><br><span class="line">uint multiplier = 10;</span><br><span class="line">uint x = (5 * multipler) / 2;</span><br></pre></td></tr></table></figure>
+<p>存储分子和分母意味着你可以离链计算分子除以分母的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// good</span><br><span class="line">uint numerator = 5;</span><br><span class="line">uint denominator = 2;</span><br></pre></td></tr></table></figure>
+<h3 id="记住以太币可以被强制发送到一个账户"><a href="#记住以太币可以被强制发送到一个账户" class="headerlink" title="记住以太币可以被强制发送到一个账户"></a>记住以太币可以被强制发送到一个账户</h3><p>注意对严格检查了的合约的余额进行编码。</p>
+<p>一个攻击者可以强制对任何账户发送 wei，而且这不能被阻止（即使是使用了 <code>revert()</code> 的 fallback 函数也不可以）</p>
+<p>攻击者通过创余额为 1 wei 的合约，然后通过 <code>selfdestruct(victimAddress)</code> 的方式达到目的。<code>victimAddress</code> 中没有代码被激活，所以这不能被阻止。</p>
+<h3 id="注意抽象合约和接口的平衡"><a href="#注意抽象合约和接口的平衡" class="headerlink" title="注意抽象合约和接口的平衡"></a>注意抽象合约和接口的平衡</h3><p>接口和抽象合约都为智能合约提供了一种定制的，可复用的方式。接口，在 Solidity 0.4.11 中被引入，与抽象合约十分相似，但是接口不能有已经实现的方法。接口同样也有限制，它不能访问存储，不能继承其他接口，而这通常使得抽象合约更加实用。虽然，接口实际上对设计合约的实现上十分有用。另外，十分重要的是如果一个合约继承了一个抽象合约，那它必须通过重写来实现所有抽象合约中未实现的函数，否则它依旧是一个抽象合约。</p>
+<h3 id="保持-fallback-函数简单"><a href="#保持-fallback-函数简单" class="headerlink" title="保持 fallback 函数简单"></a>保持 fallback 函数简单</h3><p>当一个合约发送了没有参数（或者当没有函数匹配上的时候）的消息时，<a href="https://solidity.readthedocs.io/en/latest/contracts.html#fallback-function" target="_blank" rel="noopener">Fallback 函数</a> 会被调用，而且如果通过 <code>.send()</code> 或者 <code>.transfer()</code> 调用的话只需要 2300 单位的燃料。如果你希望能够从 <code>.send()</code> 或者 <code>.transfer()</code> 接受以太币，你能做的就是在 fallback 函数中记录一个日志。如果需要计算，或者更多的燃料，就使用一个真正的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">funciton() payable &#123; balances[msg.sender] += msg.value; &#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">function deposit() payable external &#123; balances[msg.sender] += msg.value; &#125;</span><br><span class="line"></span><br><span class="line">function() payable &#123; LogDepositReceived(msg.sender); &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="为函数和状态变量显式标记可见性"><a href="#为函数和状态变量显式标记可见性" class="headerlink" title="为函数和状态变量显式标记可见性"></a>为函数和状态变量显式标记可见性</h3><p>显式标记函数和状态变量的可见性。函数可以被指定为 <code>external / public / internal / private</code>。请理解它们之间的区别，比如，比起 <code>public</code>，<code>external</code> 可能已经足够使用了。对于状态变量来说，<code>external</code> 是不可能的。显式标记可见性将更容易捕捉有关谁可以调用函数或访问变量的错误假设。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// bad</span><br><span class="line">uint x; // the default is internal for state variables, but it should be made explicit</span><br><span class="line">function buy() &#123; // the default is public </span><br><span class="line">		// public code</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">uint private y;</span><br><span class="line">function buy() external &#123;</span><br><span class="line">		// only callable external</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function utility() public &#123;</span><br><span class="line">		// callable externally, as well as internally: changing this code requires thinking about both cases</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function internalAction() internal &#123;</span><br><span class="line">		// internal code</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="锁定指定编译器版本的编译指示"><a href="#锁定指定编译器版本的编译指示" class="headerlink" title="锁定指定编译器版本的编译指示"></a>锁定指定编译器版本的编译指示</h3><p>应该使用相同的编译器版本部署合同，并标记它们已经经过了足够的测试。锁定编译指示可以帮助确保合约不会意外部署，比如，最新的编译器对未知错误有更高的风险。合约也可能由其他人部署，通过编译指示就知道原作者打算使用的编译器版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// bad </span><br><span class="line">pragma solidity ^0.4.4;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">pragma solidity 0.4.0;</span><br></pre></td></tr></table></figure>
+<h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><p>当合约打算供其他开发人员使用时，可以允许 <code>pragma</code> 语句浮动，例如类库或者 EthPM 包。否则，开发人员为了在本地编译就需要手动更新编译指示。</p>
+<h3 id="函数和事件的区别"><a href="#函数和事件的区别" class="headerlink" title="函数和事件的区别"></a>函数和事件的区别</h3><p>对事件名首字母大写,以及添加作用前缀，来防止对函数和事件产生困惑。对于方法来说，总是以小写字母开头，除了构造函数之外。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// bad </span><br><span class="line">event Transfer() &#123;&#125;</span><br><span class="line">function transfer() &#123;&#125;</span><br><span class="line"></span><br><span class="line">// good</span><br><span class="line">event LogTransfer() &#123;&#125;</span><br><span class="line">function transfer() external &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="推荐使用更新的-Solidity-结构"><a href="#推荐使用更新的-Solidity-结构" class="headerlink" title="推荐使用更新的 Solidity 结构"></a>推荐使用更新的 Solidity 结构</h3><p>使用构造/别名如 <code>selfdestruct</code> （而不是 <code>suicide</code>），和 <code>keccak256</code> （而不是 <code>sha3</code>）。<code>require(msg.sender.send(1 ether))</code> 也可以使用 <code>transfer()</code> 简单地实现： <code>msg.sender.transfer(1 ether)</code>。</p>
+<h3 id="注意内置函数可以被覆盖"><a href="#注意内置函数可以被覆盖" class="headerlink" title="注意内置函数可以被覆盖"></a>注意内置函数可以被覆盖</h3><p>目前可以在 Solidity 覆盖（<a href="https://en.wikipedia.org/wiki/Variable_shadowing" target="_blank" rel="noopener">shadow</a>）内置的全局变量。它允许合约重写覆盖内置的方法，如 <code>msg</code> 和 <code>revert()</code>。尽管这是<a href="https://github.com/ethereum/solidity/issues/1249" target="_blank" rel="noopener">故意</a>的，但是它可能会在关于合约的真实行为上误导合约的用户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">contract PretendingToRevert &#123;</span><br><span class="line">	function revert() internal constant &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract ExampleContract is PretendingToRevert &#123;</span><br><span class="line">	function somethingBad() public &#123;</span><br><span class="line">		revert();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>合约用户（和审计人员）应该注意他们想要使用的应用的所有合约源代码。</p>
+<h3 id="避免使用-tx-origin"><a href="#避免使用-tx-origin" class="headerlink" title="避免使用 tx.origin"></a>避免使用 <code>tx.origin</code></h3><p>永远不要使用 <code>tx.origin</code> 进行授权，另一个合约可以有一种方法来调用你的合约（比如用户有一些资金），而因为你的地址在 <code>tx.origin</code> 里面，你的合约就会授权该交易。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.18;</span><br><span class="line"></span><br><span class="line">contract MyContract &#123;</span><br><span class="line">	address owner;</span><br><span class="line"></span><br><span class="line">	function MyContract() public &#123;</span><br><span class="line">		owner = msg.sender;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function sendTo(address receiver, uint amount) public &#123;</span><br><span class="line">		require(tx.origin == owner);</span><br><span class="line">		receiver.transfer(amount);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract AttackingContract &#123;</span><br><span class="line">	MyContract myContract;</span><br><span class="line">	address attacker;</span><br><span class="line"></span><br><span class="line">	function AttackingContract(address myContractAddress) public &#123;</span><br><span class="line">		myContract = MyContract(myContractAddress);</span><br><span class="line">		attacker = msg.sender;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function() public &#123;</span><br><span class="line">		myContract.sendTo(attacker, msg.sender.balance);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你应该使用 <code>msg.sender</code> 来授权（如果有另一个合约调用了你的合约，<code>msg.sender</code> 会成为合约的地址，而且不是调用合约的人的地址）。</p>
+<p>更多可见 <a href="https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin" target="_blank" rel="noopener">Solidity 文档</a></p>
+<p>除了授权的这个问题，<code>tx.origin</code> 可能在将来从以太坊协议中移除，所以使用了 <code>tx.origin</code> 的代码在将来不会再被兼容 <a href="https://ethereum.stackexchange.com/questions/196/how-do-i-make-my-dapp-serenity-proof/200#200" target="_blank" rel="noopener">Vitalik: ‘Do NOT assume that tx.origin will continue to be usable or meaningful.’</a></p>
+<p>另外值得一提的是，通过使用 <code>tx.origin</code>，你会限制合同之间的互操作性，因为使用 <code>tx.origin</code> 的合同不能被另一个合同使用，因为合同不能是 <code>tx.origin</code>。</p>
+<h3 id="时间戳依赖"><a href="#时间戳依赖" class="headerlink" title="时间戳依赖"></a>时间戳依赖</h3><p>在合同中使用时间戳执行关键功能时有三个主要考虑因素，特别是当涉及到资金转移时。</p>
+<h4 id="Gameability"><a href="#Gameability" class="headerlink" title="Gameability"></a>Gameability</h4><p>注意区块的时间戳是可用被矿工操作的。考虑这个<a href="https://etherscan.io/address/0xcac337492149bdb66b088bf5914bedfbf78ccc18#code" target="_blank" rel="noopener">合约</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">uint256 constant private salt = block.timestamp;</span><br><span class="line"></span><br><span class="line">function random(uint Max) constant private returns (uint256 result) &#123;</span><br><span class="line">	//get the best seed for randomness</span><br><span class="line">	uint256 x = salt * 100/Max;</span><br><span class="line">	uint256 y = salt * block.number/(salt % 5);</span><br><span class="line">	uint256 seed = block.number/3 + (salt % 300) + Last_Payout + y;</span><br><span class="line">	uint256 h = uint256(block.blockhash(seed));</span><br><span class="line"></span><br><span class="line">	return uint256((h / x)) % Max + 1; // random number between 1 and Max</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当合约使用时间戳来产生随机数时，矿工实际上可以在被验证块的 30 秒内发布时间戳，从而有效地允许矿工预先计算一个更有利于他们抽奖机会的选项。 时间戳不是随机的，不应该在这种情况下使用。</p>
+<h4 id="30-秒规则"><a href="#30-秒规则" class="headerlink" title="30 秒规则"></a>30 秒规则</h4><p>评估时间戳使用的一般经验法则是：</p>
+<p><strong>如果合约功能可以容忍30秒的时间漂移，则可以安全使用 <code>block.timestamp</code></strong></p>
+<p>如果您的时间相关事件的比例可以变化 30 秒并保持完整性，则使用时间戳是安全的。 这包括拍卖结束，注册期限等事情。</p>
+<h4 id="将-block-number-作为时间戳使用时要当心"><a href="#将-block-number-作为时间戳使用时要当心" class="headerlink" title="将 block.number 作为时间戳使用时要当心"></a>将 <code>block.number</code> 作为时间戳使用时要当心</h4><p>当合约创建一个 <code>auction_complete</code> 修饰器来表示代币销售的结束，像<a href="https://consensys.github.io/smart-contract-best-practices/(https://github.com/SpankChain/old-sc_auction/blob/master/contracts/Auction.sol" target="_blank" rel="noopener">这样</a>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">modifier auction_complete &#123;</span><br><span class="line">	require(auctionEndBlock &lt;= block.number ||</span><br><span class="line">		currentAuctionState == AuctionState.success ||</span><br><span class="line">		currentAuctionState == AuctionState.cancel)</span><br><span class="line">		_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>block.number</code> 和 <a href="https://etherscan.io/chart/blocktime" target="_blank" rel="noopener">平均出块时间</a> 也可以用来估算时间，但是这不是未来的证明，因为区块时间可以修改（例如 <a href="https://blog.ethereum.org/2015/08/08/chain-reorganisation-depth-expectations/" target="_blank" rel="noopener">分叉重组</a> 和 <a href="https://github.com/ethereum/EIPs/issues/649" target="_blank" rel="noopener">难度炸弹</a>）。在一天的销售中，12分钟规则允许人们构建更可靠的时间估计。</p>
+<h3 id="弃用-历史-建议"><a href="#弃用-历史-建议" class="headerlink" title="弃用/历史 建议"></a>弃用/历史 建议</h3><p>由于协议的修改或者 solidity 的提升，这些建议不再相关。They are recorded here for posterity and awareness.</p>
+<h4 id="注意被-0-除-（Solidity-lt-0-4）"><a href="#注意被-0-除-（Solidity-lt-0-4）" class="headerlink" title="注意被 0 除 （Solidity &lt; 0.4）"></a>注意被 0 除 （Solidity &lt; 0.4）</h4><p>在版本 0.4 之前，当一个数字除以 0 时，Solidity 会返回零，并且不会引发异常。 确保你至少运行 0.4 版本。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/02/2018年自己动手组装一台矿机吧-显卡矿机教程/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(2018年自己动手组装一台矿机吧-显卡矿机教程)</a>
+    
+    
+		
+		
+        <a href="/2018/03/02/比特币挖矿之随机数/" class="next-post btn btn-default">下一篇(比特币挖矿之随机数)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">2</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/LeonBCK/" style="font-size: 18.33px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/ZhouFyk/" style="font-size: 20px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 11.67px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 11.67px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/lucas556/" style="font-size: 15px;">lucas556</a> <a href="/tags/zcash/" style="font-size: 11.67px;">zcash</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/安全开发/" style="font-size: 13.33px;">安全开发</a> <a href="/tags/智能合约/" style="font-size: 13.33px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 16.67px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 20px;">矿池</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 11.67px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> |
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

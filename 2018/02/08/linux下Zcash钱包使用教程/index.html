@@ -1,0 +1,586 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="星云比特">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>linux下Zcash钱包使用教程 | 星云比特</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/blockchain/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/pool/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/wallet/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/resources/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="linux下Zcash钱包使用教程">
+            
+	            linux下Zcash钱包使用教程
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/矿池">
+            矿池
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/lucas556">
+						lucas556
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/矿池">
+						矿池
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/zcash">
+						zcash
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/08</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <blockquote>
+<p>Zcash (ZEC)是首个使用零知识证明机制的区块链系统，它可提供完全的支付保密性，同时仍能够使用公有区块链来维护一个去中心化网络。与比特币相同的是，Zcash代币（ZEC）的总量也是2100万，不同之处在于，Zcash交易自动隐藏区块链上所有交易的发送者、接受者及数额。只用那些拥有查看秘钥的人才能看到交易的内容。用户拥有完全的控制权，他们可自行选择向其他人提供查看秘钥.  ZCash 是 bitcoin 的分支，保留了 bitcoin 原有的模式，基于比特币 0.11.2 版代码修改的。 ZCash 钱包资金分 2 种：透明资金、私有资金，透明资金类似比特币资金；私有资金加强了 隐私性，涉及到私有资金的交易是保密不可查的，透明资金与透明资金的交易是公开可查的.</p>
+<p>目前Zcash流通市值在12亿美元左右，每日交易额也高达1亿美元，其使用zero-knowledge proof（零知识证明）使得数字化货币更加具有安全性；隐私性而备受市场关注。</p>
+</blockquote>
+<p>现在zcash官方提供的钱包是linux版本的，而原因是zcash团队没人熟悉gui，不过zcash官方提供了编译后的可执行程序，这里也不用我们来进行编译了。</p>
+<p>下载地址 ： <a href="https://z.cash/downloads/zcash-1.0.14-linux64.tar.gz" target="_blank" rel="noopener">https://z.cash/downloads/zcash-1.0.14-linux64.tar.gz</a><br>hash     :  352ea2a67ae3484046a6bd43af9a5ce125e2d103a6a32ac71805658918f7076a</p>
+<p>下载后请务必进行哈希值验证，以保证文件的真实和准确性。</p>
+<p>tar -xvf zcash-1.0.14-linux64.tar.gz       //解压缩<br>mv -t /usr/local/bin/ zcash-1.0.14/bin/*   //移动可执行文件</p>
+<pre><code>现在我们已经安装了zcash，运行下面的命令下载 key ，用于创建和验证参数。
+
+zcash-fetch-params
+
+这里由于国内网络的原因，可能会失败，请多试几次。
+
+验证通过后，我们需要对客户端进行配置。
+
+mkdir ~/.zcash //创建zcash目录
+
+vim zcash.conf 
+
+以上按照个人配置的不同，设置不同的配置文件，下面提供一个配置供参考。
+
+//这是测试链接的配置
+addnode=testnet.z.cash    //节点
+rpcuser=test              //rpc用户名
+rpcpassword=test          //rpc密码
+gen=0                     //屏蔽cpu挖矿
+testnet=1                 //开启测试链
+rpcallowip=100.100.60.10 //允许访问的IP
+rpcport=8333             //rpc端口号
+equihashsolver=tromp     //指定算法，非挖矿钱包可以删除
+
+
+好了，保存后输入zcashd就可以启动zcash客户端了，也可以使用zcashd -daemon在后台运行zcash客户端,在shell输入zcash-cli getinfo命令就可以看到网络和块信息了。
+
+下面提供一些zcash节点常用命令：
+
+zcash-cli getinfo                           //显示节点信息
+zcashd -daemon                              //后台启动zcash守护
+zcash-cli getnetworkhashps                  //获取全网算力
+zcash-cli z_getnewaddress                    //生成一个Z-addr
+zcash-cli getnewaddress                      //生成一个t-addr                   
+zcas-cli getblockhash                       //区块高度
+zcash-cli getaddressesbyaccount &quot;&quot;         //显示所有t-addr钱包
+zcash-cli z_listaddresses                   //显示所有Z-addr钱包
+zcash-cli z_getbalance &quot;&quot;                   //z钱包余额
+
+如果有其他的需要，可以使用zcash-cli help来查看zcash的全部命令。
+
+
+附1：
+
+zcash钱包配置：
+
+//这里是zcash钱包主链配置
+
+rpcuser=rpc用户名
+rpcpassword=rpc密码
+rpcport=rpc端口
+rpcallowip=允许链接rpc ip地址
+server=1        //打开服务
+daemon=1        //后台运行守护
+mainnet=1       //主链
+addnode=mainnet.z.cash //主链节点
+
+附2：
+
+//zcash命令
+
+== Blockchain ==
+getbestblockhash
+getblock &quot;hash|height&quot; ( verbose )
+getblockchaininfo
+getblockcount
+getblockhash index
+getblockheader &quot;hash&quot; ( verbose )
+getchaintips
+</code></pre><p>getdifficulty<br>getmempoolinfo<br>getrawmempool ( verbose )<br>        gettxout “txid” n ( includemempool )<br>        gettxoutproof [“txid”,…] ( blockhash )<br>        gettxoutsetinfo<br>        verifychain ( checklevel numblocks )<br>        verifytxoutproof “proof”</p>
+<pre><code>== Control ==
+getinfo
+help ( &quot;command&quot; )
+stop
+
+== Disclosure ==
+z_getpaymentdisclosure &quot;txid&quot; &quot;js_index&quot; &quot;output_index&quot; (&quot;message&quot;) 
+z_validatepaymentdisclosure &quot;paymentdisclosure&quot;
+
+== Generating ==
+generate numblocks
+getgenerate
+setgenerate generate ( genproclimit )
+
+== Mining ==
+getblocksubsidy height
+getblocktemplate ( &quot;jsonrequestobject&quot; )
+getlocalsolps
+getmininginfo
+getnetworkhashps ( blocks height )
+getnetworksolps ( blocks height )
+prioritisetransaction &lt;txid&gt; &lt;priority delta&gt; &lt;fee delta&gt;
+submitblock &quot;hexdata&quot; ( &quot;jsonparametersobject&quot; )
+
+== Network ==
+addnode &quot;node&quot; &quot;add|remove|onetry&quot;
+clearbanned
+disconnectnode &quot;node&quot; 
+getaddednodeinfo dns ( &quot;node&quot; )
+getconnectioncount
+getnettotals
+getnetworkinfo
+getpeerinfo
+listbanned
+ping
+setban &quot;ip(/netmask)&quot; &quot;add|remove&quot; (bantime) (absolute)
+
+== Rawtransactions ==
+createrawtransaction [{&quot;txid&quot;:&quot;id&quot;,&quot;vout&quot;:n},...] {&quot;address&quot;:amount,...}
+decoderawtransaction &quot;hexstring&quot;
+decodescript &quot;hex&quot;
+fundrawtransaction &quot;hexstring&quot;
+getrawtransaction &quot;txid&quot; ( verbose )
+sendrawtransaction &quot;hexstring&quot; ( allowhighfees )
+signrawtransaction &quot;hexstring&quot; ( [{&quot;txid&quot;:&quot;id&quot;,&quot;vout&quot;:n,&quot;scriptPubKey&quot;:&quot;hex&quot;,&quot;redeemScript&quot;:&quot;hex&quot;},...] [&quot;privatekey1&quot;,...] sighashtype )
+
+== Util ==
+createmultisig nrequired [&quot;key&quot;,...]
+estimatefee nblocks
+estimatepriority nblocks
+validateaddress &quot;zcashaddress&quot;
+verifymessage &quot;zcashaddress&quot; &quot;signature&quot; &quot;message&quot;
+z_validateaddress &quot;zaddr&quot;
+
+== Wallet ==
+addmultisigaddress nrequired [&quot;key&quot;,...] ( &quot;account&quot; )
+backupwallet &quot;destination&quot;
+dumpprivkey &quot;zcashaddress&quot;
+dumpwallet &quot;filename&quot;
+encryptwallet &quot;passphrase&quot;
+getaccount &quot;zcashaddress&quot;
+getaccountaddress &quot;account&quot;
+getaddressesbyaccount &quot;account&quot;
+getbalance ( &quot;account&quot; minconf includeWatchonly )
+getnewaddress ( &quot;account&quot; )
+getrawchangeaddress
+getreceivedbyaccount &quot;account&quot; ( minconf )
+getreceivedbyaddress &quot;zcashaddress&quot; ( minconf )
+gettransaction &quot;txid&quot; ( includeWatchonly )
+getunconfirmedbalance
+getwalletinfo
+importaddress &quot;address&quot; ( &quot;label&quot; rescan )
+importprivkey &quot;zcashprivkey&quot; ( &quot;label&quot; rescan )
+importwallet &quot;filename&quot;
+keypoolrefill ( newsize )
+listaccounts ( minconf includeWatchonly)
+listaddressgroupings
+listlockunspent
+listreceivedbyaccount ( minconf includeempty includeWatchonly)
+listreceivedbyaddress ( minconf includeempty includeWatchonly)
+listsinceblock ( &quot;blockhash&quot; target-confirmations includeWatchonly)
+listtransactions ( &quot;account&quot; count from includeWatchonly)
+listunspent ( minconf maxconf  [&quot;address&quot;,...] )
+lockunspent unlock [{&quot;txid&quot;:&quot;txid&quot;,&quot;vout&quot;:n},...]
+move &quot;fromaccount&quot; &quot;toaccount&quot; amount ( minconf &quot;comment&quot; )
+sendfrom &quot;fromaccount&quot; &quot;tozcashaddress&quot; amount ( minconf &quot;comment&quot; &quot;comment-to&quot; )
+sendmany &quot;fromaccount&quot; {&quot;address&quot;:amount,...} ( minconf &quot;comment&quot; [&quot;address&quot;,...] )
+sendtoaddress &quot;zcashaddress&quot; amount ( &quot;comment&quot; &quot;comment-to&quot; subtractfeefromamount )
+setaccount &quot;zcashaddress&quot; &quot;account&quot;
+settxfee amount
+signmessage &quot;zcashaddress&quot; &quot;message&quot;
+z_exportkey &quot;zaddr&quot;
+z_exportviewingkey &quot;zaddr&quot;
+z_exportwallet &quot;filename&quot;
+z_getbalance &quot;address&quot; ( minconf )
+z_getnewaddress
+z_getoperationresult ([&quot;operationid&quot;, ... ]) 
+z_getoperationstatus ([&quot;operationid&quot;, ... ]) 
+z_gettotalbalance ( minconf includeWatchonly )
+z_importkey &quot;zkey&quot; ( rescan startHeight )
+z_importviewingkey &quot;vkey&quot; ( rescan startHeight )
+z_importwallet &quot;filename&quot;
+z_listaddresses ( includeWatchonly )
+z_listoperationids
+z_listreceivedbyaddress &quot;address&quot; ( minconf )
+z_sendmany &quot;fromaddress&quot; [{&quot;address&quot;:... ,&quot;amount&quot;:...},...] ( minconf ) ( fee )
+z_shieldcoinbase &quot;fromaddress&quot; &quot;tozaddress&quot; ( fee ) ( limit )
+zcbenchmark benchmarktype samplecount
+zcrawjoinsplit rawtx inputs outputs vpub_old vpub_new
+zcrawkeygen
+zcrawreceive zcsecretkey encryptednote
+zcsamplejoinsplit
+</code></pre>
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/02/09/以太坊wiki-设计原理翻译二/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(以太坊wiki-设计原理翻译二)</a>
+    
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">2</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/LeonBCK/" style="font-size: 18.33px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/ZhouFyk/" style="font-size: 20px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 11.67px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 11.67px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/lucas556/" style="font-size: 15px;">lucas556</a> <a href="/tags/zcash/" style="font-size: 11.67px;">zcash</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/安全开发/" style="font-size: 13.33px;">安全开发</a> <a href="/tags/智能合约/" style="font-size: 13.33px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 16.67px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 20px;">矿池</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 11.67px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> |
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

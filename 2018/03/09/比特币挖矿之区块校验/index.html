@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="星云比特">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>比特币挖矿之区块校验 | 星云比特</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="星云比特" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/blockchain/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/pool/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/wallet/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/resources/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="比特币挖矿之区块校验">
+            
+	            比特币挖矿之区块校验
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/矿池">
+            矿池
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/矿池">
+						矿池
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/LeonBCK">
+						LeonBCK
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/比特币">
+						比特币
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/09</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>在<a href="http://c60block.com/2018/02/28/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E4%B9%8B%E7%9F%BF%E5%B7%A5%E4%BB%BB%E5%8A%A1-1/" target="_blank" rel="noopener">比特币挖矿之矿工任务</a>中我们提到，矿工的首要任务是同步区块链已有数据，监听新区块。当新的区块在网络中传播时，每一个全节点在将它转发到其他节点之前，会进行一系列的测试去验证区块的合法性。下面我们将对校验标准进行具体介绍。</p>
+<h2 id="区块校验"><a href="#区块校验" class="headerlink" title="区块校验"></a>区块校验</h2><p>比特币区块的校验标准如下：<br>1、区块头的的哈希值满足当前目标值（工作量证明）<br>2、重构Merkle树得到的树根与区块头中hashMerkleRoot值一致（验证MerkleRoot是否由区块中交易得到）<br>3、区块大小在长度限制内<br>4、第一个交易是coinbase交易,且其他交易都不是coinbase交易<br>5、遍历区块内所有交易，<a href="http://c60block.com/2018/03/09/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E4%B9%8B%E4%BA%A4%E6%98%93%E6%A0%A1%E9%AA%8C/" target="_blank" rel="noopener">检查交易</a>合法性</p>
+<p>以上的校验标准主要在比特币核心客户端的<a href="https://github.com/bitcoin/bitcoin/blob/3fa24bb217b207d964acd4db4cb5df085a7d3ce5/src/validation.cpp#L3008" target="_blank" rel="noopener">CheckBlock</a>函数中获得，具体源码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">bool CheckBlock(const CBlock&amp; block, CValidationState&amp; state, const Consensus::Params&amp; consensusParams, bool fCheckPOW, bool fCheckMerkleRoot)</span><br><span class="line">&#123;</span><br><span class="line">    // These are checks that are independent of context.</span><br><span class="line">    </span><br><span class="line">    // 如果区块已经检查过，则直接返回结果true</span><br><span class="line">    if (block.fChecked)</span><br><span class="line">        return true;</span><br><span class="line">    </span><br><span class="line">    // 检查区块头是否满足工作量要求 </span><br><span class="line">    if (!CheckBlockHeader(block, state, consensusParams, fCheckPOW))</span><br><span class="line">        return false;</span><br><span class="line"></span><br><span class="line">    // 判断是否校验MerkleRoot 若检查，则校验MerkleRoot是否符合要求，是否存在重复交易</span><br><span class="line">    if (fCheckMerkleRoot) &#123;</span><br><span class="line">        bool mutated;</span><br><span class="line">        // 重新构建一遍Merkle树，返回MerkleRoot</span><br><span class="line">        uint256 hashMerkleRoot2 = BlockMerkleRoot(block, &amp;mutated);</span><br><span class="line">        if (block.hashMerkleRoot != hashMerkleRoot2)</span><br><span class="line">            return state.DoS(100, false, REJECT_INVALID, &quot;bad-txnmrklroot&quot;,true, &quot;hashMerkleRoot mismatch&quot;);</span><br><span class="line"></span><br><span class="line">        // Check for merkle tree malleability (CVE-2012-2459): repeating sequences</span><br><span class="line">        // of transactions in a block without affecting the merkle root of a block,</span><br><span class="line">        // while still invalidating it.</span><br><span class="line">        if (mutated)</span><br><span class="line">            return state.DoS(100, false, REJECT_INVALID, &quot;bad-txns-duplicate&quot;,true, &quot;duplicate transaction&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 在我们做任何的交易校验之前，应该首先做潜在的问题校验，这样一旦我们发现问题，便可以将区块头标记为无效 隔离见证数据并不在此处校验</span><br><span class="line"></span><br><span class="line">    // 大小限制</span><br><span class="line">    // 区块交易不为空，至少存在coinbase交易</span><br><span class="line">    // 区块size和weight符合要求</span><br><span class="line">    if (block.vtx.empty() || block.vtx.size() * WITNESS_SCALE_FACTOR &gt; MAX_BLOCK_WEIGHT || ::GetSerializeSize(block, SER_NETWORK, PROTOCOL_VERSION| SERIALIZE_TRANSACTION_NO_WITNESS) * WITNESS_SCALE_FACTOR &gt; MAX_BLOCK_WEIGHT)</span><br><span class="line">            return state.DoS(100, false, REJECT_INVALID, &quot;bad-blk-length&quot;,false, &quot;size limits failed&quot;);</span><br><span class="line">    </span><br><span class="line">    // First transaction must be coinbase, the rest must not be</span><br><span class="line">    // 校验首个交易是否是coinbase交易</span><br><span class="line">    if (block.vtx.empty() || !block.vtx[0]-&gt;IsCoinBase())</span><br><span class="line">        return state.DoS(100, false, REJECT_INVALID, &quot;bad-cb-missing&quot;, false,&quot;first tx is not coinbase&quot;);</span><br><span class="line">    // 校验coinbase交易是否唯一</span><br><span class="line">    for (unsigned int i = 1; i &lt; block.vtx.size(); i++)</span><br><span class="line">        if (block.vtx[i]-&gt;IsCoinBase())</span><br><span class="line">            return state.DoS(100, false, REJECT_INVALID, &quot;bad-cb-multiple&quot;,false, &quot;more than one coinbase&quot;);</span><br><span class="line"></span><br><span class="line">    // Check transactions</span><br><span class="line">    // 校验交易是否符合要求，此函数将在比特币挖矿之交易校验中具体介绍</span><br><span class="line">    for (const auto&amp; tx : block.vtx)</span><br><span class="line">        if (!CheckTransaction(*tx, state, false))</span><br><span class="line">            return state.Invalid(false, state.GetRejectCode(),state.GetRejectReason(),strprintf(&quot;Transaction check failed (tx hash %s) %s&quot;, tx-&gt;GetHash().ToString(), state.GetDebugMessage()));</span><br><span class="line"></span><br><span class="line">    unsigned int nSigOps = 0;</span><br><span class="line">    for (const auto&amp; tx : block.vtx)</span><br><span class="line">    &#123;</span><br><span class="line">        nSigOps += GetLegacySigOpCount(*tx);</span><br><span class="line">    &#125;</span><br><span class="line">    if (nSigOps * WITNESS_SCALE_FACTOR &gt; MAX_BLOCK_SIGOPS_COST)</span><br><span class="line">        return state.DoS(100, false, REJECT_INVALID, &quot;bad-blk-sigops&quot;, false,&quot;out-of-bounds SigOpCount&quot;);</span><br><span class="line"></span><br><span class="line">    if (fCheckPOW &amp;&amp; fCheckMerkleRoot)</span><br><span class="line">        block.fChecked = true;</span><br><span class="line"></span><br><span class="line">    return ture;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>检查区块头是否满足工作量要求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">static bool CheckBlockHeader(const CBlockHeader&amp; block, CValidationState&amp;state, const Consensus::Params&amp; consensusParams, bool fCheckPOW = true)</span><br><span class="line">&#123;</span><br><span class="line">    // Check proof of work matches claimed amount</span><br><span class="line">    // 检查工作量难度是否满足声明要求</span><br><span class="line">    // CheckProofOfWork方法已经在比特币挖矿之随机数中介绍过</span><br><span class="line">    if (fCheckPOW &amp;&amp; !CheckProofOfWork(block.GetHash(), block.nBits,consensusParams))</span><br><span class="line">        return state.DoS(50, false, REJECT_INVALID, &quot;high-hash&quot;, false, &quot;proof of work failed&quot;);</span><br><span class="line">    </span><br><span class="line">    return ture;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://xingyunbite.github.io" target="_blank">xingyunbite</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/09/比特币挖矿之交易校验/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(比特币挖矿之交易校验)</a>
+    
+    
+		
+		
+        <a href="/2018/03/09/智能合约最佳实践翻译一/" class="next-post btn btn-default">下一篇(智能合约最佳实践翻译一)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link current" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">2</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/LeonBCK/" style="font-size: 18.33px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/ZhouFyk/" style="font-size: 20px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 11.67px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 11.67px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/lucas556/" style="font-size: 15px;">lucas556</a> <a href="/tags/zcash/" style="font-size: 11.67px;">zcash</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/安全开发/" style="font-size: 13.33px;">安全开发</a> <a href="/tags/智能合约/" style="font-size: 13.33px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 16.67px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 20px;">矿池</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 11.67px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> |
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
