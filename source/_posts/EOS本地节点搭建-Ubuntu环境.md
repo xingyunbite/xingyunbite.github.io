@@ -74,4 +74,5 @@ plugin = eosio::http_plugin
 等待一定时间后，我们发现依然没有正常的出块，同时给出提示信息"Not producing block because it isn't my turn, its eosio"
 我们知道eos使用的是DPOS共识模式，而在config.ini中我们配置了21个producer,那么是否是因为eosio是eos在local testnet下的默认节点，而配置文件中没有对应的producer导致的呢？ 我在producer-name = initu 下增加了 producer-name = eosio 再次运行nodeos，发现nodeos运行正常，成功出块，只是块中没有交易。
 ![image](/images/nodeos_produce_blocks.png)
+![image](/images/cleos_get_info.png)
 至此，我便完成了eos本地节点的搭建，由于eos代码更新较快，官方文档没有同步更新，踩了许多了坑，特此记录。
