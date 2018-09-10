@@ -1,0 +1,471 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>EOS-合约理解 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="EOS-合约理解">
+            
+	            EOS-合约理解
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/智能合约">
+            智能合约
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ZhouFyk">
+						ZhouFyk
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/以太坊">
+						以太坊
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/EOS">
+						EOS
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/智能合约">
+						智能合约
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/15</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a href="https://etherscan.io/address/0x86fa049857e0209aa7d9e616f7eb3b3b78ecfdb0#code" target="_blank" rel="noopener">合约链接</a></p>
+<h2 id="结构组成"><a href="#结构组成" class="headerlink" title="结构组成"></a>结构组成</h2><p>使用了 <a href="https://github.com/dapphub" target="_blank" rel="noopener">dapphub 的库</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">A:DSAuthority-----     DSAuthEvents</span><br><span class="line">                  |       |</span><br><span class="line">A:ERC20	 DSMath	   ---&gt; DSAuth      DSNote</span><br><span class="line">   |	   |              |           |</span><br><span class="line">    -------                -----------</span><br><span class="line">        |                     |</span><br><span class="line">    DSTokenBase             DSStop</span><br><span class="line">        |                     |</span><br><span class="line">         ---------------------</span><br><span class="line">                   |</span><br><span class="line">                 DSToken</span><br><span class="line"></span><br><span class="line">A:abstract contract</span><br><span class="line">下面的合约继承上面的合约。DSAuthority 在 DSAuth 中被使用。</span><br></pre></td></tr></table></figure>
+<h2 id="合约简介"><a href="#合约简介" class="headerlink" title="合约简介"></a>合约简介</h2><h3 id="1-DSNote"><a href="#1-DSNote" class="headerlink" title="1. DSNote"></a>1. <a href="https://dapp.tools/dappsys/ds-note.html" target="_blank" rel="noopener">DSNote</a></h3><p>记录合约。定义了事件 <code>LogNote</code>，声明为 <code>anonymous</code>。定义了修饰器 <code>note</code>，内部会触发事件 <code>LogNote</code>。</p>
+<h3 id="2-DSAuth"><a href="#2-DSAuth" class="headerlink" title="2. DSAuth"></a>2. <a href="https://dapp.tools/dappsys/ds-auth.html" target="_blank" rel="noopener">DSAuth</a></h3><p>2.1 DSAuthority</p>
+<p>抽象函数，只有一个 <code>canCall</code> 函数。</p>
+<p>2.2 DSAuthEvents</p>
+<p>认证事件合约。只有两个事件 <code>LogSerAuthority / LogSetOwner</code>。当设置 <code>Authority / Owner</code> 时触发。</p>
+<p>2.3 DSAuth</p>
+<p>继承了 <code>DSAuthEvents</code>。设置 <code>Authority / Owner</code>，以及对来源的检测。</p>
+<h3 id="3-DSStop"><a href="#3-DSStop" class="headerlink" title="3. DSStop"></a>3. <a href="https://dapp.tools/dappsys/ds-stop.html" target="_blank" rel="noopener">DSStop</a></h3><p>继承 <code>DSAuth</code>，<code>DSNote</code>。设置 <code>stopped</code>，停止标识符。</p>
+<h3 id="4-DSMath"><a href="#4-DSMath" class="headerlink" title="4. DSMath"></a>4. <a href="https://dapp.tools/dappsys/ds-math.html" target="_blank" rel="noopener">DSMath</a></h3><p>安全的常规数学运算。包含了 <code>uint256 / uint128 / int256 / WAD / RAY</code> 等相关的运算。</p>
+<h3 id="5-ERC20"><a href="#5-ERC20" class="headerlink" title="5. ERC20"></a>5. <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md" target="_blank" rel="noopener">ERC20</a></h3><p>以太坊上发行代币的接口。实现此接口，可以方便对代币进行操作。</p>
+<h3 id="6-DSToken"><a href="#6-DSToken" class="headerlink" title="6. DSToken"></a>6. <a href="https://dapp.tools/dappsys/ds-token.html" target="_blank" rel="noopener">DSToken</a></h3><p>6.1 DSTokenBase</p>
+<p>继承 <code>ERC20 / DSMath</code> 合约。实现了抽象函数中的方法，完成了代币的基础功能。</p>
+<p>6.2 DSToken</p>
+<p>具体代币的合约，实际的交互合约。</p>
+<ul>
+<li>以上与所链接的文档有些许差别。</li>
+</ul>
+<h2 id="合约代码阅读"><a href="#合约代码阅读" class="headerlink" title="合约代码阅读"></a>合约代码阅读</h2><h3 id="1-DSNote-1"><a href="#1-DSNote-1" class="headerlink" title="1. DSNote"></a>1. DSNote</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// 记录的合约</span><br><span class="line">contract DSNote &#123;</span><br><span class="line">    /*</span><br><span class="line">    记录 事件 声明了 anonymous，使用了 indexed</span><br><span class="line">    */ </span><br><span class="line">    event LogNote(</span><br><span class="line">        bytes4   indexed  sig,</span><br><span class="line">        address  indexed  guy,</span><br><span class="line">        bytes32  indexed  foo,</span><br><span class="line">        bytes32  indexed  bar,</span><br><span class="line">	uint	 	  wad,</span><br><span class="line">        bytes             fax</span><br><span class="line">    ) anonymous;</span><br><span class="line"></span><br><span class="line">    // 修饰器</span><br><span class="line">    modifier note &#123;</span><br><span class="line">        bytes32 foo;</span><br><span class="line">        bytes32 bar;</span><br><span class="line"></span><br><span class="line">        // 内联汇编</span><br><span class="line">        assembly &#123;</span><br><span class="line">            // := 赋值</span><br><span class="line">            // calldataload(p) : 从 p 位置开始调用数据 (32 bytes)</span><br><span class="line">            foo := calldataload(4)</span><br><span class="line">            bar := calldataload(36)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 触发 记录事件</span><br><span class="line">        LogNote(msg.sig, msg.sender, foo, bar, msg.value, msg.data);</span><br><span class="line"></span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据<a href="https://solidity.readthedocs.io/en/latest/contracts.html#events" target="_blank" rel="noopener"><code>event</code> 的文档描述</a>：</p>
+<blockquote>
+<p>Up to three parameters can receive the attribute <code>indexed</code> which will cause the respective arguments to be searched for: It is possible to filter for specific values of indexed arguments in the user interface.</p>
+</blockquote>
+<p>最多只能有三个参数可以接受 <code>indexed</code> 属性，不知道为什么此处有 4 个。<code>indexed</code> 指定的参数可以在用户界面中被搜索。</p>
+<p><code>anonymous</code> 的声明，<a href="https://solidity.readthedocs.io/en/latest/contracts.html#events" target="_blank" rel="noopener"><code>event</code> 的文档描述</a>：</p>
+<blockquote>
+<p>The hash of the signature of the event is one of the topics except if you declared the event with <code>anonymous</code> specifier. This means that it is not possible to filter for specific anonymous events by name.</p>
+<p>除非你使用 <code>anonymous</code> 声明事件，否则事件签名的哈希值将成为 topic 之一。意思是无法通过名称筛选指定的 <code>anonymous</code> 事件。</p>
+</blockquote>
+<p><a href="https://solidity.readthedocs.io/en/latest/assembly.html#inline-assembly" target="_blank" rel="noopener"><code>assembly</code> 的文档描述</a>：</p>
+<blockquote>
+<p>函数式赋值, 如 x := add(y, 3)</p>
+</blockquote>
+<p><a href="https://solidity.readthedocs.io/en/latest/assembly.html#opcodes" target="_blank" rel="noopener"><code>opcodes</code> 的文档描述</a>：</p>
+<blockquote>
+<p>calldataload(p) : 从 p 位置开始调用数据 (32 bytes)</p>
+</blockquote>
+<p><code>foo, bar</code> 两个参数，一直是当前调用函数相关的值。</p>
+<h3 id="2-DSAuthority"><a href="#2-DSAuthority" class="headerlink" title="2. DSAuthority"></a>2. DSAuthority</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">contract DSAuthority &#123;</span><br><span class="line">    // 函数未实现</span><br><span class="line">    function canCall(</span><br><span class="line">        address src, address dst, bytes4 sig</span><br><span class="line">    ) constant returns (bool);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个抽象合约，<code>canCall</code> 函数未实现。<code>constant</code> 表示函数不会对合约状态进行修改。</p>
+<h3 id="3-DSAuthEvents"><a href="#3-DSAuthEvents" class="headerlink" title="3. DSAuthEvents"></a>3. DSAuthEvents</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">contract DSAuthEvents &#123;</span><br><span class="line">    // 记录验证 事件</span><br><span class="line">    event LogSetAuthority (address indexed authority);</span><br><span class="line">    // 记录主人 事件</span><br><span class="line">    event LogSetOwner     (address indexed owner);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只包含了两个事件的声明。当用户设置 <code>authority / owner</code> 时会触发。</p>
+<h3 id="4-DSAuth"><a href="#4-DSAuth" class="headerlink" title="4. DSAuth"></a>4. DSAuth</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">// 认证合约</span><br><span class="line">// `is` 表示继承了 `DSAuthEvents`</span><br><span class="line">contract DSAuth is DSAuthEvents &#123;</span><br><span class="line">    DSAuthority  public  authority;</span><br><span class="line">    address      public  owner;</span><br><span class="line">  </span><br><span class="line">    // 修饰器</span><br><span class="line">    modifier auth &#123;</span><br><span class="line">        // isAuthorized() 为 true</span><br><span class="line">        assert(isAuthorized(msg.sender, msg.sig));</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 修饰器 未被使用到</span><br><span class="line">    modifier authorized(bytes4 sig) &#123;</span><br><span class="line">    	// isAuthorized() 为 true</span><br><span class="line">        assert(isAuthorized(msg.sender, sig));</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    // 构造函数，设置 owner</span><br><span class="line">    function DSAuth() &#123;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">        LogSetOwner(msg.sender);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 验证函数</span><br><span class="line">    function assert(bool x) internal &#123;</span><br><span class="line">        if (!x) throw;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 通过 auth 验证，设置 owner，触发事件</span><br><span class="line">    function setOwner(address owner_) auth</span><br><span class="line">    &#123;</span><br><span class="line">        owner = owner_;</span><br><span class="line">        LogSetOwner(owner);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 通过 auth 验证，设置 authority，触发事件</span><br><span class="line">    function setAuthority(DSAuthority authority_) auth</span><br><span class="line">    &#123;</span><br><span class="line">        authority = authority_;</span><br><span class="line">        LogSetAuthority(authority);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 认证函数 根据 src 和 authority 的情况来返回操作结果</span><br><span class="line">    function isAuthorized(address src, bytes4 sig) internal returns (bool) &#123;</span><br><span class="line">        if (src == address(this)) &#123; </span><br><span class="line">            return true;</span><br><span class="line">        &#125; else if (src == owner) &#123; </span><br><span class="line">            return true;</span><br><span class="line">        &#125; else if (authority == DSAuthority(0)) &#123; </span><br><span class="line">            return false;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return authority.canCall(src, this, sig);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>合约继承了认证事件。合约主要用来对认证部分进行处理。在设置 owner 和 authority 之前，触发 auth 修饰器，通过函数 <code>isAuthorized()</code> 来对消息发送者 <code>msg</code> 进行验证。消息发送者 <code>msg</code> 包含：</p>
+<p>4.1 <code>msg.data(bytes)</code>：完整的调用数据<br>4.2 <code>msg.gas(uint)</code>：剩余燃气 - 在版本 0.4.21 中废弃并由 <code>gasleft()</code> 取代<br>4.3 <code>msg.sender(address)</code>：当前消息的发送者<br>4.4 <code>msg.sig(bytes4)</code>：调用数据的前四个字节（即函数的标识符）<br>4.5 <code>msg.value(uint)</code>：伴随消息发送的 wei 的数值</p>
+<p>函数 <code>isAuthorized()</code> 是 <code>internal</code> 内部函数，只能在内部或者派生的合约中被调用，无需使用 <code>this</code>。首先将 <code>src</code> 与 <code>this</code> 的地址进行比较，如果为 <code>true</code> 则返回 <code>true</code>。<a href="https://solidity.readthedocs.io/en/latest/units-and-global-variables.html#contract-related" target="_blank" rel="noopener"><code>this</code> 的定义</a>是：</p>
+<blockquote>
+<p><code>this</code> (current contract’s type): the current contract, explicitly convertible to Address</p>
+<p>当前合约的类型：当前的合约，显式转换为地址。</p>
+</blockquote>
+<p>然后比较 <code>src</code> 与 <code>owner</code>，如果为 <code>true</code> 返回 <code>true</code>。构造函数中 <code>owner</code> 就是部署合约的用户地址，因为构造函数只设置了 <code>owner</code>，所以默认只用操作 <code>owner</code>，到此就截止了。</p>
+<p>然后比较 <code>authority</code> 与 <code>DSAuthority(0)</code>。<code>DSAuthority(0)</code> 表示将 0 强制转换成 <code>DSAuthority</code> 类型，此时与 <code>authority</code> 进行比较，如果相等，则说明 <code>authority</code> 未被赋值。因为任何变量如果没有被赋值，那么它的初始值就是 0。所以相等，说明未被赋值过，返回 false。而如果比较结果为 false，则说明使用了 <code>authority</code> 变量，那么可以进行下一步了，即调用 <code>authority.canCall(src, this, sig)</code> 并返回其结果。此处 <code>canCall</code> 函数并没有被实现，但是提供了一个接口给用户，如果用户想要使用，只需要继承 <code>DSAuthority</code>，然后实现该函数，然后使用该继承的合约即可。</p>
+<h3 id="5-DSStop"><a href="#5-DSStop" class="headerlink" title="5. DSStop"></a>5. DSStop</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 停止合约</span><br><span class="line">contract DSStop is DSAuth, DSNote &#123;</span><br><span class="line">    // 停止标识符</span><br><span class="line">    bool public stopped;</span><br><span class="line"></span><br><span class="line">    // 修饰器 检测停止标识符</span><br><span class="line">    modifier stoppable &#123;</span><br><span class="line">        assert (!stopped);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 停止函数</span><br><span class="line">    function stop() auth note &#123;</span><br><span class="line">        stopped = true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 启动函数</span><br><span class="line">    function start() auth note &#123;</span><br><span class="line">        stopped = false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继承了 <code>DSAuth / DSNote</code> 合约。定义了 <code>stoppable</code> 检测众筹是否停止。定义了两个函数，分别用来设置停止标识符，表示启动或结束，设置的时候通过 <code>auth</code> 来进行权限验证，<code>note</code> 来触发变更。</p>
+<h3 id="6-DSMath"><a href="#6-DSMath" class="headerlink" title="6. DSMath"></a>6. DSMath</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br></pre></td><td class="code"><pre><span class="line">// 安全的数学运算</span><br><span class="line">contract DSMath &#123;</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">    标准 uint256 函数 256 位无符号数 即 非负整数 0 ~ 2^256 - 1</span><br><span class="line"></span><br><span class="line">    constant 表示不会改变状态变量</span><br><span class="line">    internal 表示只会被本合约和继承了的合约所使用</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    // 加法</span><br><span class="line">    function add(uint256 x, uint256 y) constant internal returns (uint256 z) &#123;</span><br><span class="line">        assert((z = x + y) &gt;= x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 减法</span><br><span class="line">    function sub(uint256 x, uint256 y) constant internal returns (uint256 z) &#123;</span><br><span class="line">        assert((z = x - y) &lt;= x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 乘法</span><br><span class="line">    function mul(uint256 x, uint256 y) constant internal returns (uint256 z) &#123;</span><br><span class="line">        assert((z = x * y) &gt;= x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 除法 当除以 0 时，solidity 会自动抛出异常</span><br><span class="line">    function div(uint256 x, uint256 y) constant internal returns (uint256 z) &#123;</span><br><span class="line">        z = x / y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 返回较小值</span><br><span class="line">    function min(uint256 x, uint256 y) constant internal returns (uint256 z) &#123;</span><br><span class="line">        return x &lt;= y ? x : y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 返回较大值</span><br><span class="line">    function max(uint256 x, uint256 y) constant internal returns (uint256 z) &#123;</span><br><span class="line">        return x &gt;= y ? x : y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    uint128 functions (h is for half) 由 256 位变为 128 位 其余同上</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    function hadd(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        assert((z = x + y) &gt;= x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function hsub(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        assert((z = x - y) &lt;= x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function hmul(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        assert((z = x * y) &gt;= x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function hdiv(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        z = x / y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function hmin(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        return x &lt;= y ? x : y;</span><br><span class="line">    &#125;</span><br><span class="line">    function hmax(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        return x &gt;= y ? x : y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    int256 functions 有符号 256 位函数</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    function imin(int256 x, int256 y) constant internal returns (int256 z) &#123;</span><br><span class="line">        return x &lt;= y ? x : y;</span><br><span class="line">    &#125;</span><br><span class="line">    function imax(int256 x, int256 y) constant internal returns (int256 z) &#123;</span><br><span class="line">        return x &gt;= y ? x : y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    WAD math 提供 18 位精度，同上 乘法和除法加入 WAD</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    uint128 constant WAD = 10 ** 18;</span><br><span class="line"></span><br><span class="line">    function wadd(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hadd(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function wsub(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hsub(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function wmul(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        z = cast((uint256(x) * y + WAD / 2) / WAD);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function wdiv(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        z = cast((uint256(x) * WAD + y / 2) / y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function wmin(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hmin(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    function wmax(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hmax(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    RAY math 同上，但是精度不同 为 10 ** 27</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">    uint128 constant RAY = 10 ** 27;</span><br><span class="line"></span><br><span class="line">    function radd(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hadd(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function rsub(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hsub(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function rmul(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        z = cast((uint256(x) * y + RAY / 2) / RAY);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function rdiv(uint128 x, uint128 y) constant internal returns (uint128 z) &#123;</span><br><span class="line">        z = cast((uint256(x) * RAY + y / 2) / y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 指数运算</span><br><span class="line">    function rpow(uint128 x, uint64 n) constant internal returns (uint128 z) &#123;</span><br><span class="line">        // This famous algorithm is called &quot;exponentiation by squaring&quot;</span><br><span class="line">        // and calculates x^n with x as fixed-point and n as regular unsigned.</span><br><span class="line">        //</span><br><span class="line">        // It&apos;s O(log n), instead of O(n) for naive repeated multiplication.</span><br><span class="line">        //</span><br><span class="line">        // These facts are why it works:</span><br><span class="line">        //</span><br><span class="line">        //  If n is even, then x^n = (x^2)^(n/2).</span><br><span class="line">        //  If n is odd,  then x^n = x * x^(n-1),</span><br><span class="line">        //   and applying the equation for even x gives</span><br><span class="line">        //    x^n = x * (x^2)^((n-1) / 2).</span><br><span class="line">        //</span><br><span class="line">        //  Also, EVM division is flooring and</span><br><span class="line">        //    floor[(n-1) / 2] = floor[n / 2].</span><br><span class="line"></span><br><span class="line">        z = n % 2 != 0 ? x : RAY;</span><br><span class="line"></span><br><span class="line">        for (n /= 2; n != 0; n /= 2) &#123;</span><br><span class="line">            x = rmul(x, x);</span><br><span class="line"></span><br><span class="line">            if (n % 2 != 0) &#123;</span><br><span class="line">                z = rmul(z, x);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function rmin(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hmin(x, y);</span><br><span class="line">    &#125;</span><br><span class="line">    function rmax(uint128 x, uint128 y) constant internal returns (uint128) &#123;</span><br><span class="line">        return hmax(x, y);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // x 的 uint256 类型可以无损被转换成 uint128 类型</span><br><span class="line">    function cast(uint256 x) constant internal returns (uint128 z) &#123;</span><br><span class="line">        assert((z = uint128(x)) == x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-ERC20"><a href="#7-ERC20" class="headerlink" title="7. ERC20"></a>7. ERC20</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// ERC20 抽象合约 接口</span><br><span class="line">contract ERC20 &#123;</span><br><span class="line">    // 代币总量</span><br><span class="line">    function totalSupply() constant returns (uint supply);</span><br><span class="line">    // 用户资产</span><br><span class="line">    function balanceOf(address who) constant returns (uint value);</span><br><span class="line">    // 第三方可提币额度</span><br><span class="line">    function allowance(address owner, address spender) constant returns (uint _allowance);</span><br><span class="line"></span><br><span class="line">    // 转账到指定账户</span><br><span class="line">    function transfer(address to, uint value) returns (bool ok);</span><br><span class="line">    // 从第三方账户转账</span><br><span class="line">    function transferFrom(address from, address to, uint value) returns (bool ok);</span><br><span class="line">    // 设置提币额度</span><br><span class="line">    function approve(address spender, uint value) returns (bool ok);</span><br><span class="line"></span><br><span class="line">    // 转账事件</span><br><span class="line">    event Transfer(address indexed from, address indexed to, uint value);</span><br><span class="line">    // 提币事件</span><br><span class="line">    event Approval(address indexed owner, address indexed spender, uint value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以太坊规定的一个代币接口。与普遍意义上的接口目的相同，对于某些功能的一些约定，满足接口来实现更方便的协同操作。如果代币都实现了接口，那么钱包就能使用同一套方式来操作这些代币等等。</p>
+<h3 id="8-DSTokenBase"><a href="#8-DSTokenBase" class="headerlink" title="8. DSTokenBase"></a>8. DSTokenBase</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">// 代币基础合约</span><br><span class="line">contract DSTokenBase is ERC20, DSMath &#123;</span><br><span class="line">    uint256                                            _supply; // 代币当前总量</span><br><span class="line">    mapping (address =&gt; uint256)                       _balances; // 余额数组</span><br><span class="line">    mapping (address =&gt; mapping (address =&gt; uint256))  _approvals; // 提币额度数组</span><br><span class="line">    </span><br><span class="line">    // 构造函数</span><br><span class="line">    function DSTokenBase(uint256 supply) &#123;</span><br><span class="line">        _balances[msg.sender] = supply; // 设置发行代币者的初始余额</span><br><span class="line">        _supply = supply; // 设置当前代币总额</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 返回当前代币总量</span><br><span class="line">    function totalSupply() constant returns (uint256) &#123;</span><br><span class="line">        return _supply;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 返回 src 用户的余额</span><br><span class="line">    function balanceOf(address src) constant returns (uint256) &#123;</span><br><span class="line">        return _balances[src];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 返回 guy 可以从 src 提取的币量</span><br><span class="line">    function allowance(address src, address guy) constant returns (uint256) &#123;</span><br><span class="line">        return _approvals[src][guy];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 从自己的余额中转移 wad 个代币到 dst 余额中</span><br><span class="line">    function transfer(address dst, uint wad) returns (bool) &#123;</span><br><span class="line">        // 自己的余额足够转账数量 否则 throw</span><br><span class="line">        assert(_balances[msg.sender] &gt;= wad);</span><br><span class="line">        </span><br><span class="line">        // 通过 DSMath 来对余额进行增减</span><br><span class="line">        _balances[msg.sender] = sub(_balances[msg.sender], wad);</span><br><span class="line">        _balances[dst] = add(_balances[dst], wad);</span><br><span class="line">        </span><br><span class="line">        // 触发事件</span><br><span class="line">        Transfer(msg.sender, dst, wad);</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 从 src 转移 wad 个代币到 dst 余额</span><br><span class="line">    function transferFrom(address src, address dst, uint wad) returns (bool) &#123;</span><br><span class="line">    	// 转账金额不能超额</span><br><span class="line">        assert(_balances[src] &gt;= wad);</span><br><span class="line">        assert(_approvals[src][msg.sender] &gt;= wad);</span><br><span class="line">        </span><br><span class="line">        // 通过 DSMath 来处理余额</span><br><span class="line">        _approvals[src][msg.sender] = sub(_approvals[src][msg.sender], wad);</span><br><span class="line">        _balances[src] = sub(_balances[src], wad);</span><br><span class="line">        _balances[dst] = add(_balances[dst], wad);</span><br><span class="line">        </span><br><span class="line">        // 触发事件</span><br><span class="line">        Transfer(src, dst, wad);</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 设置 guy 可以从自己的余额中提取 wad 个代币</span><br><span class="line">    function approve(address guy, uint256 wad) returns (bool) &#123;</span><br><span class="line">        _approvals[msg.sender][guy] = wad;</span><br><span class="line">        </span><br><span class="line">        Approval(msg.sender, guy, wad);</span><br><span class="line">        </span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继承 <code>DSMath</code> 和抽象合约 <code>ERC20</code>。实现 <code>ERC20</code> 的代币函数，使用 <code>DSMath</code> 来处理余额。</p>
+<h3 id="9-DSToken"><a href="#9-DSToken" class="headerlink" title="9. DSToken"></a>9. DSToken</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">// 具体代币合约</span><br><span class="line">// `DSTokenBase(0)` 运行了 `DSTokenBase` 的构造函数，传入的参数值为 0。</span><br><span class="line">contract DSToken is DSTokenBase(0), DSStop &#123;</span><br><span class="line">    bytes32  public  symbol; // 代币符号 如 EOS</span><br><span class="line">    uint256  public  decimals = 18; // 标准的代币精度，可以被定制</span><br><span class="line"></span><br><span class="line">    // 构造函数 设置代币符号</span><br><span class="line">    function DSToken(bytes32 symbol_) &#123;</span><br><span class="line">        symbol = symbol_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function transfer(address dst, uint wad) stoppable note returns (bool) &#123;</span><br><span class="line">        return super.transfer(dst, wad);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function transferFrom(</span><br><span class="line">        address src, address dst, uint wad</span><br><span class="line">    ) stoppable note returns (bool) &#123;</span><br><span class="line">        return super.transferFrom(src, dst, wad);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function approve(address guy, uint wad) stoppable note returns (bool) &#123;</span><br><span class="line">        return super.approve(guy, wad);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 推送 本合约 `transfer()` 的别名</span><br><span class="line">    function push(address dst, uint128 wad) returns (bool) &#123;</span><br><span class="line">        return transfer(dst, wad);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 拉取 本合约 `transferFrom()` 的特例</span><br><span class="line">    function pull(address src, uint128 wad) returns (bool) &#123;</span><br><span class="line">        return transferFrom(src, msg.sender, wad);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 充值 增加代币</span><br><span class="line">    function mint(uint128 wad) auth stoppable note &#123;</span><br><span class="line">        _balances[msg.sender] = add(_balances[msg.sender], wad);</span><br><span class="line">        _supply = add(_supply, wad);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 燃烧 销毁代币</span><br><span class="line">    function burn(uint128 wad) auth stoppable note &#123;</span><br><span class="line">        _balances[msg.sender] = sub(_balances[msg.sender], wad);</span><br><span class="line">        _supply = sub(_supply, wad);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Optional token name</span><br><span class="line"></span><br><span class="line">    bytes32   public  name = &quot;&quot;;</span><br><span class="line">    </span><br><span class="line">    function setName(bytes32 name_) auth &#123;</span><br><span class="line">        name = name_;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>transfer / transferFrom / approve / mint / burn</code> 等方法使用了 <code>stoppable / note</code> 修饰器，在执行这些函数前，需要判断众筹是否已经停止，如果未停止，触发记录事件。</p>
+<p><code>mint / burn</code> 还在其他修饰器之前使用了 <code>auth</code> 修饰器，表示在使用这两个函数时，首要检查调用这些函数的用户是否合法。</p>
+<p>比起 <code>ERC20</code> 约定的基本函数，本合约额外增加了 <code>push / pull / mint / burn</code>。从具体代码来看，<code>push</code> 成了 <code>transfer</code> 的一个别名，而 <code>pull</code> 调用 <code>transferFrom</code> 时将 <code>dst</code> 固定为 <code>msg.sender</code>。从逻辑上来看，<code>push / pull</code> 是针对转账的额外处理，用于当前用户对自身余额的操作。<code>mint / burn</code> 则是对应于 <code>EOS</code> 的众筹方式。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>从区块浏览器内查询到的 EOS 合约如上。合约本身并不复杂，Solidity 的基本语法，和 ERC20 代币的逻辑。但是如 <code>DSToken</code> 合约中的 <code>mint / burn</code> 则与 EOS 的众筹方式相关：<a href="https://github.com/EOSIO/eos-token-distribution" target="_blank" rel="noopener">GitHub 仓库</a> - <a href="https://etherscan.io/address/0xd0a6e6c54dbc68db5db3a091b171a77407ff7ccf#code" target="_blank" rel="noopener">区块浏览器合约地址</a>。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/16/简化版区块链的实现/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(简化版区块链的实现)</a>
+    
+    
+		
+		
+        <a href="/2018/03/11/Java中创建完整的以太坊钱包/" class="next-post btn btn-default">下一篇(Java中创建完整的以太坊钱包)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

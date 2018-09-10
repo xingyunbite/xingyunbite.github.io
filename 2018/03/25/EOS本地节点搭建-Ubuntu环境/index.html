@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>EOS本地节点搭建-Ubuntu环境 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="EOS本地节点搭建-Ubuntu环境">
+            
+	            EOS本地节点搭建-Ubuntu环境
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/EOS">
+						EOS
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/LeonBCK">
+						LeonBCK
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/25</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>本文编译环境为Ubuntu 16.04 LTS（腾讯云）。</p>
+<h2 id="安装local-testnet"><a href="#安装local-testnet" class="headerlink" title="安装local testnet"></a>安装local testnet</h2><p>安装的过程主要参照<a href="https://github.com/EOSIO/eos#autoubuntulocal" target="_blank" rel="noopener">官方文档</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/eosio/eos --recursive</span><br><span class="line">cd eos</span><br><span class="line">./eosio_build.sh</span><br></pre></td></tr></table></figure></p>
+<p>这个过程持续大约十分钟，当屏幕提示”EOSIO has been successfully built.”时，安装完成。<br><img src="/images/eos_build.png" alt="image"></p>
+<h2 id="单节点testnet配置、运行"><a href="#单节点testnet配置、运行" class="headerlink" title="单节点testnet配置、运行"></a>单节点testnet配置、运行</h2><p>按照文档进行<a href="https://github.com/EOSIO/eos#creating-and-launching-a-single-node-testnet" target="_blank" rel="noopener">单节点测试运行</a>配置。<br>在进入build/programs/nodeos目录下，运行nodeos,运行结果如下：<br><img src="/images/nodeos_try1.png" alt="image"><br>并没有出现文档中所说的报错退出，等待一分钟后，强制退出(Ctrl + C)。查看nodeos目录，并没有创建data-dir，也没有创建配置文件config.ini。<br><img src="/images/nodeos_ls1.png" alt="image"><br>查看Issues，发现有人遇到了一样的问题，上面有人给出的解决方案是使用config-dir命令自己创建，使用如下命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nodeos --config-dir data-dir/</span><br></pre></td></tr></table></figure></p>
+<p>查看nodeos目录，发现多出了data-dir文件夹，进入data-dir，可以看到配置文件config.ini。按照文档提示，对配置文件进行修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># Load the testnet genesis state, which creates some initial block producers with the default key</span><br><span class="line">genesis-json = &quot;genesis.json&quot;</span><br><span class="line"># Enable production on a stale chain, since a single-node test chain is pretty much always stale</span><br><span class="line">enable-stale-production = true</span><br><span class="line"># Enable block production with the testnet producers</span><br><span class="line">producer-name = inita</span><br><span class="line">producer-name = initb</span><br><span class="line">producer-name = initc</span><br><span class="line">producer-name = initd</span><br><span class="line">producer-name = inite</span><br><span class="line">producer-name = initf</span><br><span class="line">producer-name = initg</span><br><span class="line">producer-name = inith</span><br><span class="line">producer-name = initi</span><br><span class="line">producer-name = initj</span><br><span class="line">producer-name = initk</span><br><span class="line">producer-name = initl</span><br><span class="line">producer-name = initm</span><br><span class="line">producer-name = initn</span><br><span class="line">producer-name = inito</span><br><span class="line">producer-name = initp</span><br><span class="line">producer-name = initq</span><br><span class="line">producer-name = initr</span><br><span class="line">producer-name = inits</span><br><span class="line">producer-name = initt</span><br><span class="line">producer-name = initu</span><br><span class="line"># Load the block producer plugin, so you can produce blocks</span><br><span class="line">plugin = eosio::producer_plugin</span><br><span class="line"># Wallet plugin</span><br><span class="line">plugin = eosio::wallet_api_plugin</span><br><span class="line"># As well as API and HTTP plugins</span><br><span class="line">plugin = eosio::chain_api_plugin</span><br><span class="line">plugin = eosio::http_plugin</span><br></pre></td></tr></table></figure></p>
+<p>在配置genesis-json的时候，我们发现在eos目录下存在一个genesis.json文件，将之拷贝到data-dir目录下，原有配置不用修改。<br>再次运行nodeos，发现还是没有办法正常出块，而文档中也没有给出相应的说明。没办法，只能回过头来再次检查之前的配置，而最终解决这个问题也存在一定的偶然性，当我新开一个窗口，同时运行nodeos的时候，给出了如下提示：<br><img src="/images/eos_node00.png" alt="image"><br>我们发现nodeos读取的是eos/build/etc/eosio/node_00目录下的genesis.json，而当我们进入到node_00目录下的时候，发现该目录下也生成了一个config.ini文件，其生成时间与执行nodeos – config-dir的时间相同，这说明nodeos默认读取该目录下的配置文件，而我们刚才的配置无效，于是将data-dir目录下的config.ini覆盖掉node_00目录下的config.ini。<br>再次启动nodeos，发现正常启动。<br><img src="/images/nodeos_not_my_turn.png" alt="image"><br>等待一定时间后，我们发现依然没有正常的出块，同时给出提示信息”Not producing block because it isn’t my turn, its eosio”<br>我们知道eos使用的是DPOS共识模式，而在config.ini中我们配置了21个producer,那么是否是因为eosio是eos在local testnet下的默认节点，而配置文件中没有对应的producer导致的呢？ 我在producer-name = initu 下增加了 producer-name = eosio 再次运行nodeos，发现nodeos运行正常，成功出块，只是块中没有交易。<br><img src="/images/nodeos_produce_blocks.png" alt="image"><br><img src="/images/cleos_get_info.png" alt="image"><br>至此，我便完成了eos本地节点的搭建，由于eos代码更新较快，官方文档没有同步更新，踩了许多了坑，特此记录。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/25/生成助记词钱包/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(生成助记词钱包)</a>
+    
+    
+		
+		
+        <a href="/2018/03/24/智能合约最佳实践翻译五/" class="next-post btn btn-default">下一篇(智能合约最佳实践翻译五)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>比特币挖矿之随机数 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="比特币挖矿之随机数">
+            
+	            比特币挖矿之随机数
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/矿池">
+            矿池
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/LeonBCK">
+						LeonBCK
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/矿池">
+						矿池
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/比特币">
+						比特币
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/02</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="比特币区块头字段分析"><a href="#比特币区块头字段分析" class="headerlink" title="比特币区块头字段分析"></a>比特币区块头字段分析</h2><p>在<a href="https://xingyunbite.github.io/2018/02/28/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E4%B9%8B%E7%9F%BF%E5%B7%A5%E4%BB%BB%E5%8A%A1-1/" target="_blank" rel="noopener">比特币挖矿之矿工任务</a>中已经提到矿工的工作量主要就消耗在寻找使区块满足要求的随机数这一步。在比特币区块头的6个字段中，区块版本号nVersion只有在升级的时候才会改变。上一个区块Hash值hashPrevBlock在矿工不想制造软分叉的情况下，由最长链的最后一个区块决定。全网难度压缩表示<a href="https://xingyunbite.github.io/2018/02/09/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E4%B9%8B%E5%85%A8%E7%BD%91%E9%9A%BE%E5%BA%A6/" target="_blank" rel="noopener">nBits</a>由全网决定,每2016个区块重新调整一次，调整算法固定。上述三个字段对于每个矿工来说，可以理解为固定的。随机数nNonce即我们要找的解，因其字段大小为4字节，32位，因此存在2^32种可能。打包时间nTime可调整的范围根据前一个区块时间来决定，比上一个区块太超前或者太落后会被其他节点拒绝，一般情况下，矿工会直接使用机器当前时间戳。Merkle树根hashMerkleRoot，因其字段长度为256位，理论上存在2^256种可能，本字段的变化主要在于修改CoinBase交易的输入字段，CoinBase交易的改变会传导到至hashMerkleRoot。根据Hash函数特性，nNonce、nTime、hashMerkleRoot任意改变一个，都会导致区块头Hash值结果产生巨大变化。</p>
+<h2 id="随机数调整"><a href="#随机数调整" class="headerlink" title="随机数调整"></a>随机数调整</h2><p>比特币挖矿的修改主要是体现在调整随机数nNonce上，但是随着算力的不断增长，2^32的调整空间已经很难满足求解的需要，因此比特币采取的处理方式是当遍历完2^32个随机数空间后，调整CoinBase的输入字段，致使hashMerkleRoot改变，再次遍历随机数空间，直到发现满足要求的解为止。当然正常情况下，矿工无法遍历完所有的调整空间(2^256 * 2^32)。下面主要以分析代码的方式展示随机数的调整机制。<br><a href="https://github.com/bitcoin/bitcoin/blob/fd65937ec601326b479654a5ad14847adcdb214c/src/rpc/mining.cpp#L106" target="_blank" rel="noopener">构建区块头函数</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">UniValue generateBlocks(std::shared_ptr&lt;CReserveScript&gt; coinbaseScript, int nGenerate, uint64_t nMaxTries, bool keepScript)</span><br><span class="line">&#123;</span><br><span class="line">	// 内循环次数上限 nNonce的调整空间[0,2^16)</span><br><span class="line">	static const int nInnerLoopCount = 0x10000;</span><br><span class="line">	int nHeightEnd = 0;</span><br><span class="line">	int nHeight = 0;</span><br><span class="line"></span><br><span class="line">	&#123;   // Don&apos;t keep cs_main locked</span><br><span class="line">		LOCK(cs_main);</span><br><span class="line">		// 区块当前高度</span><br><span class="line">		nHeight = chainActive.Height();</span><br><span class="line">		// 待生成区块高度</span><br><span class="line">		nHeightEnd = nHeight+nGenerate;</span><br><span class="line">	&#125;</span><br><span class="line">	// nExtraNonce 为CoinBase交易输入部分</span><br><span class="line">	unsigned int nExtraNonce = 0;</span><br><span class="line">	UniValue blockHashes(UniValue::VARR);</span><br><span class="line">	// 循环生成区块，直到达到指定高度</span><br><span class="line">	while (nHeight &lt; nHeightEnd)</span><br><span class="line">	&#123;</span><br><span class="line">		// 创建区块模板</span><br><span class="line">		std::unique_ptr&lt;CBlockTemplate&gt; pblocktemplate(BlockAssembler(Params()).CreateNewBlock(coinbaseScript-&gt;reserveScript));</span><br><span class="line">		if (!pblocktemplate.get())</span><br><span class="line">		  throw JSONRPCError(RPC_INTERNAL_ERROR, &quot;Couldn&apos;t create new block&quot;);</span><br><span class="line">		// pblock 待构建区块</span><br><span class="line">		CBlock *pblock = &amp;pblocktemplate-&gt;block;</span><br><span class="line">		&#123;</span><br><span class="line">			LOCK(cs_main);</span><br><span class="line">			// 调整CoinBase输入脚本中的nExtranNonce</span><br><span class="line">			IncrementExtraNonce(pblock, chainActive.Tip(), nExtraNonce);</span><br><span class="line">		&#125;</span><br><span class="line">		// pblock-&gt;nNonce &lt; nInnerLoopCount 区块头随机数调整次数不能超过nInnerLooCount</span><br><span class="line">		// CheckProofOfWork(pblock-&gt;GetHash(),pblock-&gt;nBits,Params().GetConsensus()) 校验当前区块头Hash值是否满足要求</span><br><span class="line">		while (nMaxTries &gt; 0 &amp;&amp; pblock-&gt;nNonce &lt; nInnerLoopCount &amp;&amp;!CheckProofOfWork(pblock-&gt;GetHash(), pblock-&gt;nBits,Params().GetConsensus())) &#123;</span><br><span class="line">			// nNonce++</span><br><span class="line">			++pblock-&gt;nNonce;</span><br><span class="line">			--nMaxTries;</span><br><span class="line">		&#125;</span><br><span class="line">		// 超过最大尝试次数，退出循环</span><br><span class="line">		if (nMaxTries == 0) &#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		// 达到内循环次数上限，调整CoinBase交易的nExtraNonce，重新开始循环</span><br><span class="line">		if (pblock-&gt;nNonce == nInnerLoopCount) &#123;</span><br><span class="line">			continue;</span><br><span class="line">		&#125;</span><br><span class="line">		std::shared_ptr&lt;const CBlock&gt; shared_pblock = std::make_shared&lt;const CBlock&gt;(*pblock);</span><br><span class="line">		// 处理挖到的区块</span><br><span class="line">		if (!ProcessNewBlock(Params(), shared_pblock, true, nullptr))</span><br><span class="line">		    throw JSONRPCError(RPC_INTERNAL_ERROR, &quot;ProcessNewBlock, block not accepted&quot;);</span><br><span class="line">		++nHeight;</span><br><span class="line">		// 存放区块头Hash</span><br><span class="line">		blockHashes.push_back(pblock-&gt;GetHash().GetHex());</span><br><span class="line"></span><br><span class="line">		//mark script as important because it was used at least for one coinbase output if the script came from the wallet</span><br><span class="line">		if (keepScript)</span><br><span class="line">		&#123;</span><br><span class="line">			coinbaseScript-&gt;KeepScript();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return blockHashes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/bitcoin/bitcoin/blob/5961b23898ee7c0af2626c46d5d70e80136578d3/src/pow.cpp#L74" target="_blank" rel="noopener">校验工作量函数</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&amp; params)</span><br><span class="line">&#123;</span><br><span class="line">	bool fNegative;</span><br><span class="line">	bool fOverflow;</span><br><span class="line">	arith_uint256 bnTarget;</span><br><span class="line"></span><br><span class="line">	bnTarget.SetCompact(nBits, &amp;fNegative, &amp;fOverflow);</span><br><span class="line"></span><br><span class="line">	// Check range</span><br><span class="line">	if (fNegative || bnTarget == 0 || fOverflow || bnTarget &gt; UintToArith256(params.powLimit))</span><br><span class="line">	  return false;</span><br><span class="line"></span><br><span class="line">	// Check proof of work matches claimed amount</span><br><span class="line">	// 比较区块头hash值是否满足目标值</span><br><span class="line">	if (UintToArith256(hash) &gt; bnTarget)</span><br><span class="line">	    return false;</span><br><span class="line"></span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/bitcoin/bitcoin/blob/44080a90a29292df96e92f22242785c5040000a1/src/miner.cpp#L442" target="_blank" rel="noopener">调整CoinBase输入字段函数</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev,unsigned int&amp; nExtraNonce)</span><br><span class="line">&#123;</span><br><span class="line">	// Update nExtraNonce</span><br><span class="line">	static uint256 hashPrevBlock;</span><br><span class="line">	if (hashPrevBlock != pblock-&gt;hashPrevBlock)</span><br><span class="line">	&#123;</span><br><span class="line">		nExtraNonce = 0;</span><br><span class="line">		hashPrevBlock = pblock-&gt;hashPrevBlock;</span><br><span class="line">	&#125;</span><br><span class="line">	// nExtranNonce调整</span><br><span class="line">	++nExtraNonce;</span><br><span class="line">	// 正在打包的区块高度从版本2开始，要求coinbase交易的输入脚本以本区块高度开头</span><br><span class="line">	unsigned int nHeight = pindexPrev-&gt;nHeight+1; // Height first in coinbase required for block.version=2</span><br><span class="line">	CMutableTransaction txCoinbase(*pblock-&gt;vtx[0]);</span><br><span class="line">	// 构建coinbase交易的输入脚本</span><br><span class="line">	txCoinbase.vin[0].scriptSig = (CScript() &lt;&lt; nHeight &lt;&lt; CScriptNum(nExtraNonce)) + COINBASE_FLAGS;</span><br><span class="line">	assert(txCoinbase.vin[0].scriptSig.size() &lt;= 100);</span><br><span class="line"></span><br><span class="line">	pblock-&gt;vtx[0] = MakeTransactionRef(std::move(txCoinbase));</span><br><span class="line">	// 重新构建Merkle数，计算MerkleRoot</span><br><span class="line">	pblock-&gt;hashMerkleRoot = BlockMerkleRoot(*pblock);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/02/智能合约最佳实践翻译二/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(智能合约最佳实践翻译二)</a>
+    
+    
+		
+		
+        <a href="/2018/03/02/比特币挖矿之Merkle树/" class="next-post btn btn-default">下一篇(比特币挖矿之Merkle树)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

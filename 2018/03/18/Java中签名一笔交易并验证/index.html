@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>Java中签名一笔交易并验证 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Java中签名一笔交易并验证">
+            
+	            Java中签名一笔交易并验证
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/钱包">
+            钱包
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ciscolxh">
+						ciscolxh
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/钱包">
+						钱包
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/18</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="Java中签名一笔交易并验证"><a href="#Java中签名一笔交易并验证" class="headerlink" title="Java中签名一笔交易并验证"></a>Java中签名一笔交易并验证</h3><blockquote>
+<p>上一节讲了Java中创建钱包，这一节我们讲如何在Java中签名一笔交易</p>
+</blockquote>
+<p>准备工作就不做详细介绍了</p>
+<ul>
+<li>集成Java的环境查看<a href="https://github.com/ethereum/ethereumj" target="_blank" rel="noopener">这里</a></li>
+<li>搭建测试的私链查看<a href="http://c60block.com/2018/03/16/%E9%83%A8%E7%BD%B2%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%A7%81%E6%9C%89%E9%93%BE%E5%B9%B6%E6%8C%96%E7%9F%BF/" target="_blank" rel="noopener">这里</a></li>
+</ul>
+<p>直接切入重点。包里给我们提供了这样的一个方法，来构造一笔交易。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public Transaction(byte[] nonce, byte[] gasPrice, byte[] gasLimit, byte[] receiveAddress, byte[] value, byte[] data, Integer chainId) &#123;</span><br><span class="line">       this.chainId = null;</span><br><span class="line">       this.parsed = false;</span><br><span class="line">       this.nonce = nonce;</span><br><span class="line">       this.gasPrice = gasPrice;</span><br><span class="line">       this.gasLimit = gasLimit;</span><br><span class="line">       this.receiveAddress = receiveAddress;</span><br><span class="line">       if(ByteUtil.isSingleZero(value)) &#123;</span><br><span class="line">           this.value = ByteUtil.EMPTY_BYTE_ARRAY;</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">           this.value = value;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       this.data = data;</span><br><span class="line">       this.chainId = chainId;</span><br><span class="line">       if(receiveAddress == null) &#123;</span><br><span class="line">           this.receiveAddress = ByteUtil.EMPTY_BYTE_ARRAY;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       this.parsed = true;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="以上参数是什么意思呢？"><a href="#以上参数是什么意思呢？" class="headerlink" title="以上参数是什么意思呢？"></a>以上参数是什么意思呢？</h4><ul>
+<li>nonce 交易序列号，交易序列号默认是0，每增加一笔交易nonce+1</li>
+<li>gasgasLimit 通常我们说的gas</li>
+<li>gasPrice 单位gas需要的价格</li>
+<li>receiverAddress 接收者的地址</li>
+<li>value 要转的代币</li>
+<li>data eth交易可以为空字符串。</li>
+<li>chainId 网络id，主网络是1  我这里测试网络配置了999，根据自身私链设置。</li>
+</ul>
+<p>需要注意的是：这里的交易单位都是wei，单位转换参考下表。</p>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Wei Value</th>
+<th>Wei</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wei</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Kwei (babbage)</td>
+<td>1e3 wei</td>
+<td>1,000</td>
+</tr>
+<tr>
+<td>Mwei (lovelace)</td>
+<td>1e6 wei</td>
+<td>1000,000</td>
+</tr>
+<tr>
+<td>Gwei (shannon)</td>
+<td>1e9 wei</td>
+<td>1,000,000,000</td>
+</tr>
+<tr>
+<td>microether (szabo)</td>
+<td>1e12 wei</td>
+<td>1,000,000,000,000</td>
+</tr>
+<tr>
+<td>milliether (finney)</td>
+<td>1e15 wei</td>
+<td>1,000,000,000,000,000</td>
+</tr>
+<tr>
+<td>ether</td>
+<td>1e18 wei</td>
+<td>1,000,000,000,000,000,000</td>
+</tr>
+</tbody>
+</table>
+<p>知道这些概念后我们就可以签名一笔交易。</p>
+<p>现在我们模拟从accounts[0]地址给accounts[1]地址发送一笔交易，数额为1eth。并且携带了交易信息。</p>
+<ol>
+<li>首先获取nonce值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getTransactionCount(eth.accounts[0])</span><br><span class="line">0</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>得到nonce为0</p>
+</blockquote>
+<ol>
+<li>获取gas</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.estimateGas(&#123;from:eth.accounts[0],to:eth.accounts[1],data:&quot;0x0000000000000000000000001b2fdc6e4453fcc9f0e115c8bc8320b1e084af5f000000000000000000000000000000000000000000000000000001d1a94a2000&quot;,value:5000000000000000000&#125;)</span><br><span class="line">22856</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>得到gas为22856</p>
+</blockquote>
+<ol>
+<li>获取推荐的gasPrice</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.gasPrice</span><br><span class="line">18000000000</span><br></pre></td></tr></table></figure>
+<ol>
+<li>获取接收者的地址</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.accounts[0]</span><br><span class="line">&quot;0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826&quot;</span><br><span class="line">&gt; eth.accounts[1]</span><br><span class="line">&quot;0x94e94dcab84ad8805c2ebb843c1cf06393cca620&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当前我在私有链上导入两个地址，然后用”0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826”这个地址挖矿，挖到币发送给”0x94e94dcab84ad8805c2ebb843c1cf06393cca620”<br>所以获取到的接收地址为：==”0x94e94dcab84ad8805c2ebb843c1cf06393cca620”==</p>
+</blockquote>
+<ol>
+<li>data在以太坊交易中可以为“”，这里是做测试我随便填了一组字符串。</li>
+<li>value为1eth，上面说了这里交易设置的值为wei，所以这里是1000000000000000000</li>
+<li>chainId为私有链配置的网络id我这里为999</li>
+</ol>
+<p>还有在签名的时候需要用到私钥。我这里测试账号的私钥为”c85ef7d79691fe79573b1a7064c19c1a9819ebdbd1faaab1a8ec92344438aaf4”</p>
+<p>接下来我们对需要发起的这笔交易进行签名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">String s =&quot;0000000000000000000000001b2fdc6e4453fcc9f0e115c8bc8320b1e084af5f000000000000000000000000000000000000000000000000000001d1a94a2000&quot;;</span><br><span class="line">        BigInteger bigInteger =  new BigInteger(&quot;94e94dcab84ad8805c2ebb843c1cf06393cca620&quot;,16);</span><br><span class="line">        //nonce</span><br><span class="line">        byte[] nonce = ByteUtil.intToBytesNoLeadZeroes(0);</span><br><span class="line">        //</span><br><span class="line">        byte[] gasPrice = ByteUtil.bigIntegerToBytes(new BigInteger(&quot;18000000000&quot;));</span><br><span class="line">        //</span><br><span class="line">        byte[] gas = ByteUtil.longToBytesNoLeadZeroes(22856);</span><br><span class="line">        //</span><br><span class="line">        byte[] address = ByteUtil.bigIntegerToBytes(bigInteger);</span><br><span class="line">        //交易金额</span><br><span class="line">        byte[] value = ByteUtil.bigIntegerToBytes(new BigInteger(&quot;1000000000000000000&quot;));</span><br><span class="line">        //字符串转成数组上传</span><br><span class="line">        byte[] data = ByteUtil.hexStringToBytes(s);</span><br><span class="line">        Transaction tx = new Transaction(</span><br><span class="line">                nonce,</span><br><span class="line">                //</span><br><span class="line">                gasPrice,</span><br><span class="line">                //gas限度</span><br><span class="line">                gas,</span><br><span class="line">                //接收者地址</span><br><span class="line">                address,</span><br><span class="line">                //发送的金额</span><br><span class="line">                value,</span><br><span class="line">                //携带消息</span><br><span class="line">                data,</span><br><span class="line">                //发送到主链当中</span><br><span class="line">                999</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        //开始签名</span><br><span class="line">        tx.sign(ECKey.fromPrivate(new BigInteger(&quot;c85ef7d79691fe79573b1a7064c19c1a9819ebdbd1faaab1a8ec92344438aaf4&quot;,16)));</span><br><span class="line">        byte[] rawTx = tx.getEncoded();</span><br><span class="line">        //打印出签名后的值</span><br><span class="line">        System.out.println(&quot;0x&quot;+ Hex.toHexString(rawTx));</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">得到签名后的数据为：</span><br><span class="line">0xf8af80850430e234008259489494e94dcab84ad8805c2ebb843c1cf06393cca620880de0b6b3a7640000b8400000000000000000000000001b2fdc6e4453fcc9f0e115c8bc8320b1e084af5f000000000000000000000000000000000000000000000000000001d1a94a20008207f2a066674d401df4f4150f0650a54e3932308cbe5f121bf5b42fbfc7b0fb8d7ca0d7a04d575c545ad23fb91f71091af2c7807a88eff3de2b2604742e1188ce2c0bc216</span><br></pre></td></tr></table></figure>
+<p>然后我们在这私有链上广播出去这笔交易看是否签名正确。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.sendRawTransaction(&quot;0xf8af80850430e234008259489494e94dcab84ad8805c2ebb843c1cf06393cca620880de0b6b3a7640000b8400000000000000000000000001b2fdc6e4453fcc9f0e115c8bc8320b1e084af5f000000000000000000000000000000000000000000000000000001d1a94a20008207f2a066674d401df4f4150f0650a54e3932308cbe5f121bf5b42fbfc7b0fb8d7ca0d7a04d575c545ad23fb91f71091af2c7807a88eff3de2b2604742e1188ce2c0bc216&quot;)</span><br><span class="line">INFO [03-17|08:13:31]Submitted transaction                    fullhash=0x256b52bb9995e95c51065cef83e8e7170dd934cb77e174a8999f0c3d674c78e7 recipient=0x94E94dcab84Ad8805c2EbB843C1cf06393cca620</span><br><span class="line">&quot;0x256b52bb9995e95c51065cef83e8e7170dd934cb77e174a8999f0c3d674c78e7&quot;</span><br></pre></td></tr></table></figure>
+<p>我们查看accounts[1]地址现在是否收到了1eth<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getBalance(eth.accounts[1])</span><br><span class="line">1000000000000000000</span><br><span class="line">&gt; web3.fromWei(eth.getBalance(eth.accounts[1]),&quot;ether&quot;)</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<p>查看交易结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getTransaction(&quot;0x256b52bb9995e95c51065cef83e8e7170dd934cb77e174a8999f0c3d674c78e7&quot;)</span><br><span class="line">&#123;</span><br><span class="line">  blockHash: &quot;0x53bb7e8ef200dfa7dd2e72cba30bc9bcfb9e2de7bb49da1c35f49dbd18dd7c14&quot;,</span><br><span class="line">  blockNumber: 4,</span><br><span class="line">  from: &quot;0xcd2a3d9f938e13cd947ec05abc7fe734df8dd826&quot;,</span><br><span class="line">  gas: 22856,</span><br><span class="line">  gasPrice: 18000000000,</span><br><span class="line">  hash: &quot;0x256b52bb9995e95c51065cef83e8e7170dd934cb77e174a8999f0c3d674c78e7&quot;,</span><br><span class="line">  input: &quot;0x0000000000000000000000001b2fdc6e4453fcc9f0e115c8bc8320b1e084af5f000000000000000000000000000000000000000000000000000001d1a94a2000&quot;,</span><br><span class="line">  nonce: 0,</span><br><span class="line">  r: &quot;0x66674d401df4f4150f0650a54e3932308cbe5f121bf5b42fbfc7b0fb8d7ca0d7&quot;,</span><br><span class="line">  s: &quot;0x4d575c545ad23fb91f71091af2c7807a88eff3de2b2604742e1188ce2c0bc216&quot;,</span><br><span class="line">  to: &quot;0x94e94dcab84ad8805c2ebb843c1cf06393cca620&quot;,</span><br><span class="line">  transactionIndex: 0,</span><br><span class="line">  v: &quot;0x7f2&quot;,</span><br><span class="line">  value: 1000000000000000000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由此结果可以验证我们签名的交易正确。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/21/以太坊POS-Casper技术研究报告/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(以太坊POS-Casper技术研究报告)</a>
+    
+    
+		
+		
+        <a href="/2018/03/16/以太坊挖矿之全网难度/" class="next-post btn btn-default">下一篇(以太坊挖矿之全网难度)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

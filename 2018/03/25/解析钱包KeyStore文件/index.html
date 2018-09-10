@@ -1,0 +1,469 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>解析钱包KeyStore文件 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="解析钱包KeyStore文件">
+            
+	            解析钱包KeyStore文件
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/钱包">
+            钱包
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ciscolxh">
+						ciscolxh
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/钱包">
+						钱包
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/25</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>无论是从<a href="https://.com/" target="_blank" rel="noopener">MyEtherWallet</a> ，还是从市场中常见的钱包创建一个钱包，或是自己搭建一个主链，都可以导出一个keyStore 文件，<br>在刚接触钱包就知道keyStore是钱包加密后的表现形式。今天我们来看一看他是怎么加密钱包的。</p>
+<p>首先看一下keyStore的样子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">　　&quot;version&quot;:3,</span><br><span class="line">　　&quot;id&quot;:&quot;0010d1fd-fcaf-425e-8a34-990388be3ed9&quot;,</span><br><span class="line">　　&quot;address&quot;:&quot;address&quot;,</span><br><span class="line">　　&quot;Crypto&quot;:&#123;</span><br><span class="line">　　　　&quot;ciphertext&quot;:&quot;73e2dd32843ab58356b93248bcde001db8d6aff091d888d1631ede1261bc3e403f&quot;,</span><br><span class="line">　　　　&quot;cipherparams&quot;:&#123;</span><br><span class="line">　　　　　　&quot;iv&quot;:&quot;469f8eb7b10f3ca5f50ec75a8949c0ed&quot;</span><br><span class="line">　　　　&#125;,</span><br><span class="line">　　　　&quot;cipher&quot;:&quot;aes-128-ctr&quot;,</span><br><span class="line">　　　　&quot;kdf&quot;:&quot;scrypt&quot;,</span><br><span class="line">　　　　&quot;kdfparams&quot;:&#123;</span><br><span class="line">　　　　　　&quot;dklen&quot;:32,</span><br><span class="line">　　　　　　&quot;salt&quot;:&quot;0a48fe56ed1fe152b6f85ab6ed537d819aa79782b45ab5b586f04315917501bd&quot;,</span><br><span class="line">　　　　　　&quot;n&quot;:262144,</span><br><span class="line">　　　　　　&quot;r&quot;:8,</span><br><span class="line">　　　　　　&quot;p&quot;:1</span><br><span class="line">　　　　&#125;,</span><br><span class="line">　　　　&quot;mac&quot;:&quot;3efa6c00d39b4f9719fea0486c32063711d3424465df4e7a9954c8abe5336355&quot;</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从这个文件中我们可以看出KeyStore生成的是一个JSON文件。并且一些重要的内容都保存在了”Crypto”下</p>
+<p>再看一Crypto的参数</p>
+<ul>
+<li>首先看到cipher这个参数为aes-128-ctr 说明是用的AES-128算法加密模式为ctr</li>
+<li>cipherparams参数里面包含了一个iv，那么就知道这个是加密参数向量了。</li>
+<li>ciphertext ，通过名字就能知道这是加密后的密文</li>
+<li>kdf （key derivatioin function）秘钥生成函数 </li>
+<li>kdfparams kdf的一些重要参数</li>
+<li>mac 用于验证密码。</li>
+</ul>
+<p>我们在使用AES加密的过程中知道，AES有加密模式，向量，密码。上面kdf又是什么鬼。</p>
+<p>在这次AES加密中没有直接使用我们输入的密码去做加密。而是用我们输入的密码使用kdf派生出来一个秘钥。然后通过这个派生秘钥去加密</p>
+<p>最后一个参数mac是校验我们输入的密码和密文是否匹配。</p>
+<h4 id="所以加密的完整流程是这样"><a href="#所以加密的完整流程是这样" class="headerlink" title="所以加密的完整流程是这样"></a>所以加密的完整流程是这样</h4><ol>
+<li>生成一个随机数，作为盐，对密码进行加密生成派生秘钥</li>
+<li>然后从派生秘钥中截取16位字符作为密码</li>
+<li>再生成一个16位的随机数作为向量，</li>
+<li>然后拿着生成的密码，向量，私钥进行加密得到密文</li>
+<li>最后拿着生成的密文，和派生秘钥做hase处理作为校验码</li>
+</ol>
+<h4 id="看一下代码实现"><a href="#看一下代码实现" class="headerlink" title="看一下代码实现"></a>看一下代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">byte[] salt = generateRandomBytes(32);</span><br><span class="line">        byte[] derivedKey = generateDerivedScryptKey(</span><br><span class="line">                password.getBytes(Charset.forName(&quot;UTF-8&quot;)),</span><br><span class="line">                salt,</span><br><span class="line">                N_STANDARD,</span><br><span class="line">                R,</span><br><span class="line">                P_STANDARD, DKLEN</span><br><span class="line">        );</span><br><span class="line">        byte[] encryptKey = Arrays.copyOfRange(derivedKey, 0, 16);</span><br><span class="line">        byte[] iv = generateRandomBytes(16);</span><br><span class="line">        byte[] privateKeyBytes = ByteUtil.bigIntegerToBytes(new BigInteger(privateKey, 16));</span><br><span class="line">        byte[] cipherText = performCipherOperation(Cipher.ENCRYPT_MODE, iv, encryptKey, privateKeyBytes);</span><br><span class="line">        byte[] mac = generateMac(derivedKey, cipherText);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private static byte[] performCipherOperation(int encryptMode, byte[] iv, byte[] encryptKey, byte[] privateKeyBytes) throws Exception &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);</span><br><span class="line">            Cipher cipher = Cipher.getInstance(&quot;AES/CTR/NoPadding&quot;);</span><br><span class="line">            SecretKeySpec secretKeySpec = new SecretKeySpec(encryptKey, &quot;AES&quot;);</span><br><span class="line">            cipher.init(encryptMode, secretKeySpec, ivParameterSpec);</span><br><span class="line">            return cipher.doFinal(privateKeyBytes);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            return throwException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private static byte[] generateMac(byte[] derivedKey, byte[] cipherText) &#123;</span><br><span class="line">      byte[] result = new byte[16 + cipherText.length];</span><br><span class="line">      System.arraycopy(derivedKey, 16, result, 0, 16);</span><br><span class="line">      System.arraycopy(cipherText, 0, result, 16, cipherText.length);</span><br><span class="line">      return Hash.sha3(result);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="首先我们分析解密需要用的得内容"><a href="#首先我们分析解密需要用的得内容" class="headerlink" title="首先我们分析解密需要用的得内容"></a>首先我们分析解密需要用的得内容</h4><ul>
+<li>AES是对称加密，所以我们需要加密时候的加密秘钥</li>
+</ul>
+<blockquote>
+<blockquote>
+<pre><code>我们的加密秘钥是通过我们输入的密码用fdf的算法生成的，而生成的KeyStore里保存了完整的keyStore信息。所以我们还可以通过kdf以及加密时候的参数对这个算法达到我们要的派生秘钥
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">WalletEntity.CryptoBean.KdfparamsBean scryptKdfParams = crypto.getKdfparams();</span><br><span class="line">        int dklen = scryptKdfParams.getDklen();</span><br><span class="line">        int n = scryptKdfParams.getN();</span><br><span class="line">        int p = scryptKdfParams.getP();</span><br><span class="line">        int r = scryptKdfParams.getR();</span><br><span class="line">        byte[] salt = Numeric.hexStringToByteArray(scryptKdfParams.getSalt());</span><br><span class="line">        derivedKey = generateDerivedScryptKey(</span><br><span class="line">                password.getBytes(Charset.forName(&quot;UTF-8&quot;)), salt, n, r, p, dklen);</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<ul>
+<li><p>要获得加密后的密文</p>
+<p> 上面对KeyStore结构分析时候已经找到，他就存在ciphertext这个字段下</p>
+</li>
+<li><p>加密时候用到的向量</p>
+<p>  存在cipherparams对象下的iv属性中</p>
+</li>
+</ul>
+<h4 id="所以解密的完整流程是这样"><a href="#所以解密的完整流程是这样" class="headerlink" title="所以解密的完整流程是这样"></a>所以解密的完整流程是这样</h4><ol>
+<li>获取到密文</li>
+<li>获取到向量</li>
+<li>获取到加密时候用的私钥</li>
+<li>校验密码</li>
+<li>输出私钥</li>
+</ol>
+<h4 id="展示下实现代码"><a href="#展示下实现代码" class="headerlink" title="展示下实现代码"></a>展示下实现代码</h4><pre><code>WalletEntity walletEntity = JsonUtils.deserialize(keyStore, WalletEntity.class);
+        WalletEntity.CryptoBean crypto = walletEntity.getCrypto();
+        byte[] mac = ByteUtil.hexStringToBytes(crypto.getMac());
+        byte[] iv = ByteUtil.hexStringToBytes(crypto.getCipherparams().getIv());
+        byte[] cipherText = ByteUtil.hexStringToBytes(crypto.getCiphertext());
+        byte[] derivedKey;
+
+        WalletEntity.CryptoBean.KdfparamsBean scryptKdfParams = crypto.getKdfparams();
+        int dklen = scryptKdfParams.getDklen();
+        int n = scryptKdfParams.getN();
+        int p = scryptKdfParams.getP();
+        int r = scryptKdfParams.getR();
+        byte[] salt = Numeric.hexStringToByteArray(scryptKdfParams.getSalt());
+        derivedKey = generateDerivedScryptKey(
+                password.getBytes(Charset.forName(&quot;UTF-8&quot;)), salt, n, r, p, dklen);
+        byte[] derivedMac = generateMac(derivedKey, cipherText);
+        if (!Arrays.equals(derivedMac, mac)) {
+            //这对密码校验 验证是否输入的密码正确
+            throw new Exception(&quot;Invalid password provided&quot;);
+        }
+        byte[] encryptKey = Arrays.copyOfRange(derivedKey, 0, 16);
+
+        byte[] privateKey = performCipherOperation(Cipher.DECRYPT_MODE, iv, encryptKey, cipherText);
+        return ByteUtil.toHexString(privateKey);
+</code></pre>
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/27/EOS常用词汇定义/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(EOS常用词汇定义)</a>
+    
+    
+		
+		
+        <a href="/2018/03/25/生成助记词钱包/" class="next-post btn btn-default">下一篇(生成助记词钱包)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>智能合约最佳实践翻译四 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="智能合约最佳实践翻译四">
+            
+	            智能合约最佳实践翻译四
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ZhouFyk">
+						ZhouFyk
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/以太坊">
+						以太坊
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/智能合约">
+						智能合约
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/23</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="软件工程技术"><a href="#软件工程技术" class="headerlink" title="软件工程技术"></a><a href="https://consensys.github.io/smart-contract-best-practices/software_engineering/" target="_blank" rel="noopener">软件工程技术</a></h2><p>如我们在<a href="https://consensys.github.io/smart-contract-best-practices/software_engineering/#general-philosophy" target="_blank" rel="noopener">常规理念</a>中讨论的一样，其不足以保护你来抵御已知的攻击。由于区块链上的失败成本可能非常高，因此您还必须调整自己编写软件的方式，以解决该风险。</p>
+<p>我们主张的方式是 “做好失败的准备”。不可能提前知道你的代码是否安全。但是，你可以以使其能够优雅地失败并且损失最小的方式来构建你的合约。本部分提出了多种技术来帮助你为失败做好准备。</p>
+<p>注意：当你新增一个组件到你的系统中时，总是伴随着一定的风险。一个不好的防故障设计本身可能会成为一个漏洞 - 当它与大量优秀的防故障设计交互时。请仔细考虑你在合约中使用的每种技术，并仔细考虑它们是如何协同合作以创建一个健壮的系统。</p>
+<h3 id="改进被破坏的合约"><a href="#改进被破坏的合约" class="headerlink" title="改进被破坏的合约"></a>改进被破坏的合约</h3><p>当错误发生或者需要做升级的时候，代码会需要被更改。当发现一个 bug 却无法处理的时候，十分糟糕。</p>
+<p>为智能合约设计一个有效的改进系统是一个十分活跃的研究领域，而我们不会覆盖本文档中的所有难题。但是，存在两种最常用的基本方法。其中更简单的一种是使用一个注册合约来持有最新版本合约的地址。对于合约用户来说，更连贯的方法是拥有一份可以将调用和数据转发到合约的最新版本的合约。</p>
+<p>不管是什么技术，模块化和组件间良好的分离是十分重要的，这样代码的修改就不会破坏功能，独立的数据，或者需要大量成本来移植。尤其是将复杂的逻辑从你的数据存储分离通常是有益的，这样你就不需要为了修改功能而重新创建所有的数据。</p>
+<p>提供一种安全的方式可以让多方去决定升级代码也十分重要。由你的合约决定，代码修改被通过的前提是只需要一方可信的，一个团队，或者是所有股东的投票才可以。如果这个过程需要一些时间，你需要考虑是否有其他方法可以在发生攻击时迅速做出反应，如<a href="https://github.com/ConsenSys/smart-contract-best-practices/#circuit-breakers-pause-contract-functionality" target="_blank" rel="noopener">紧急停止或者是熔断机制</a>。</p>
+<p><strong>示例 1:使用一个注册合约来存储另一个合约的最新版本</strong></p>
+<p>在这个例子中，调用不会被发送，所以用户应该在每一次与合约交互之前都获取一下当前的地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">contract SomeRegister &#123;</span><br><span class="line">	address backendContract;</span><br><span class="line">	address[] previousBackends;</span><br><span class="line">	address owner;</span><br><span class="line"></span><br><span class="line">	function SomeRegister() &#123;</span><br><span class="line">		owner = msg.sender;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	modifier onlyOwner() &#123;</span><br><span class="line">		require(msg.sender == owner)</span><br><span class="line">		_;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function changeBackend(address newBackend) public onlyOwner() returns (bool) &#123;</span><br><span class="line">		if (newBackend != backendContract) &#123;</span><br><span class="line">			previousBackend.push(backendContract);</span><br><span class="line">			backendContract = newBackend;</span><br><span class="line">			return true;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个方法有两个缺点：</p>
+<ol>
+<li>用户必须总是检查当前的地址，如果不这么做就有使用旧版本合约的风险。</li>
+<li>你需要在替换合约的时候小心的思考如果处理合约内的数据。</li>
+</ol>
+<p>另一种方法是让合约将调用和数据转发给合约的最新版本：</p>
+<p><strong>示例 2：<a href="http://ethereum.stackexchange.com/questions/2404/upgradeable-contracts" target="_blank" rel="noopener">使用 <code>DELEGATECALL</code></a> 来转发数据和调用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">contract Relay　&#123;</span><br><span class="line">	address public currentVersion;</span><br><span class="line">	address public owner;</span><br><span class="line"></span><br><span class="line">	modifier onlyOwner() &#123;</span><br><span class="line">		require(msg.sender == owner);</span><br><span class="line">		_;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function Relay(address initAddr) &#123;</span><br><span class="line">		currentVersion = initAddr;</span><br><span class="line">		owner = msg.sender; // this owner may be another contract with multisig, not a single contract owner</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function changeContract(address newVersion) public onlyOwner() &#123;</span><br><span class="line">		currentVersion = newVersion;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function() &#123;</span><br><span class="line">		require(currentVersion.delegatecall(msg.data));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个方式避免了之前的问题，但他本身又存在问题。在这个合约中存储数据的时候你必须极度小心。如果你的新合约和第一个的存储结构不同，你的数据可能会被破坏。另外，这种模式的简单版本不会从函数返回值，只会转发他们，这限制了它的适用性。（<a href="https://github.com/ownage-ltd/ether-router" target="_blank" rel="noopener">更复杂的实现方式</a>则是试图通过内联汇编代码和返回大小的注册表来解决这个问题。）</p>
+<p>不管你的方法是什么，重要的是要有某种方法来升级你的合约，否则当不可避免的错误被发现时，它们将变得无法使用。</p>
+<h3 id="断路器（暂停合约功能）"><a href="#断路器（暂停合约功能）" class="headerlink" title="断路器（暂停合约功能）"></a>断路器（暂停合约功能）</h3><p>当触发了确定的条件，断路器会停止当前的执行，而对于新发现的错误，它也十分有用。举例来说，如果发现了错误，合约中除了提币操作，其他大多数操作可能都会暂停。你既可以给某些可信的一方触发断路器的能力，也可以设定在某些条件满足时自动触发某些断路器的程序规则。</p>
+<p>例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bool private stopped = false;</span><br><span class="line">address private owner;</span><br><span class="line"></span><br><span class="line">modifier isAdmin() &#123;</span><br><span class="line">	require(msg.sender == owner);</span><br><span class="line">	_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function toggleContractActive() isAdmin public &#123;</span><br><span class="line">	// You can add an additional modifier that restricts stopping a contract to be based on another action, such as a vote of users</span><br><span class="line">	stopped = !stopped;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">modifier stopInEmergency &#123;if (!stopped) _;&#125;</span><br><span class="line">modifier onlyInEmergency &#123;if（stopped）_;&#125;</span><br><span class="line"></span><br><span class="line">function deposit() stopInEmergency public &#123;</span><br><span class="line">	// some code</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function withdraw() onlyInEmergency public &#123;</span><br><span class="line">	// some code</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="速度碰撞（延迟合约动作）"><a href="#速度碰撞（延迟合约动作）" class="headerlink" title="速度碰撞（延迟合约动作）"></a>速度碰撞（延迟合约动作）</h3><p>速度碰撞使得动作变慢，所以如果发生了恶意的动作，就有时间来恢复了。举例来说，<a href="https://github.com/slockit/DAO/" target="_blank" rel="noopener">The DAO</a>在一个拆分 DAO 的成功请求和完成该请求之间需要 27 天的时间。这保证了资金被保存在合约内，增加了恢复的可能性。在 DAO 这个例子中，在速度碰撞期间内无法采取有效的行动，但是与其他技术相结合，这就相当有效了。</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">struct RequestedWithdrawal &#123;</span><br><span class="line">	uint amount;</span><br><span class="line">	uint time;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mapping(address =&gt; uint) private balances;</span><br><span class="line">mapping(address =&gt; RequestedWithdrawal) private requestedWithdrawals</span><br><span class="line">uint constant withdrawalWaitPeriod = 28 days; // 4 weeks</span><br><span class="line"></span><br><span class="line">function requestWithdrawal() public &#123;</span><br><span class="line">	 if (balances[msg.sender] &gt; 0) &#123;</span><br><span class="line">	 	uint amountToWithdraw = balances[msg.sender];</span><br><span class="line">	 	balances[msg.sender] = 0;</span><br><span class="line"></span><br><span class="line">	 	requestedWithdrawals[msg.sender] = RequestedWithdrawal(&#123;</span><br><span class="line">	 		amount: amountToWithdraw,</span><br><span class="line">	 		time: now</span><br><span class="line">	 		&#125;);</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function withdraw() public &#123;</span><br><span class="line">	if(requestedWithdrawals[msg.sender].amount &gt; 0 &amp;&amp; now &gt; requestedWithdrawals[msg.sender].time + withdrawalWaitPeriod) &#123;</span><br><span class="line">		uint amountToWithdraw = requestedWithdrawals[msg.sender].amount;</span><br><span class="line">		requestedWithdrawals[msg.sender].amount = 0;</span><br><span class="line"></span><br><span class="line">		require(msg.sender.send(amountToWithdraw));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="比例限制"><a href="#比例限制" class="headerlink" title="比例限制"></a>比例限制</h3><p>比例限制停止或要求实质性变更的通过。举例来说，一个存款人在一定时期内只允许提取一定数量或一定百分比的存款（如 一天最多 100 ether）- 另外在该时期内的提币将会失败或者需要一些特殊的审批通过。或者比例限制可以通过在该时期内合约只能提取一定的 token 的形式在合约层面实现。</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">contract CircuitBreaker &#123;</span><br><span class="line">	struct Transfer &#123;</span><br><span class="line">		uint amount;</span><br><span class="line">		address to;</span><br><span class="line">		uint releaseBlock;</span><br><span class="line">		bool released;</span><br><span class="line">		bool stopped;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Transfer[] public transfers;</span><br><span class="line"></span><br><span class="line">	address public curator;</span><br><span class="line">	address public authorizedSender;</span><br><span class="line">	uint public period;</span><br><span class="line">	uint public limit;</span><br><span class="line"></span><br><span class="line">	uint public currentPeriodEnd;</span><br><span class="line">	uint public currentPeriodAmount;</span><br><span class="line"></span><br><span class="line">	event PendingTransfer(uint id, uint amount, address to, uint releaseBlock);</span><br><span class="line"></span><br><span class="line">	function CircuitBreaker(address _curator, address _authorizedSender, uint _period, uint _limit) &#123;</span><br><span class="line">		curator = _curator;</span><br><span class="line">		period = _period;</span><br><span class="line">		limit = _limit;</span><br><span class="line">		authorizedSender = _authorizedSender;</span><br><span class="line">		currentPeriodEnd = block.number + period;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function transfer(uint amount, address to) &#123;</span><br><span class="line">		if (msg.sender == authorizedSender) &#123;</span><br><span class="line">			updatePeriod();</span><br><span class="line"></span><br><span class="line">			if (currentPeriodAmount + amount &gt; limit) &#123;</span><br><span class="line">				uint releaseBlock = block.number + period;</span><br><span class="line">				PendingTransfer(transfer.length, amount, to, releaseBlock);</span><br><span class="line">				transfer.push(Transfer(amount, to, releaseBlock, false, false));</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				currentPeriodAmount += amount;</span><br><span class="line">				transfers.push(Transfer(amount, to, block.number, true, false));</span><br><span class="line">				if (!to.sender(amount)) throw;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function updatePeriod() &#123;</span><br><span class="line">		if (currentPeriodEnd &lt; block.number) &#123;</span><br><span class="line">			currentPeriodEnd = block.number + period;</span><br><span class="line">			currentPeriodAmount = 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function releasePendingTransfer(uint id) &#123;</span><br><span class="line">		Transfer transfer = transfers[id];</span><br><span class="line">		if (transfer.releaseBlock &lt;= block.number &amp;&amp; !transfer.released &amp;&amp; !transfer.stopped) &#123;</span><br><span class="line">			transfer.released = true;</span><br><span class="line">			if (!transfer.to.send(transfer.amount)) throw;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	function stopTransfer(uint id) &#123;</span><br><span class="line">		if (msg.sender == curator) &#123;</span><br><span class="line">			transfer[id].stopped = true;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="合约部署"><a href="#合约部署" class="headerlink" title="合约部署"></a>合约部署</h3><p>在资金处于危险之前，合约应该有大量的长期的测试阶段。</p>
+<p>最小程度，你应该：</p>
+<ul>
+<li>有一个完整的测试套件，覆盖了 100%（或者接近） 的测试。</li>
+<li>部署在你自己的测试网络上。</li>
+<li>经过大量的测试之后才能发布在公共测试网络上，并且要发布 bug 悬赏。</li>
+<li>详尽的测试应该包括大量不同的玩家同时与合约交互。</li>
+<li>将 beta 版本部署在主网上，降低风险。</li>
+</ul>
+<h5 id="自动防护"><a href="#自动防护" class="headerlink" title="自动防护"></a>自动防护</h5><p>在测试期，你可以设置在一定时期之后自动反对来防止任何的操作。举例来说，一个 alpha 版本的合约在工作几周之后会自动关闭所有的操作，除了最终的提币。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">modifier isActive() &#123;</span><br><span class="line">	requrie(block.number &lt;= SOME_BLOCK_NUMBER);</span><br><span class="line">	_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function deposit() public isActive &#123;</span><br><span class="line">	// some code</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function withdraw() public &#123;</span><br><span class="line">	// some code</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="限制每个用户-合约的-ETH-数量"><a href="#限制每个用户-合约的-ETH-数量" class="headerlink" title="限制每个用户/合约的 ETH 数量"></a>限制每个用户/合约的 ETH 数量</h5><p>在早期阶段，你可以限制任何用户（或者整个合约）的 ETH 数量来降低风险。</p>
+<h3 id="bug-悬赏计划"><a href="#bug-悬赏计划" class="headerlink" title="bug 悬赏计划"></a>bug 悬赏计划</h3><p>一些悬赏计划的技巧：</p>
+<ul>
+<li>决定奖励哪些货币（BTC 或者 ETH）</li>
+<li>决定悬赏的总预算</li>
+<li>从预算中确定三层奖励：</li>
+<li>你愿意付出的最小奖励</li>
+<li>最高的奖励是可以常常被获得的</li>
+<li>如果存在非常严重的漏洞，将额外给予的奖励范围</li>
+<li>确定赏金评委是谁（3人可能是典型的理想人选）</li>
+<li>首席开发者可能应该是赏金评委之一</li>
+<li>当收到错误报告时，首席开发人员应该根据评委的建议评估错误的严重程度</li>
+<li>在这个阶段的工作应该是在一个私有仓库，并归档在 Github 上提出的问题</li>
+<li>如果这是一个应该修复的 bug，那么在私有仓库中，开发人员应该编写一个测试用例，这个用例应该会失败，从而确认 bug</li>
+<li>开发人员应该执行修复程序并确保测试通过; 根据需要编写额外的测试</li>
+<li>给赏金猎人展示修复工作; 将修复合并入公共仓库是一种方法</li>
+<li>确定赏金猎人是否有任何其他有关修复的反馈</li>
+<li>赏金评委根据他们对 bug 的 <em>可能性</em> 和 <em>影响</em> 的评估来确定奖励的大小</li>
+<li>在整个过程中保持奖励参与者的信息，然后努力避免延误向他们发送奖励</li>
+</ul>
+<p>有关三种奖励的例子，请参阅<a href="https://bounty.ethereum.org/" target="_blank" rel="noopener">以太坊的赏金计划</a>：</p>
+<blockquote>
+<p>支付的奖励价值取决于影响的严重程度。 对轻微“无害”错误的奖励最少 0.05 BTC。例如，导致共识问题的错误将奖励高达 5 BTC。 如果存在非常严重的漏洞，可能获得更高的奖励（高达 25 BTC）。</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/24/智能合约最佳实践翻译五/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(智能合约最佳实践翻译五)</a>
+    
+    
+		
+		
+        <a href="/2018/03/23/门罗币挖矿网页的搭建/" class="next-post btn btn-default">下一篇(门罗币挖矿网页的搭建)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

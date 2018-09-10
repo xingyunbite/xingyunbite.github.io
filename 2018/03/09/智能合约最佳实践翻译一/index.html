@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>智能合约最佳实践翻译一 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="智能合约最佳实践翻译一">
+            
+	            智能合约最佳实践翻译一
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/智能合约">
+            智能合约
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ZhouFyk">
+						ZhouFyk
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/以太坊">
+						以太坊
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/智能合约">
+						智能合约
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/安全开发">
+						安全开发
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/09</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a href="https://consensys.github.io/smart-contract-best-practices/general_philosophy/" target="_blank" rel="noopener">原文链接</a></p>
+<h2 id="常规理念"><a href="#常规理念" class="headerlink" title="常规理念"></a>常规理念</h2><p>以太坊和复杂的区块链编程是崭新的和高度实验性的。 因此，随着新 bug 和安全风险的发现，您应该预期到安全形势会不断发生变化，并制定新的最佳实践。 因此，遵循本文档中的安全措施只是作为智能合约开发人员需要做的安全工作的开始。</p>
+<p>智能合约编程需要一个与您过往习惯不同的工程思维。失败的代价可能很高，并且更改可能很困难，使得它在某些方面更像硬件编程或金融服务编程，而不是 Web 或移动开发。因此，防御已知的漏洞是不够的。相反，你需要学习一种新的开发理念：</p>
+<h3 id="做好失败的准备"><a href="#做好失败的准备" class="headerlink" title="做好失败的准备"></a>做好失败的准备</h3><p>任何不平凡的（non-trivial）合约中都有错误。因此你的代码必须能够优雅地反馈 Bug 和漏洞。</p>
+<ul>
+<li>当出现错误时暂停该合约（“电路中断者”） </li>
+<li>管理风险金额（限制比例，设置最大使用量）</li>
+<li>为错误修正和改进提供有效的升级途径</li>
+</ul>
+<h3 id="小心地推出"><a href="#小心地推出" class="headerlink" title="小心地推出"></a>小心地推出</h3><p>在完整的产品发布前捕获错误总是更好。彻底地测试合约，并在每次发现新的攻击媒介时添加新的测试 - 从 alpha 测试网络起就提供 Bug 悬赏 - 随着每个阶段的使用和测试推出。</p>
+<h3 id="保持合约简单"><a href="#保持合约简单" class="headerlink" title="保持合约简单"></a>保持合约简单</h3><p>复杂性增加错误的可能性。</p>
+<ul>
+<li>确定合约的逻辑简单</li>
+<li>通过模块化使得合约和函数小巧</li>
+<li>在可以使用的地方使用已经存在的工具或者代码（比如，不要使用你自己写的随机数生成器）</li>
+<li>只要有可能，请尽量保持清晰</li>
+<li>只对你的系统中需要去中心化的部分使用区块链</li>
+</ul>
+<h3 id="保持更新"><a href="#保持更新" class="headerlink" title="保持更新"></a>保持更新</h3><p>使用下一节中列出的资源跟踪新的安全开发。</p>
+<ul>
+<li>检测你的合同是否有任何新发现的 bug</li>
+<li>尽可能快的将工具或者类库更新到最新的版本</li>
+<li>接受新的使用的安全技术</li>
+</ul>
+<h3 id="注意区块链的属性"><a href="#注意区块链的属性" class="headerlink" title="注意区块链的属性"></a>注意区块链的属性</h3><p>虽然你的编程经验大部分将与以太坊编程相关，但有一些陷阱需要注意。</p>
+<ul>
+<li>要非常小心外部合约的调用，这可能会执行恶意代码并更改控制流。</li>
+<li>了解你的公共函数是公开的，可能会被恶意地调用。任何人都可以查看您的私人数据。</li>
+<li>记住燃料的消耗和区块燃料的限制。</li>
+</ul>
+<h3 id="基本权衡：简单与复杂的实例"><a href="#基本权衡：简单与复杂的实例" class="headerlink" title="基本权衡：简单与复杂的实例"></a>基本权衡：简单与复杂的实例</h3><p>在评估智能合约系统的结构和安全性时，需要考虑多个基本的权衡。任何智能合约系统的常规建议是在这些基本的权衡之间找到合适的平衡点。</p>
+<p>从软件工程来说，理想的智能合约系统是模块化的，复用代码而不是复制代码，并且支持组建可升级。从安全架构来看，一个理想的智能合约要分享它的观念模式，特别是复杂的智能合约系统。</p>
+<p>但是，也存在着软件工程和安全不能保持一致的重要的例外。在这些情况下，通过顺着合约系统的维度的最佳组合获得合适的平衡点，比如：</p>
+<ul>
+<li>静态 与 可升级</li>
+<li>整体 与 模块化</li>
+<li>重复 与 复用</li>
+</ul>
+<h3 id="静态和可升级"><a href="#静态和可升级" class="headerlink" title="静态和可升级"></a>静态和可升级</h3><p>尽管包括这个在内的多种资源强调拓展特性，例如可删除，可升级或者可修改的模式，但在可塑性和安全性之间还是需要一个基本的平衡。</p>
+<p>根据定义，可塑性模式增加了复杂性和潜在的被攻击可能性。在智能合约系统在预定义的有限时间段内执行非常有限的一组功能的情况下，简单性比复杂性更有效率，例如，无管理的有限时间帧令牌销售合约系统。</p>
+<h3 id="单一整体和模块化"><a href="#单一整体和模块化" class="headerlink" title="单一整体和模块化"></a>单一整体和模块化</h3><p>一个单一的只有自身的合约保证了所有的内容都可以在自身被识别与读取。尽管几乎很少有被高度重视的智能合约系统作为一个庞然大物单独存在，但是也有一个理由极端地要求数据和流程在本地 - 例如，优化代码审查效率的情况下。</p>
+<p>与在此考虑的其他平衡一样，安全最佳实践趋向于在简单短期合约中的使用软件工程最佳实践，以及在更复杂更长久的合约系统中趋向于软件工程最佳实践。</p>
+<h3 id="复制与复用"><a href="#复制与复用" class="headerlink" title="复制与复用"></a>复制与复用</h3><p>从软件工程的角度看，智能合约系统希望在合理的情况下最大限度地提高重用率。在 Solidity 中有很多方法可以重用合约代码。使用自己拥有的经过验证的已经被部署了的合约通常是实现代码复用的最安全方式。</p>
+<p>在自己之前已经部署的合约不可用的情况下，通常就会依赖复制。Live Libs 和 Zeppelin Solidity 等努力试图提供一些模式，一遍复用安全代码而不是复制。任何合约安全分析必须包含之前没有建立与目标智能合约系统中的资金风险相当的信任等级的任何复用的代码。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/09/比特币挖矿之区块校验/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(比特币挖矿之区块校验)</a>
+    
+    
+		
+		
+        <a href="/2018/03/02/2018年自己动手组装一台矿机吧-显卡矿机教程/" class="next-post btn btn-default">下一篇(2018年自己动手组装一台矿机吧-显卡矿机教程)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

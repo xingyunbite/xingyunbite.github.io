@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>etherum中一些rpc接口使用总结 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="etherum中一些rpc接口使用总结">
+            
+	            etherum中一些rpc接口使用总结
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ironman">
+						ironman
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/区块链">
+						区块链
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/04/08</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>都是基于eth的rpc接口<br>通过geth attach到ipc上就可以使用js实现的web3接口了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth attach ipc:geth.ipc</span><br></pre></td></tr></table></figure>
+<p>会有这几个模块可用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modules: admin:1.0 clique:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0</span><br></pre></td></tr></table></figure>
+<h2 id="获取区块链上的交易信息"><a href="#获取区块链上的交易信息" class="headerlink" title="获取区块链上的交易信息"></a>获取区块链上的交易信息</h2><h3 id="获取当前区块高度"><a href="#获取当前区块高度" class="headerlink" title="获取当前区块高度"></a>获取当前区块高度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.blockNumber</span><br><span class="line">139552</span><br></pre></td></tr></table></figure>
+<p>当对区块链上的信息一无所知，也没有要查的区块，交易等等这个方法是一个好的开始</p>
+<h3 id="通过区块高度获取区块数据："><a href="#通过区块高度获取区块数据：" class="headerlink" title="通过区块高度获取区块数据："></a>通过区块高度获取区块数据：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getBlock(139915)</span><br><span class="line">&#123;</span><br><span class="line">  difficulty: 2,</span><br><span class="line">  extraData: &quot;0x78796274000000000000000000000000000000000000000000000000000000008d8646efe4d2759af7c43aa3d434546ef15f9806e9cbab5b114c899828c6a72448553a7aa715f446325c893677fb8924332e12f8920793f51bba8126ce72416101&quot;,</span><br><span class="line">  gasLimit: 4712388,</span><br><span class="line">  gasUsed: 21000,</span><br><span class="line">  hash: &quot;0x37b41662f06762fb1c550e8fa6e77acba1e04310222b57a0f6b1617672a66ce2&quot;,</span><br><span class="line">  logsBloom: &quot;0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;,</span><br><span class="line">  miner: &quot;0x0000000000000000000000000000000000000000&quot;,</span><br><span class="line">  mixHash: &quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,</span><br><span class="line">  nonce: &quot;0x0000000000000000&quot;,</span><br><span class="line">  number: 139915,</span><br><span class="line">  parentHash: &quot;0xf58618117b59dca82c55db1aec1d1faaf07b31e8c16c99bdd7b46d0a51829cfb&quot;,</span><br><span class="line">  receiptsRoot: &quot;0x056b23fbba480696b65fe5a59b8f2148a1299103c4f57df839233af2cf4ca2d2&quot;,</span><br><span class="line">  sha3Uncles: &quot;0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347&quot;,</span><br><span class="line">  size: 725,</span><br><span class="line">  stateRoot: &quot;0xf2cb3e3a4ce4cf9b5e11750952ef0c697bddb80b5f1a8b77fc70905a34df212c&quot;,</span><br><span class="line">  timestamp: 1522581583,</span><br><span class="line">  totalDifficulty: 279831,</span><br><span class="line">  transactions: [&quot;0xd608e02de2314c8b574e60be4d6726a156c5d8f8b88c897fc03a5eb3d82ccec4&quot;],</span><br><span class="line">  transactionsRoot: &quot;0x8c9e01d2afe57484bfceef90103674dfdbc56adad74a1b179c5eafe35797ce93&quot;,</span><br><span class="line">  uncles: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里有几个变量可能用的比较多</p>
+<ul>
+<li>number：区块高度，可以通过区块高度获取到区块信息，区块高度并不能唯一确定一个区块，当出现分叉的时候有可能通过同一个区块高度获取到不同的区块数据。不过大多数情况下通过区块高度获取到的区块信息都不会变</li>
+<li>timestamp：区块被打包的时间，当需要把这个里打包的相关交易入库的时候，这个时间就是这写交易被打包的时间。</li>
+<li>transactions：当前区块打包的交易的hash列表，是一个数组，可以通过遍历这个数组取出这个区块中被打包的交易</li>
+</ul>
+<h3 id="通过交易hash获取交易的具体内容"><a href="#通过交易hash获取交易的具体内容" class="headerlink" title="通过交易hash获取交易的具体内容"></a>通过交易hash获取交易的具体内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getTransaction(&quot;0xd608e02de2314c8b574e60be4d6726a156c5d8f8b88c897fc03a5eb3d82ccec4&quot;)</span><br><span class="line">&#123;</span><br><span class="line">  blockHash: &quot;0x37b41662f06762fb1c550e8fa6e77acba1e04310222b57a0f6b1617672a66ce2&quot;,</span><br><span class="line">  blockNumber: 139915,</span><br><span class="line">  from: &quot;0x5ca923f9561198d64a328d41ae0ded2f15b3e388&quot;,</span><br><span class="line">  gas: 90000,</span><br><span class="line">  gasPrice: 10000000000,</span><br><span class="line">  hash: &quot;0xd608e02de2314c8b574e60be4d6726a156c5d8f8b88c897fc03a5eb3d82ccec4&quot;,</span><br><span class="line">  input: &quot;0x&quot;,</span><br><span class="line">  nonce: 50,</span><br><span class="line">  r: &quot;0xc19aff35724f52659afd73ec1066a196fce999917be7289d7f778ce4b45b0ee0&quot;,</span><br><span class="line">  s: &quot;0x72170437e0f7fa3e440b42585871fface521e1f8a457cc5cf4275eb4cf7ddb20&quot;,</span><br><span class="line">  to: &quot;0x77446f036e90b866566770a7e742e72df2f934bd&quot;,</span><br><span class="line">  transactionIndex: 0,</span><br><span class="line">  v: &quot;0xa95&quot;,</span><br><span class="line">  value: 5000000000000000000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回的数据就包含了一笔交易的全部内容</p>
+<ul>
+<li>from：从哪个地址转出</li>
+<li>to：数据接收方。当时一笔eth的交易的时候to的值就是用户地址，当是一笔token交易的时候to的值是token地址而不是用户地址</li>
+<li>value：转账金额，现在看到的是5乘以10的18次方，虚拟币里用精度来标示小数的概念，eth的精度是18。5个eth转换成最小单位就是5乘以10的18次方。</li>
+<li>blockHash：被打包的区块的hash，可以通过这个hash获取到整个区块的数据。</li>
+<li>blockNumber：区块高度，也可以获取到区块信息，当然也可以通过当前整个区块链的区块高度减去这比交易的区块高度得到这比交易的确认数。</li>
+<li>hash：交易的hash，可以通过这个值获取到这笔交易的完整信息。</li>
+<li>gas：这笔交易消耗的gas</li>
+<li>gasPrice：这笔交易的gasPrice，gas乘以gasPrice就是这笔交易的手续费。</li>
+<li>input：跟随着比交易附带的数据，当是一笔token交易的时候，用户地址和value以及调用的token方法都会在input里。</li>
+</ul>
+<h3 id="发送一笔eth的交易："><a href="#发送一笔eth的交易：" class="headerlink" title="发送一笔eth的交易："></a>发送一笔eth的交易：</h3><p>从coinbase地址给账户2地址转5个eth</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eth.sendTransaction(&#123;from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(5, &quot;ether&quot;)&#125;)</span><br><span class="line">0xd608e02de2314c8b574e60be4d6726a156c5d8f8b88c897fc03a5eb3d82ccec4</span><br><span class="line">//转账到d1ade25ccd3d550a7eb532ac759cac7be09c2719这个地址</span><br><span class="line">eth.sendTransaction(&#123;from:eth.coinbase, to:&quot;d1ade25ccd3d550a7eb532ac759cac7be09c2719&quot;, value: web3.toWei(5, &quot;ether&quot;)&#125;)</span><br></pre></td></tr></table></figure>
+<p>真实转账的时候可能需要输入密码，具体的可以参考：<a href="https://github.com/ethereum/go-ethereum/wiki/Sending-ether" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum/wiki/Sending-ether</a></p>
+<p>如何构造一笔token（智能合约）交易</p>
+<ul>
+<li>to：的值不再是转账的账户地址而是token地址</li>
+<li>input：合约方法名的hash前几个字符，合约参数比如”0xa9059cbb000000000000000000000000aefd52d5a5fd165c4f73b413261b8e20cada84c0000000000000000000000000000000000000000000000000000000000000000a”就构造了一个transfer（address， amount）转账到address地址的一个input参数。</li>
+</ul>
+<p>具体的参数如何构造可以看这篇文章：</p>
+<p>一般用浏览器工具来发送token交易比较简单：<br><a href="http://remix.ethereum.org/#optimize=false&amp;version=soljson-v0.4.8+commit.60cc1668.js" target="_blank" rel="noopener">http://remix.ethereum.org/#optimize=false&amp;version=soljson-v0.4.8+commit.60cc1668.js</a><br>在右边的runtab下可以选择environment，即链接自己的测试链<br><img src="/images/browser_debug_token_20180408.png" alt=""></p>
+<p>可以创建一个token<br>比如选择SGCC，填入参数：”2100000000”,”token name”, “8”,”token_symbol”<br>或者添加已经有的token</p>
+<p>这里还可以修改智能合约的代码，创建自己的智能合约，非常方便</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/04/26/token-合约大数溢出安全问题/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(token-合约大数溢出安全问题)</a>
+    
+    
+		
+		
+        <a href="/2018/04/01/智能合约最佳实践翻译八/" class="next-post btn btn-default">下一篇(智能合约最佳实践翻译八)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

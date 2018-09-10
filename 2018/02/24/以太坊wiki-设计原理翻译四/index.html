@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>以太坊wiki-设计原理翻译四 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="以太坊wiki-设计原理翻译四">
+            
+	            以太坊wiki-设计原理翻译四
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ZhouFyk">
+						ZhouFyk
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/以太坊">
+						以太坊
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/区块链">
+						区块链
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/24</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a href="https://xingyunbite.github.io/2018/02/24/%E4%BB%A5%E5%A4%AA%E5%9D%8Awiki-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E7%BF%BB%E8%AF%91%E4%B8%89/" target="_blank" rel="noopener">以太坊wiki-设计原理翻译三</a></p>
+<h2 id="燃料和手续费"><a href="#燃料和手续费" class="headerlink" title="燃料和手续费"></a>燃料和手续费</h2><p>比特币中的交易大致相同，因此它们在网络上的成本可以抽象成一个模型，而以太坊中的交易则更复杂，交易费用系统需要考虑许多因素，包括带宽成本 ，存储成本和计算成本。特别重要的是，以太坊编程语言是图灵完备的，因此交易可以使用任意数量的带宽，存储和计算，并且因为不能提前可靠地预估暂停的问题，算力可能被大量使用。所以防止通过无限循环进行的拒绝服务攻击是一个关键目标。</p>
+<p>交易手续费的基本机制如下：</p>
+<ul>
+<li>每笔交易都需要指定一定数量愿意被花费的燃料（被称作 <code>startgas</code>），以及愿意为每单位燃料支付的价格（<code>gasprice</code>）。在执行之初，<code>startgas * gasprice</code> 这么多的 <code>ether</code> 会从交易发送者的账户中被扣除。</li>
+<li>交易执行期间的所有操作，包括数据库的读写，消息，和虚拟机中的每个计算步骤，都会消耗一定数量的燃料。</li>
+<li>如果一笔交易执行被完整地处理，消耗的燃料比它限定的燃料少，那么该剩余的燃料被称作 <code>gas_rem</code>。一笔交易首先会正常执行，然后在交易执行的最后，交易发送者会收到一笔退款 <code>gas_rem * gasprice</code>，矿工会收到一笔 <code>(startgas - gas_rem) * gasprice</code> 的奖励。</li>
+<li>如果在交易执行过程中，燃料耗尽，那么所有的执行都会被回滚，而交易也依旧未被验证。该交易的唯一影响是 <code>startgas * gasprice</code> 会被转给矿工。</li>
+<li>当一个合约发送一个消息给另一个合约，它也可以设置一个燃料限定值来指定由该消息引起的子执行操作。如果该执行耗尽燃料，那么一切回滚，而燃料也会被消耗。</li>
+</ul>
+<p>以上的每个部分都是必要的。例如：</p>
+<ul>
+<li>如果交易不需要指定燃料限制，那么恶意用户可以发送一笔进行数十亿循环的交易，因为处理这样的交易将花费比块间隔更长的时间，所以没有人能够处理它， 但矿工们无法预知该交易的存在，那么就会导致拒绝服务漏洞。</li>
+<li>将时间限制替代燃料限制，并不会起作用，因为这太主观了（有些机器比其他机器更快，甚至在相同的机器中也总是存在闭合调用）。</li>
+<li>整个值 <code>startgas * gasprice</code> 必须在开始时即作为押金取出，这样就不会出现账户在执行中“破产”并且无法支付燃料的情况。 请注意，余额检查是不够的，因为帐户可以在其他地方发送余额。</li>
+<li>如果在燃料不足的错误下，执行没有回滚，那么合约就需要采取强有力但是困难的安全措施，以防止自身被交易或消息利用而提供只能运行到一半的燃料，从而导致当前正在执行的合约发生一些变化。</li>
+<li>如果子限制不存在，那么敌对账户可以通过与其签订协议来制定对其他合同的拒绝服务攻击，然后在计算开始时插入无限循环，这样受害者合约中的任何企图补偿攻击合约（any attempts by the victim contract to compensate the attack contract）或向其发送消息的行为都会使整个交易执行陷于瘫痪。</li>
+<li>要求交易发送者支付燃料而不是合约来支付，大大提高了开发者的可用性。以太坊的早期版本有支付燃料的合约，但是这导致了一个相当丑的问题，即每个合约都必须实施“守卫”代码，以确保每一个传入的消息都足以补偿合约以足以支付燃料的消耗。</li>
+</ul>
+<p>注意燃料消耗的特定的特性：</p>
+<ul>
+<li>21000 单位的燃料是一笔交易的基本手续费。这涵盖了从签名中恢复发件人地址以及存储交易的空间和带宽空间的椭圆曲线操作的成本。</li>
+<li>一笔交易可以包括无限的数据，虚拟机提供了操作码使得合约接受交易来访问数据。固定燃料手续费为，每个 0 字节 4 单位燃料，每个非 0 字节 68 单位燃料。这个公式是因为我们注意到用户写的合约中的大多数交易数据都被组织成一系列 32 字节的参数，其中大部分都有前导 0 字节，虽然这样的构造看起来似乎没有效率，但是由于压缩算法的存在，这样反而十分有效率，我们希望鼓励使用它们来代替更复杂的机制，以便根据预期的字节数来压缩参数，从而在编译器级别增加复杂性。这是三明治复杂性模型的一个例外，但是由于成本与收益的比例，这是合理的。</li>
+<li><code>SSTORE</code> 操作符会在账户的存储空间中设置变量，它的消耗如下：(i) 将一个为零的变量改为非零时，为 20000 单位的燃料，(ii) 将一个零变量改为零变量，将一个非零变量改为非零变量时，为 5000 单位燃料，(iii) 将非零变量改为零变量时，为 5000 单位燃料，加上在成功交易执行结束时提供的 20000 单位燃料退款。（plus a 20000 gas refund to be given at the end of successful transaction execution）（即不是执行导致的燃料耗尽异常）。退款最高为交易花费的全部燃料的一半。这提供了一个小小的激励来清空存储空间，因为我们注意到，没有这样的激励的话，很多合约都会留下一些未使用的存储空间，导致快速膨胀增加体积，为存储“收取租金”提供了很多好处，同时也没有风险，一个被放置好的合同将永远存在。延迟退款机制对于防止拒绝服务攻击是必要的，攻击者会发送具有少量燃料的交易，在一个运行很长时间的循环中频繁清空大量的存储空间，这样会很快耗尽燃料，也会消耗验证者大量的算力，但这个操作实际上却并没有清空存储空间或者花费大量的燃料。50% 的上限是为了确保一个矿工在获得具有一定数量燃料的交易后仍然可以确定执行交易的计算时间的上限。</li>
+<li>合约提供的消息中的数据不会消耗燃料。这是因为在消息调用期间不需要真正“复制”任何数据，因为调用数据可以简单地看作是指向父合约的内存的指针，它在子进程执行期间不会改变。</li>
+<li>内存是一个无限可扩展的阵列。 但是，每 32 字节的内存扩展会消耗一个单位的燃料，这里会四舍五入。</li>
+<li>一些计算时间高度依赖于参数的操作码，拥有不同的燃料消耗值。比如，指数的燃料消耗为 10 加上指数中的每字节的 10 单位（即 x^0 = 1 燃料，x^1…x^255 = 2 燃料，x^256…x^65535 = 3 燃料 等等），而复制操作码（<code>CALLDATACOPY, CODECOPY, EXTCODECOPY</code>）的燃料消耗为 1 加上每 32 字节的一单位燃料，这里四舍五入（<code>LOG</code> 拥有类似的规则）。内存膨胀的燃料成本不足以弥补这一缺陷，因为它打开了一次二次攻击（50000 轮的 50000 单位燃料的 <code>CALLDATACOPY</code> 约为 50000 ^ 2 的计算量，但在引入可变燃料成本之前只有约 50000 单位燃料）</li>
+<li>如果值非零，那么<code>CALL</code> 操作码（和对称的 <code>CALLCODE</code>）花费额外的 9000 单位燃料。这是因为任意值转移都会导致存档节点的历史存储空间严重膨胀。注意，实际的手续费为 6700；在这之上我们强制增加了一个最低为 2300 单位的燃料用来自动给收据。这是为了确保收到交易的钱包至少有足额的燃料来记录该交易。</li>
+</ul>
+<p>燃料机制的另一个重要的部分是燃料价格本身的经济性。比特币中使用的默认方法是完全自愿的手续费，依靠矿工设置动态的最低值来扮演一个守门人的角色；与之相对的，在以太坊中，允许交易发送者设置任意的燃料消耗。这种方式在比特币社区中十分受欢迎，因为它是基于市场的，允许矿工和交易发送者之间的供需关系决定价格。然而这里存在一个问题，交易处理并不是市场；尽管将交易处理作为矿工提供给发送方的服务具有直接的吸引力，但实际上，矿工打包的每笔交易都需要被网络上的每个节点处理，因此绝大多数交易处理成本由第三方承担，而不是决定是否打包该交易的矿工。因此，很可能会发生普遍灾难（tragedy-of-the-commons）的问题。</p>
+<p>目前，由于缺少关于矿工实际上是如何处理的详细信息，我们实施了一个相当简单的方法：一个投票系统。矿工拥有权力对当前的区块设置燃料限制，该限制与上一个区块的燃料限制可以有大约 0.0975%（1/1024）的浮动，因此产生的燃料限制应该为矿工偏好的中位数。我们希望将来能够将其分解为更精确的算法。</p>
+<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>以太坊虚拟机是交易码执行的引擎，也是以太坊和其他系统不同的核心特性。注意，将 <em>虚拟机</em> 和 <em>合约</em> 与 <em>消息模型</em> 分别看待，比如， <code>SIGNEXTEND</code> 操作码是虚拟机的一个特性，而合约可以调用其他合约，指定子调用的燃料限制是合约和消息的一部分。以太坊虚拟机的设计目的包括：</p>
+<ul>
+<li><strong>简单</strong>：尽可能少的底层操作码，尽可能少的数据类型，以及尽可能少的虚拟机层次的结构。</li>
+<li><strong>完全明确</strong>：在虚拟机的说明中绝对不允许存在模棱两可的情况，并且结果必须是完全确定的。另外，应该有一个精确的计算步骤的概念，可以测量计算燃料的消耗。</li>
+<li><strong>节省空间</strong>：以太坊虚拟机组件应尽可能紧凑（例如，默认 C 程序的 4000 字节基本大小是不可接受的）。</li>
+<li><strong>期望的应用的专业能力（Specialization to expected applications）</strong>：有能力处理 20 字节地址 和自定义的32 字节变量的加密，自定义加密中的模块化算法，读取区块和交易数据，与状态交互等等。</li>
+<li><strong>简单的安全</strong>：应该很容易就能够想出操作符的燃料消耗模型，该模型使得虚拟机无法被利用。</li>
+<li><strong>优化友好</strong>：应该很容易优化，以便可以构建 <code>JIT</code> 编译的和其他速度更快的 <code>VM</code> 版本。</li>
+</ul>
+<p>一些特殊的设计决定如下：</p>
+<ul>
+<li><strong>临时/永久存储的区别</strong> - 存在于虚拟机的每个实例内并在虚拟机执行完成时消失的临时存储与基于每个账户的存在于区块链状态级别上的永久存储之间存在区别。比如，假设执行下列执行树（使用 S 代表永久存储，M 代表临时存储）：（i） A 调用 B，（ii） B 设置 <code>B.S[0] = 5</code>，<code>B.M[0] = 9</code>，（iii） B 调用 C，（iv）C 调用 B。在此时，如果 B 树读取 <code>B.S[0]</code>，它会获取到之前存储在 B 中的值，但是 B 树读取 <code>B.M[0]</code>，它回返回 0，因为在虚拟机的临时存储中这个一个新的实例。如果 B 在这个内部调用中设置 <code>B.M[0] = 13</code> 和 <code>B.S[0] = 17</code>，然后这个内部调用和 C 的调用终止，使得执行回到 B 的外部调用，然后 B 读取 M，将会看到 <code>B.M[0] = 9</code>(自上次设置此值在同一个 VM 执行实例中) 和 <code>B.S[0] = 17</code>。如果 B 的外部调用终止，A 再次调用 B，然后 B 会看到 <code>B.M[0] = 0</code> 和 <code>B.S[0] = 17</code>。这种区别的目的是（1）为每个执行实例提供自己的内存，这些内存不会受到递归调用的破坏，使安全编程变得更加容易，并且（2）提供一种可以非常快地操作的内存形式， 因为需要修改树，所以存储更新的速度一定很慢。</li>
+<li><strong>栈/内存模型</strong> - 早期做出的决定有三种计算状态（除了指向下一条指令的程序计数器外）：栈（一种标准的先进后出的 32 字节变量栈），内存（一种无限可扩展的临时字节数组）和存储（永久存储）。在临时存储方面，堆栈和内存的替代方案是一个仅限内存的范例，或者是寄存器和内存的混合（不是很不相同，因为从根本上说寄存器也是一种内存）。在这个例子中，每个命令会有三个参数，如 <code>ADD R1 R2 R3:M[R1] = M[R2] + M[R3]</code>。选择堆栈范例的原因很明显，它使代码缩小了四倍。</li>
+<li><strong>32 字节字大小</strong> - 与其他大多数架构一样，替代方案是 4 或 8 个字节的字，或者像比特币一样是无限的字。4 字节或 8 字节字太严格，无法存储加密计算的地址和很大的值，而无限的值则很难根据其建立一个安全的燃料模型。32 字节是理想的，因为它足够大以存储许多加密实现中常见的 32 字节值，以及地址（并提供将地址和值打包到单个存储索引中的优化能力），但又不会太大以至于效率变得极低。</li>
+<li><strong>拥有我们自己的虚拟机</strong> - 替代方案是使用 <code>Java</code>，或者一些 <code>Lisp dialect</code>，或者 <code>Lua</code>。我们认为拥有一个专门的虚拟机是合适的，因为（i）我们的虚拟机规格比许多其他虚拟机简单得多，因为其他虚拟机必须为复杂性付出更低的成本，而在我们的情况下，每次增加复杂性都是朝着创建开发集中化和可能存在包括共识失败的安全漏洞这样的高门槛迈出的一步（whereas in our case every additional unit of complexity is a step toward high barriers of entry creating development centralization and potential for security flaws including consensus failures,），（ii）它使我们能够更专业化虚拟机，例如，通过具有 32 字节的字大小，（iii）它使我们不会有非常复杂的可能导致安装困难的外部依赖性，以及（iv）针对以太坊的特殊安全需求的安全审查，无论如何都需要对外部虚拟机进行安全审查，因此节省的工作量并不大。</li>
+<li><strong>使用可变的可扩展内存大小</strong> - 我们认为，如果规模很小，或者规模很大，都没有必要限定一个固定的内存大小，并且注意如果内存访问的语句在任何情况下都需要检查越界访问，那么固定大小就不会使执行效率更高。</li>
+<li><strong>不限制堆栈大小</strong> - 没有任何特别的理由; 请注意，在许多情况下，限制并非绝对必要，因为燃料消耗和区块级燃料限制的组合总是作为每种资源消耗的上限。</li>
+<li><strong>有一个 1024 层级深度的调用限制</strong> - 许多编程语言在很高的堆栈深度时会比在很高的内存使用率或计算负载时突然崩溃的速度快得多，因此区块燃料限制的隐含限制可能不足。</li>
+<li><strong>没有类型</strong> - 为了简单。相反，取而代之的是使用有符号或无符号的操作码如 <code>DIV, SDIV, MOD, SMOD</code>（事实证明，对于 <code>ADD</code> 和 <code>MUL</code>，有符号和无符号操作码的行为是等同的），以及定点数运算（高深度定点运算是 32 字节字的另一个好处）在任何情况下都很简单，如 32 位深度，<code>a * b -&gt; (a * b) / 2^32</code>，<code>a / b -&gt; a * 2^32 / b</code> 以及 +，- 和 * 在整数情况下保持不变。</li>
+</ul>
+<p>虚拟机中的一些方法和操作码的目的是显而易见的，但也不全是。一些特殊解释给出如下：</p>
+<ul>
+<li><strong><code>ADDMOD, MULMOD</code></strong>：在大多数情况下，<code>addmod(a, b, c) = a * b % c</code>。然而，在许多类椭圆曲线密码学的特定情况下，使用 32 字节模块化算术，因此直接做 <code>a * b % c</code> 实际上是 <code>((a * b) % 2 ^ 256) % c</code>，这就是一个完全不同的结果。在 32 字节的空间中使用 32 字节的值计算 <code>a * b % c</code> 的公式是十分普通和臃肿的。</li>
+<li><strong>SIGNEXTEND</strong>：SIGNEXTEND 的目的是促进从更大的有符号整数到更小的有符号整数的类型转换。 小的带符号整数很有用，因为 JIT 编译的虚拟机将来可以检测长时间运行的代码块，这些代码块主要处理 32 字节整数，并大大加快速度。</li>
+<li><strong>SHA3</strong>： SHA3 在以太坊代码中十分使用，因为使用存储的安全无限大小散列映射可能需要使用安全散列函数，以防止恶意冲突，以及验证默克尔树，甚至是验证类以太坊的数据结构。一个关键点是它的朋友 SHA256，ECRECOVER 和 RIPEMD160不是作为操作码而是伪协议被包含其中。这样做的目的是将它们放入一个单独的类别中，以便在之后我们提出适当的“本机扩展”系统时，可以添加更多此类合约而不是填充操作码的空间。</li>
+<li><strong>ORIGIN</strong>：提供交易发送人的 <code>ORIGIN</code> 操作码的主要用途是允许合约对燃料进行退款支付。</li>
+<li><strong>COINBASE</strong>：<code>COINBASE</code> 操作码的主要用途是（i）允许子货币选择为网络安全做出贡献;以及（ii）开放矿工的使用权，作为分布式经济集合，用于基于次级共识的应用程序，如 Schellingcoin。</li>
+<li><strong>PREVHASH</strong>：用作半安全随机源，并允许合约评估前一个区块中 Merkle 树状态的树状证明，而不需要高度复杂的递归“以太坊中的以太坊轻客户端”构造。</li>
+<li><strong>EXTCODESIZE, EXTCODECOPY</strong>：这里的主要用途是允许合约在与其他合约进行交互之前，根据模板检查其他合约的代码，甚至模拟它们。见应用的<a href="http://lesswrong.com/lw/aq9/decision_theories_a_less_wrong_primer/" target="_blank" rel="noopener">http://lesswrong.com/lw/aq9/decision_theories_a_less_wrong_primer/</a></li>
+<li><strong>JUMPDEST</strong>：JIT 编译的虚拟机在跳转目标受限于几个索引时变得更容易实现（具体的说，可变目标跳转的计算复杂度大致为 O(log(有效跳转目标的数量))，尽管静态跳转总是常量时间）。因此，我们需要（i）对有效变量跳转目标的限制，（ii）激励使用静态跳转。为了达到这些目的，我们有以下规则（i）在被推送紧接着的跳转可以跳转到任意地方，但是不能跳转到另一个跳转，（ii）其他跳转尽能跳到 JUMPDEST。限制跳转到跳转是必要的，这样查看一个跳转是动态还是静态的可以很容易的根据代码中在它之前的操作判断。对静态跳转缺乏 JUMPDEST 操作的需求是使用它们的动机。禁止跳入推送数据也会加速 JIT VM 的编译和执行。</li>
+<li><strong>LOG</strong>：LOG 表示记录事件，可见上面树的使用部分。</li>
+<li><strong>CALLCODE</strong>：这个操作符的目的是允许合约以存储在其他合约中的代码的形式调用“函数”，这样具有单独的堆栈和内存，但是使用该合约自己的存储。这使得在区块链上可扩展地实现代码的“标准库”变得更加容易。</li>
+<li><strong>SELFDESTRUCT</strong>：如果不再需要一个合约可以通过此操作符来销毁该合约。SELFDESTRUCT 在交易执行结束时被处理，而不是立即处理，这是因为拥有回滚早已执行的 SELFDESTRUCT 的能力会大大增加一个高效的虚拟机实现中所需的高速缓存的复杂度。</li>
+<li><strong>PC</strong>：尽管在理论上不是必需的，因为 PC 操作码的所有实例都可以通过简单地将实际的程序计数器放在该索引处作为推动来替换，使用代码中的 PC 允许创建与位置无关的代码（即编译的可复制/粘贴到其他合同中的函数，并且如果它们以不同的索引结束就不会中断）。</li>
+</ul>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/02/28/比特币挖矿之矿工任务/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(比特币挖矿之矿工任务)</a>
+    
+    
+		
+		
+        <a href="/2018/02/24/以太坊wiki-设计原理翻译三/" class="next-post btn btn-default">下一篇(以太坊wiki-设计原理翻译三)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

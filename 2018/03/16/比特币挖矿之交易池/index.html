@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>比特币挖矿之交易池 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="比特币挖矿之交易池">
+            
+	            比特币挖矿之交易池
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/矿池">
+            矿池
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/LeonBCK">
+						LeonBCK
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/比特币">
+						比特币
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/交易池">
+						交易池
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/03/16</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>在<a href="http://c60block.com/2018/02/28/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E4%B9%8B%E7%9F%BF%E5%B7%A5%E4%BB%BB%E5%8A%A1/" target="_blank" rel="noopener">比特币挖矿之矿工任务</a>中我们提到，矿工会监听交易广播，并把通过验证的交易放入本地交易池。当然矿工可以通过设置最低交易费等规则来控制交易池的大小，在一个区块完成竞争后，矿工会按照一定的规则，从交易池中取出交易，在保证大部分交易都能得到打包的情况下，赚取更多的手续费。这儿交易池的作用就是在本地存放未确认的交易，作为区块打包的仓库，一笔交易被收录进交易池的流程如下：<br>1、验证交易是否有效（是否是规范交易，是否双花，签名是否有效，支付方是否有足够的余额），如果无效直接拒绝<br>2、验证是否是孤儿交易，如果是，本地保存，不转发，防DDOS攻击<br>3、按照一定排序规则加入交易池</p>
+<p>当然交易池中也存在交易清理机制，当出现如下情况时，交易会被清理出交易池：<br>1、交易池达到上限，会将交易池中排名末端的交易剔除出去<br>2、出现交易双花，满足交易替换规则（手续费更高的会被留下），低手续费交易及其子孙交易会被剔除出去<br>3、最新块中已经包含的交易会被剔除掉<br>4、与最新块中已经包含交易冲突的交易及其子孙交易会被剔除掉<br>5、交易在交易池中存在时间过长</p>
+<p>在比特币系统中，使用CTxMemPoolEntry来封装被接受的交易，使用CTxMemPool对象来表示整个交易池信息。<br><a href="https://github.com/bitcoin/bitcoin/blob/master/src/txmempool.h#L64" target="_blank" rel="noopener">CTxMemPoolEntry</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">class CTxMemPoolEntry</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    // 交易引用</span><br><span class="line">    CTransactionRef tx;</span><br><span class="line">    // 交易费</span><br><span class="line">    CAmount nFee;</span><br><span class="line">    // 交易weight</span><br><span class="line">    size_t nTxWeight;</span><br><span class="line">    // 大小</span><br><span class="line">    size_t nUsageSize;</span><br><span class="line">    // 加入交易池时间</span><br><span class="line">    int64_t nTime;</span><br><span class="line">    // 加入交易池时区块高度</span><br><span class="line">    unsigned int entryHeight;</span><br><span class="line">    // 上笔交易来源于Coinbase交易</span><br><span class="line">    bool spendsCoinbase;</span><br><span class="line"></span><br><span class="line">    int64_t sigOpCost;</span><br><span class="line">    // 此参数用来决定该笔交易的挖矿优先级</span><br><span class="line">    int64_t feeDelta;</span><br><span class="line">    // 该笔交易在加入区块链前区块的高度和时间</span><br><span class="line">    LockPoints lockPoints;</span><br><span class="line">    </span><br><span class="line">    // 子孙交易信息，当剔除该交易时，所有子孙交易也必须同时剔除掉</span><br><span class="line">    // 子孙交易数量</span><br><span class="line">    uint64_t nCountWithDescendants;</span><br><span class="line">    // 子孙交易总大小</span><br><span class="line">    uint64_t nSizeWithDescendants;</span><br><span class="line">    // 子孙交易交易费之和</span><br><span class="line">    CAmount nModFeesWithDescendants;</span><br><span class="line"></span><br><span class="line">    // 祖先交易信息，当剔除该交易时，对应的祖先交易也应更新子孙信息</span><br><span class="line">    // 祖先交易数量</span><br><span class="line">    uint64_t nCountWithAncestors;</span><br><span class="line">    // 祖先交易大小</span><br><span class="line">    uint64_t nSizeWithAncestors;</span><br><span class="line">    // 祖先交易总手续费之和</span><br><span class="line">    CAmount nModFeesWithAncestors;</span><br><span class="line"></span><br><span class="line">    int64_t nSigOpCostWithAncestors;</span><br><span class="line"></span><br><span class="line">    // 成员方法</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>我们注意到CTxMemPoolEntry对象不只包括交易本身的信息。还包括子孙交易和祖先交易信息，这些信息将在交易加入交易池排序时用到，下文将会具体介绍。</p>
+<p><a href="https://github.com/bitcoin/bitcoin/blob/master/src/txmempool.h#L440" target="_blank" rel="noopener">CTxMemPool</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br></pre></td><td class="code"><pre><span class="line">class CTxMemPool</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    // 在2^32时间内检查的次数</span><br><span class="line">    uint32_t nCheckFrequency;</span><br><span class="line">    </span><br><span class="line">    unsigned int nTransactionsUpdated;</span><br><span class="line">    CBlockPolicyEstimator* minerPolicyEstimator;</span><br><span class="line">    </span><br><span class="line">    // 交易池中所有交易的虚拟大小，不包括隔离见证数据</span><br><span class="line">    uint64_t totalTxSize;</span><br><span class="line">    // mapTx中所有元素的动态内存大小之和</span><br><span class="line">    uint64_t cachedInnerUsage;</span><br><span class="line"></span><br><span class="line">    mutable int64_t lastRollingFeeUpdate;</span><br><span class="line">    mutable bool blockSinceLastRollingFeeBump;</span><br><span class="line">    // 进入交易池的最小交易费</span><br><span class="line">    mutable double rollingMinimumFeeRate;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    void trackPackageRemoved(const CFeeRate&amp; rate);</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    </span><br><span class="line">    static const int ROLLING_FEE_HALFLIFE = 60 * 60 * 12; // public only for testing</span><br><span class="line"></span><br><span class="line">    // 将CTxMemPoolEntry按照交易Hash，交易费率，加入交易池时间，祖先交易费率加入到多索引容器中</span><br><span class="line">    // 这儿的排序直接决定了交易被打包进区块和剔除出交易池的先后顺序</span><br><span class="line">    typedef boost::multi_index_container&lt;</span><br><span class="line">        CTxMemPoolEntry,</span><br><span class="line">        boost::multi_index::indexed_by&lt;</span><br><span class="line">            // 以txid排序</span><br><span class="line">            boost::multi_index::hashed_unique&lt;mempoolentry_txid, SaltedTxidHasher&gt;,</span><br><span class="line">            // 以交易费率排序</span><br><span class="line">            boost::multi_index::ordered_non_unique&lt;</span><br><span class="line">                boost::multi_index::tag&lt;descendant_score&gt;,</span><br><span class="line">                boost::multi_index::identity&lt;CTxMemPoolEntry&gt;,</span><br><span class="line">                CompareTxMemPoolEntryByDescendantScore</span><br><span class="line">            &gt;,</span><br><span class="line">            // 以交易加入交易池时间排序</span><br><span class="line">            boost::multi_index::ordered_non_unique&lt;</span><br><span class="line">                boost::multi_index::tag&lt;entry_time&gt;,</span><br><span class="line">                boost::multi_index::identity&lt;CTxMemPoolEntry&gt;,</span><br><span class="line">                CompareTxMemPoolEntryByEntryTime</span><br><span class="line">            &gt;,</span><br><span class="line">            // 以祖先交易费率排序</span><br><span class="line">            boost::multi_index::ordered_non_unique&lt;</span><br><span class="line">                boost::multi_index::tag&lt;ancestor_score&gt;,</span><br><span class="line">                boost::multi_index::identity&lt;CTxMemPoolEntry&gt;,</span><br><span class="line">                CompareTxMemPoolEntryByAncestorFee</span><br><span class="line">            &gt;</span><br><span class="line">        &gt;</span><br><span class="line">    &gt; indexed_transaction_set;</span><br><span class="line"></span><br><span class="line">    mutable CCriticalSection cs;</span><br><span class="line">    // 满足交易池加入条件的交易都将缓存到mapTx中</span><br><span class="line">    indexed_transaction_set mapTx;</span><br><span class="line"></span><br><span class="line">    // 以txid为索引的迭代器</span><br><span class="line">    typedef indexed_transaction_set::nth_index&lt;0&gt;::type::iterator txiter;</span><br><span class="line">    // </span><br><span class="line">    std::vector&lt;std::pair&lt;uint256, txiter&gt; &gt; vTxHashes;</span><br><span class="line"></span><br><span class="line">    // Hash比较器</span><br><span class="line">    struct CompareIteratorByHash &#123;</span><br><span class="line">        bool operator()(const txiter &amp;a, const txiter &amp;b) const &#123;</span><br><span class="line">            return a-&gt;GetTx().GetHash() &lt; b-&gt;GetTx().GetHash();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    typedef std::set&lt;txiter, CompareIteratorByHash&gt; setEntries;</span><br><span class="line">    </span><br><span class="line">    // 获取当前交易池中的父辈交易集合</span><br><span class="line">    const setEntries &amp; GetMemPoolParents(txiter entry) const;</span><br><span class="line">    // 获取当前交易池中的子辈交易集合</span><br><span class="line">    const setEntries &amp; GetMemPoolChildren(txiter entry) const;</span><br><span class="line">private:</span><br><span class="line">    typedef std::map&lt;txiter, setEntries, CompareIteratorByHash&gt; cacheMap;</span><br><span class="line"></span><br><span class="line">    struct TxLinks &#123;</span><br><span class="line">        setEntries parents;</span><br><span class="line">        setEntries children;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    // 缓存交易与祖先交易和子孙交易的关联</span><br><span class="line">    typedef std::map&lt;txiter, TxLinks, CompareIteratorByHash&gt; txlinksMap;</span><br><span class="line">    txlinksMap mapLinks;</span><br><span class="line"></span><br><span class="line">    // 更新父辈交易的状态</span><br><span class="line">    void UpdateParent(txiter entry, txiter parent, bool add);</span><br><span class="line">    // 更新子辈交易的状态</span><br><span class="line">    void UpdateChild(txiter entry, txiter child, bool add);</span><br><span class="line">    </span><br><span class="line">    // 返回根据祖先交易数量排序的交易集合</span><br><span class="line">    std::vector&lt;indexed_transaction_set::const_iterator&gt; GetSortedDepthAndScore() const;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    // 缓存交易来源与交易的关联</span><br><span class="line">    indirectmap&lt;COutPoint, const CTransaction*&gt; mapNextTx;</span><br><span class="line">    std::map&lt;uint256, CAmount&gt; mapDeltas;</span><br><span class="line"></span><br><span class="line">    // 创建一个新交易池，只能显式创建</span><br><span class="line">    explicit CTxMemPool(CBlockPolicyEstimator* estimator = nullptr);</span><br><span class="line">    </span><br><span class="line">    // 如果开启了sanity-checking，check函数将保证交易池的一致性（不存在双花的情况），如果关闭sanity-checking，则什么都不做</span><br><span class="line">    void check(const CCoinsViewCache *pcoins) const;</span><br><span class="line">    // 设置sanity-checking ncheckFrequency 默认为2^32-1</span><br><span class="line">    void setSanityCheck(double dFrequency = 1.0) &#123; nCheckFrequency = static_cast&lt;uint32_t&gt;(dFrequency * 4294967295.0); &#125;</span><br><span class="line">    </span><br><span class="line">    // 将一笔交易加入交易池</span><br><span class="line">    bool addUnchecked(const uint256&amp; hash, const CTxMemPoolEntry &amp;entry, bool validFeeEstimate = true);</span><br><span class="line">    bool addUnchecked(const uint256&amp; hash, const CTxMemPoolEntry &amp;entry, setEntries &amp;setAncestors, bool validFeeEstimate = true);</span><br><span class="line"></span><br><span class="line">    // 将交易剔除出交易池</span><br><span class="line">    // 剔除交易及其子孙交易</span><br><span class="line">    void removeRecursive(const CTransaction &amp;tx, MemPoolRemovalReason reason = MemPoolRemovalReason::UNKNOWN);</span><br><span class="line">    // 剔除来源为coinbase交易，但是没有成熟，所在区块最终成为孤儿块的情况</span><br><span class="line">    void removeForReorg(const CCoinsViewCache *pcoins, unsigned int nMemPoolHeight, int flags);</span><br><span class="line">    // 剔除与已记录在区块链中交易冲突的交易及子孙交易（双花，该交易加入交易池时，另外一笔交易可能尚未被加入到区块链上）</span><br><span class="line">    void removeConflicts(const CTransaction &amp;tx);</span><br><span class="line">    // 当节点接收到一个新块时，剔除已经打包进区块中的交易以及冲突交易</span><br><span class="line">    void removeForBlock(const std::vector&lt;CTransactionRef&gt;&amp; vtx, unsigned int nBlockHeight);</span><br><span class="line">    </span><br><span class="line">    // 清空交易池</span><br><span class="line">    void clear();</span><br><span class="line">    void _clear();</span><br><span class="line"></span><br><span class="line">    // 比较两笔交易的祖先交易数量，当数量相等时，比较交易费率</span><br><span class="line">    bool CompareDepthAndScore(const uint256&amp; hasha, const uint256&amp; hashb);</span><br><span class="line">    </span><br><span class="line">    void queryHashes(std::vector&lt;uint256&gt;&amp; vtxid);</span><br><span class="line">    // 盘算交易的来源是否是CoinBase交易</span><br><span class="line">    bool isSpent(const COutPoint&amp; outpoint);</span><br><span class="line">    // 获取交易更新的次数</span><br><span class="line">    unsigned int GetTransactionsUpdated() const;</span><br><span class="line">    // 调整交易更新的次数</span><br><span class="line">    void AddTransactionsUpdated(unsigned int n);</span><br><span class="line"></span><br><span class="line">    // 判断交易中是否存在input为空的情况</span><br><span class="line">    bool HasNoInputsOf(const CTransaction&amp; tx) const;</span><br><span class="line">    // 调整CreateNewBlock时交易的优先级</span><br><span class="line">    void PrioritiseTransaction(const uint256&amp; hash, const CAmount&amp; nFeeDelta);</span><br><span class="line">    // </span><br><span class="line">    void ApplyDelta(const uint256 hash, CAmount &amp;nFeeDelta) const;</span><br><span class="line">    // </span><br><span class="line">    void ClearPrioritisation(const uint256 hash);</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    </span><br><span class="line">    // 从交易池中剔除一组交易。如果一笔交易在这个集合中，那么该笔交易在交易池中的所有子孙交易都应该在该集合中</span><br><span class="line">    // 除非这笔交易是因为被包含在一个区块中而被剔除。</span><br><span class="line">    // 当因为一笔交易被包含在区块中而删除时，设置updateDescendants为真，这样所有在该交易池中的子孙交易可以将他们的祖先交易状态更新</span><br><span class="line">    void RemoveStaged(setEntries &amp;stage, bool updateDescendants, MemPoolRemovalReason reason = MemPoolRemovalReason::UNKNOWN);</span><br><span class="line">    </span><br><span class="line">    // 将孤块中包含的交易信息更新到交易池</span><br><span class="line">    void UpdateTransactionsFromBlock(const std::vector&lt;uint256&gt; &amp;vHashesToUpdate);</span><br><span class="line"></span><br><span class="line">    // 计算交易池中指定交易的所有祖先交易（包含该交易本身）</span><br><span class="line">    bool CalculateMemPoolAncestors(const CTxMemPoolEntry &amp;entry, </span><br><span class="line">                                   setEntries &amp;setAncestors, </span><br><span class="line">                                   uint64_t limitAncestorCount, </span><br><span class="line">                                   uint64_t limitAncestorSize,</span><br><span class="line">                                   uint64_t limitDescendantCount, </span><br><span class="line">                                   uint64_t limitDescendantSize, </span><br><span class="line">                                   std::string &amp;errString, </span><br><span class="line">                                   bool fSearchForParents = true</span><br><span class="line">                                  ) const;</span><br><span class="line"></span><br><span class="line">    // 计算交易池中指定交易的子孙交易</span><br><span class="line">    void CalculateDescendants(txiter it, setEntries &amp;setDescendants);</span><br><span class="line"></span><br><span class="line">    CFeeRate GetMinFee(size_t sizelimit) const;</span><br><span class="line"></span><br><span class="line">    void TrimToSize(size_t sizelimit, std::vector&lt;COutPoint&gt;* pvNoSpendsRemaining=nullptr);</span><br><span class="line"></span><br><span class="line">    // 剔除交易池中比指定时间早的交易，并将剔除的个数返回</span><br><span class="line">    int Expire(int64_t time);</span><br><span class="line"></span><br><span class="line">    // 当交易在交易池中，并且不满足指定链限制时，返回假</span><br><span class="line">    bool TransactionWithinChainLimit(const uint256&amp; txid, size_t chainLimit) const;</span><br><span class="line">    </span><br><span class="line">    // 返回mapTx中交易个数，即交易池中交易个数</span><br><span class="line">    unsigned long size()</span><br><span class="line">    &#123;</span><br><span class="line">        LOCK(cs);</span><br><span class="line">        return mapTx.size();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 返回交易池中所有交易的虚拟大小总和，不包括见证数据</span><br><span class="line">    uint64_t GetTotalTxSize() const</span><br><span class="line">    &#123;</span><br><span class="line">        LOCK(cs);</span><br><span class="line">        return totalTxSize;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 查询一笔交易是否在当前交易池中</span><br><span class="line">    bool exists(uint256 hash) const</span><br><span class="line">    &#123;</span><br><span class="line">        LOCK(cs);</span><br><span class="line">        return (mapTx.count(hash) != 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 获取指定hash值对应的交易引用</span><br><span class="line">    CTransactionRef get(const uint256&amp; hash) const;</span><br><span class="line">    // 获得交易池中交易信息</span><br><span class="line">    TxMempoolInfo info(const uint256&amp; hash) const;</span><br><span class="line">    // 获得交易池中所有交易信息</span><br><span class="line">    std::vector&lt;TxMempoolInfo&gt; infoAll() const;</span><br><span class="line">    </span><br><span class="line">    // 获得动态内存大小</span><br><span class="line">    size_t DynamicMemoryUsage() const;</span><br><span class="line"></span><br><span class="line">    boost::signals2::signal&lt;void (CTransactionRef)&gt; NotifyEntryAdded;</span><br><span class="line">    boost::signals2::signal&lt;void (CTransactionRef, MemPoolRemovalReason)&gt; NotifyEntryRemoved;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    // 更新子孙交易状态 </span><br><span class="line">    void UpdateForDescendants(txiter updateIt,cacheMap &amp;cachedDescendants,const std::set&lt;uint256&gt; &amp;setExclude);</span><br><span class="line">    // 更新祖先交易状态</span><br><span class="line">    void UpdateAncestorsOf(bool add, txiter hash, setEntries &amp;setAncestors);</span><br><span class="line">    // 更新指定交易的祖先状态</span><br><span class="line">    void UpdateEntryForAncestors(txiter it, const setEntries &amp;setAncestors);</span><br><span class="line">    // 当一笔交易从交易池中剔除时，需更新其祖先和所有直接的儿子交易</span><br><span class="line">    // 当updateDescendants为真时，也同时更新交易池中子孙交易的祖先交易状态</span><br><span class="line">    void UpdateForRemoveFromMempool(const setEntries &amp;entriesToRemove, bool updateDescendants);</span><br><span class="line">    // 更新父子交易关联</span><br><span class="line">    void UpdateChildrenForRemoval(txiter entry);</span><br><span class="line">    // 对于一个特定的交易，调用 removeUnchecked之前，必须为同时为要移除的交易集合调用UpdateForRemoveFromMempool。</span><br><span class="line">    void removeUnchecked(txiter entry, MemPoolRemovalReason reason = MemPoolRemovalReason::UNKNOWN);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/03/16/部署以太坊私有链并挖矿/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(部署以太坊私有链并挖矿)</a>
+    
+    
+		
+		
+        <a href="/2018/03/16/简化版区块链的实现/" class="next-post btn btn-default">下一篇(简化版区块链的实现)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

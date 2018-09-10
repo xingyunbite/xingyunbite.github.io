@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="碳60 区块链">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://xingyunbite.github.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>以太坊wiki-设计原理翻译一 | 碳60 区块链</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="碳60 区块链" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1272924949 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 碳60 区块链 </h2>
+             
+    	</div>
+    </div>
+</header>
+
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/区块链/"><i class="fa fa-fw "></i>区块链</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/矿池/"><i class="fa fa-fw "></i>矿池</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/钱包/"><i class="fa fa-fw "></i>钱包</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/智能合约/"><i class="fa fa-fw "></i>智能合约</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/资源/"><i class="fa fa-fw "></i>资源</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/分享"><i class="fa fa-fw "></i>分享</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="以太坊wiki-设计原理翻译一">
+            
+	            以太坊wiki-设计原理翻译一
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/区块链">
+            区块链
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <span class="tags-meta">
+			
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ZhouFyk">
+						ZhouFyk
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/以太坊">
+						以太坊
+					</a>
+				
+					<i class="fa fa-tags"></i>
+					<a href="/tags/ethereum">
+						ethereum
+					</a>
+				
+            
+        </span>
+    </span>
+    
+	
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/09</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="设计原理原文链接"><a href="#设计原理原文链接" class="headerlink" title="设计原理原文链接"></a><a href="https://github.com/ethereum/wiki/wiki/Design-Rationale" target="_blank" rel="noopener">设计原理原文链接</a></h2><p>尽管以太坊借鉴了许多已经在比特币这样的老式加密货币中经过了5年的尝试和测试的想法，但是以太坊在处理某些协议特征方面与常见方式有很多不同之处，因为目前现存的系统中没有以太坊需要的功能，所以以太坊另外开发了全新的功能。本文档的目的是详细说明在制定以太坊协议过程中所做出的所有可能不明显的或有些有争议的决定，以及显示我们的方法和可能的替代方案所涉及的风险。</p>
+<h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p>以太坊协议的设计过程遵循了下列原则：</p>
+<ol>
+<li><p><strong>三明治复杂模型</strong>：我们相信以太坊结构的底层应该尽可能的简单，并且与以太坊的交互接口（包括开发者使用的高级编程语言以及用户的使用界面）应该尽可能的易懂。在复杂性不可避免的情况下，它应该被推入协议的“中间层”，它们不是核心共识的一部分，但也不被终端用户看到，如高级语言编译器，参数序列化和反序列化脚本，存储 数据结构模型，<code>leveldb</code>存储接口和有线协议等。但是，这种偏好并不是绝对的。</p>
+</li>
+<li><p><strong>自由</strong>：用户在使用以太坊协议的时候不应该被限制，我们也不应该试图去表示喜欢或者不喜欢他们基于某种目的而使用的以太坊合约或者交易。这类似于和“网络中立”背后的指导原则。一个没有遵循此原则的例子是比特币交易协议中的情况，它不鼓励使用区块链来做“非标签”（如数据存储，元协议）目的的行为，并且在某些情况下明确了对准协议的改变（如 <code>OP_RETURN</code> 限制为 40 字节），试图以“未授权”方式使用区块链来攻击应用。在 <code>Ethereum</code> 中，我们强烈支持设置交易费用，这样大致上就会具有激励作用，这样，使用区块链的用户会以膨胀（<code>bloat-producing</code>）的方式内部化其活动成本（即 <code>Pigovian</code> 税）。</p>
+</li>
+<li><p><strong>概念</strong>：以太坊中的协议特征和操作码应该体现最低级别的概念，以便可以以任意的方式进行组合，包括今天可能看起来不太有用但以后可能会变得有用的方法，然后当这些概念对于使用了这些概念的功能来说不再必要的时候，就可以通过剥离它们来提升效率。遵循这个原则的一个例子是我们选择 <code>LOG</code> 操作码作为向（特别是轻客户端）<code>dapps</code> 提供信息的一种方式，而不是像之前建议的那样在内部简单地记录所有事务和消息 - “消息”的概念是包括“方法调用”和“外部观察者感兴趣的事件”在内的多个概念的聚集，理应分离这两个概念。</p>
+</li>
+<li><p><strong>我们没有特征</strong>：作为泛化的必然结果，我们常常拒绝将十分常见的高级使用示例作为协议的一部分，我们认为如果人们真的需要做一件事情，那么他可以在一个合约内部创建一个子协议。一个例子是以太坊中缺少与比特币中一样“锁定时间”的功能，因为这样的功能可以通过用户发送“签名数据包”协议来模拟，然后这些数据包可以被输入到专门的合同中处理，并且如果数据包符合合同的一些条件，就会触发相应的功能。</p>
+</li>
+<li><p><strong>非风险规避</strong>：如果风险增加的变化提供了非常可观的收益（例如，广义的状态转换，50倍的更快的阻塞时间，共识效率等），那么我们可以承受更高的风险程度。</p>
+</li>
+</ol>
+<p>这些原则在规定以太坊开发中都涉及到，但它们并不是绝对的，在某些情况下，为了减少开发时间或者避免一次性尝试太多激进的东西，我们会推迟某些明显有利的变革，以便将来发行（如以太坊1.1）。</p>
+<h2 id="区块链层次的协议"><a href="#区块链层次的协议" class="headerlink" title="区块链层次的协议"></a>区块链层次的协议</h2><p>这部分描述了以太坊中对区块链层次协议所做的一些改变，包括了区块和交易是如何工作的，数据是如何序列化和存储的，以及账户背后的机制。</p>
+<h3 id="账户和非-UTXOs"><a href="#账户和非-UTXOs" class="headerlink" title="账户和非 UTXOs"></a>账户和非 <code>UTXOs</code></h3><p>比特币，以及许多由它衍生而来的系统，将用户的资产数据存储在一个基于 <code>unspent transaction outputs(UTXOs)</code> 的结构中：整个系统的状态由一系列未花费输出（联想成“币”）组成，所以每个币都有一个主人和面值，而一笔交易可以花费一个或更多的币并且创建一个或更多的币，有效性的约束有：</p>
+<ol>
+<li>每一个被引用的输入必须是合法的并且没有被花费过</li>
+<li>交易中的每一个输入都必须有一个符合该输入的主人的签名</li>
+<li>所有的输入必须大于等于所有的输出</li>
+</ol>
+<p>因此，系统中用户的“余额”是用户具有能够产生有效签名的私钥的一组硬币的总值。</p>
+<p><img src="https://bitcoin.org/img/dev/en-transaction-propagation.svg" alt=""></p>
+<p>(图片来自 <code>https://bitcoin.org/en/developer-guide</code>)</p>
+<p>以太坊抛弃这个方案，转而采用更简单的方法：使用状态存储一个账户列表，其中每个账户都有一个余额，以及以太坊特定的数据（代码和内部存储）。一笔交易会在发送账户有足够的余额支付的情况下生效，此时，发送账户减少余额，收款账户增加余额。如果接收账户有代码，代码会运行，而内部存储也可能被更改，或者代码甚至可能会创建额外的消息给其他账户，从而导致进一步的余额变更。</p>
+<p><code>UTXOs</code> 的好处：</p>
+<ol>
+<li><strong>高度的隐私性</strong>：如果用户接受每笔交易的时候都使用一个新地址，那么就很难将账户连接起来。这很适用于货币，但是对任意 <code>dapps</code> 就不是那么合适了，因为 <code>dapps</code> 常常需要对用户的一系列复杂的状态保持跟踪，并且可能不存在像货币那样简单的用户状态分区方案。</li>
+<li><strong>潜在的可扩展性范例</strong>：<code>UTXO</code> 在理论上更与某些可扩展性模式相兼容，因为我们只能依靠一些拥有 <code>Merkle</code> 所有权证明的币的所有者，即使包括所有者在内的每个人都决定忘记这些数据，只有所有者受到损害( and even if everyone including the owner decides to forget that data then only the owner is harmed)。 在一个账户范例中，一旦某个人失去其账户对应的部分 <code>Merkle</code> 树，将使得不可能以任何方式处理该账户相关的消息，包括发送给它。 但是，非 <code>UTXO</code> 依赖的可伸缩性范例确实存在。</li>
+</ol>
+<p>账户的好处：</p>
+<ol>
+<li><strong>节省了大量空间</strong>：例如，如果一个账户有 5 个 <code>UTXO</code>，然后将一个 <code>UTXO</code> 模型转换成账户模型，它的空间要求就会从 （20 + 32 + 8）* 5 = 300 bytes(20 是地址，32 是 <code>txid</code>，8 是值)减少到 20 + 8 + 2 = 30 bytes(20 是地址，8 是值，2 是 <code>nonce</code>)。实际上，要求的存储空间没有这么大，因为账户需要存储在 <code>Patricia</code> 树中（见下文），但是它们仍然很大。（In reality savings are not nearly this massive because accounts need to be stored in a Patricia tree (see below) but they are nevertheless large. ）另外，交易可以更小（如以太坊中需要 100 bytes 而比特币中需要 200 - 250 bytes），因为每笔交易只需要使用一个引用，一个签名以及一个输出。</li>
+<li><strong>更好的可替代性</strong>：因为没有区块链层次的特定币来源的概念，所以从技术上和法律上来说，建立一个红名单/黑名单方案并根据它们的来源来区分币就很不现实。</li>
+<li><strong>简单</strong>：编码简单易懂，特别是涉及到复杂脚本的时候。虽然也可以强制使用 <code>UTXO</code> 模型来实现 <code>dapp</code>，但本质上是通过赋予脚本能力，来限制给定的 <code>UTXO</code> 可以以哪种 <code>UTXO</code> 类型来花费，并且需要花费包括根据脚本评估的 <code>Merkle</code> 树中的应用程序状态改变的证明的 <code>Merkle</code> 树的根（and requiring spends to include Merkle tree proofs of change-of-application-state-root that scripts evaluate），这样的范例比使用帐户更加复杂和难看。</li>
+<li><strong>持久的轻客户端引用</strong>：轻客户端可以在任何时候通过定向扫描一棵状态树来访问一个账户相关的所有数据。在 <code>UTXO</code> 模型中，每笔交易都会改变引用，这对于试图使用上面提到的 <code>UTXO</code> 状态传播机制的长期运行的 <code>dapps</code> 来说，这是一个特别麻烦的问题。</li>
+</ol>
+<p>我们已经做好了决定，因为对于我们正在处理的包含任意状态和代码的 <code>dapps</code> 来说，帐户模型远比其他要好。 此外，本着“我们没有特征”原则的精神，我们认为，如果人们确实关心隐私，那么可以通过合同内的签名数据包协议来建立混淆器（mixer）和组合币（coinjoin）。</p>
+<p>账户模型的一个缺点是，为了防止重放攻击，每笔交易都必须有一个 <code>nonce</code> 值，这样账户就可以对使用的 <code>nonce</code> 进行跟踪，并且只接受当前 <code>nonce</code> 值比之前的 <code>nonce</code> 值多 1 的交易。这意味着即使是废弃的账号也不会删除账号状态。解决这个问题的一个简单方法是要求每笔交易都包含一个区块号，使得它们在一段时期之后就不能够被重放，并且在每个时期都重置一次 <code>nonce</code>。矿工或者其他用户会对账户进行 <code>ping</code> 操作，然后删除状态中的未使用账户，因为作为区块链协议的一部分，进行全部扫描的代价太高了。我们没有用这个机制只是为了加快 <code>1.0</code> 的发展; <code>1.1</code> 及以后可能会使用这样一个系统。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="http://c60block.com" target="_blank">碳60 区块链</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+		
+		
+        <a href="/2018/02/09/比特币挖矿之全网难度/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇(比特币挖矿之全网难度)</a>
+    
+    
+		
+		
+        <a href="/2018/02/09/以太坊wiki-设计原理翻译二/" class="next-post btn btn-default">下一篇(以太坊wiki-设计原理翻译二)<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/xingyunbite" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="xingyunbite@foxmail.com" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link current" href="/categories/share/"><i class="fa" aria-hidden="true">share</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/区块链/"><i class="fa" aria-hidden="true">区块链</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/智能合约/"><i class="fa" aria-hidden="true">智能合约</i></a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/矿池/"><i class="fa" aria-hidden="true">矿池</i></a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/钱包/"><i class="fa" aria-hidden="true">钱包</i></a><span class="category-list-count">5</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/"><i class="fa" aria-hidden="true">九月 2018</i></a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/"><i class="fa" aria-hidden="true">四月 2018</i></a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/"><i class="fa" aria-hidden="true">三月 2018</i></a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">7</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/Casper/" style="font-size: 10px;">Casper</a> <a href="/tags/CoffeeMiner/" style="font-size: 10px;">CoffeeMiner</a> <a href="/tags/CoinHive/" style="font-size: 10px;">CoinHive</a> <a href="/tags/EOS/" style="font-size: 11.82px;">EOS</a> <a href="/tags/LeonBCK/" style="font-size: 16.36px;">LeonBCK</a> <a href="/tags/MITM/" style="font-size: 10px;">MITM</a> <a href="/tags/POS/" style="font-size: 10px;">POS</a> <a href="/tags/ZhouFyk/" style="font-size: 19.09px;">ZhouFyk</a> <a href="/tags/bitcoin/" style="font-size: 10px;">bitcoin</a> <a href="/tags/ciscolxh/" style="font-size: 12.73px;">ciscolxh</a> <a href="/tags/ethereum/" style="font-size: 10.91px;">ethereum</a> <a href="/tags/gas/" style="font-size: 10px;">gas</a> <a href="/tags/ironman/" style="font-size: 10px;">ironman</a> <a href="/tags/lucas556/" style="font-size: 15.45px;">lucas556</a> <a href="/tags/lucas56/" style="font-size: 10px;">lucas56</a> <a href="/tags/luren5/" style="font-size: 10px;">luren5</a> <a href="/tags/zcash/" style="font-size: 10.91px;">zcash</a> <a href="/tags/交易池/" style="font-size: 10px;">交易池</a> <a href="/tags/以太坊/" style="font-size: 20px;">以太坊</a> <a href="/tags/全网难度/" style="font-size: 10px;">全网难度</a> <a href="/tags/区块链/" style="font-size: 14.55px;">区块链</a> <a href="/tags/历史/" style="font-size: 10px;">历史</a> <a href="/tags/安全开发/" style="font-size: 13.64px;">安全开发</a> <a href="/tags/定义/" style="font-size: 10px;">定义</a> <a href="/tags/挖矿/" style="font-size: 10px;">挖矿</a> <a href="/tags/智能合约/" style="font-size: 17.27px;">智能合约</a> <a href="/tags/比特币/" style="font-size: 13.64px;">比特币</a> <a href="/tags/燃料/" style="font-size: 10px;">燃料</a> <a href="/tags/矿机/" style="font-size: 10px;">矿机</a> <a href="/tags/矿池/" style="font-size: 18.18px;">矿池</a> <a href="/tags/私有链/" style="font-size: 10px;">私有链</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/钱包/" style="font-size: 12.73px;">钱包</a> <a href="/tags/门罗币/" style="font-size: 10.91px;">门罗币</a>
+    </div>
+  </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+<!--page counter part-->
+<script>
+function addCount (Counter) {
+	url=$('.article-date').attr('href').trim();
+	title = $('.article-title').text().trim();
+	var query=new AV.Query(Counter);
+	//use url as unique idnetfication
+	query.equalTo("url",url);
+	query.find({
+		success: function(results){
+			if(results.length>0)
+			{
+				var counter=results[0];
+				counter.fetchWhenSave(true); //get recent result
+				counter.increment("time");
+				counter.save();
+			} else {
+				var newcounter=new Counter();
+				newcounter.set("title",title);
+				newcounter.set("url",url);
+				newcounter.set("time",1);
+				newcounter.save(null,{
+					success: function(newcounter){
+						//alert('New object created');
+					},
+					error: function(newcounter,error){
+						alert('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error){
+			//find null is not a error
+			alert('Error:'+error.code+" "+error.message);
+		}
+	});
+}
+$(function(){
+	var Counter=AV.Object.extend("Counter");
+	//only increse visit counting when intering a page
+	if ($('.article-title').length == 1)
+		addCount(Counter);
+		var query=new AV.Query(Counter);
+		query.descending("time");
+		// the sum of popular posts
+		query.limit(10); 
+		query.find({
+			success: function(results){
+				for(var i=0;i<results.length;i++){
+					var counter=results[i];
+					title=counter.get("title");
+					url=counter.get("url");
+					time=counter.get("time");
+					// add to the popularlist widget
+					showcontent=title+" ("+time+")";
+					//notice the "" in href
+					$('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+				}
+			},
+			error: function(error){
+				alert("Error:"+error.code+" "+error.message);
+			}
+		})
+});
+</script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-12">
+		</div>
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017 星云比特科技有限公司
+                </span>  
+				<span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1272924949'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1272924949%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
