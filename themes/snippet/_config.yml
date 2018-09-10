@@ -22,6 +22,8 @@ menu:
 - page: 资源
   url: /categories/资源/
   icon: 
+- page: 分享
+  url: /categories/分享
 
 ## favicon 
 favicon: /favicon.ico
